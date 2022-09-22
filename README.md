@@ -6,7 +6,9 @@
 
 ## General Info
 This browser based web application to ...
-	*hello my name is keagan and i'm excited to learn github as a team and explore the possiblities of our project together :)
+*hello my name is keagan and i'm excited to learn github as a team and explore the possiblities of our project together :)
+*Hi my name is Cameron. I'm excited about this project because having practical experience making a web application will be very beneficial to my future endeavours as a developer
+	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
