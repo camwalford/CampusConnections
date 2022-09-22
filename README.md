@@ -6,7 +6,7 @@
 
 ## General Info
 This browser based web application to ...
-	
+	*hello my name is keagan and i'm excited to learn github as a team and explore the possiblities of our project together :)
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
