@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+*Hi my name is Cameron. I'm excited about this project because having practical experience making a web application will be very beneficial to my future endeavours as a developer
 	
 ## Technologies
 Technologies used for this project:
