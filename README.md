@@ -6,7 +6,8 @@
 
 ## General Info
 This browser based web application to ...
-	
+* Hello my name is Brendan. I'm excited about this project because I can get hands on experience.
+
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
