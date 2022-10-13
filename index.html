@@ -10,13 +10,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap Library CSS CDN go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Boostrap Library JS CDN  go here -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 
     <!-- Other libraries go here -->
+    <!-- Google Icons (Material Design)-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css">
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
 
 </head>
@@ -26,17 +34,37 @@
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
-    
+
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Campus Connections</a>
+            <a class="navbar-brand" href="#">Campus Connections</a>
             <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-          </div>
         </div>
-      </nav>
+        </div>
+    </nav>
+
+    <div class="px-4 py-5 my-5 text-center">
+        <img class="d-block mx-auto mb-4" src="./images/bcit_map.png" alt="" width="400">
+        <h1 class="display-5 fw-bold">Campus Connections</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Welcome to Campus Connections! The only app where you can find people
+                to study with on BCIT at any time! Founded by Burnaby team 26; Brendan, Cameron, and Keagan
+                Campus Connections is here to make finding partners to do any activity with on BCIT easy and simple.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Continue</button>
+            </div>
+        </div>
+    </div>
+    <footer class="navbar justify-content-evenly fixed-bottom bg-success">
+        <div class="container">
+            <span class="material-icons md-48">menu</span>
+            <span class="material-icons md-48">add_location</span>
+            <span class="material-icons md-48">groups</span>
+        </div>
+    </footer>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
