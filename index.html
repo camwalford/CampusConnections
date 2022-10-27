@@ -35,13 +35,13 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Campus Connections</a>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <!-- <form class="d-flex"> -->
+                <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+            <!-- </form> -->
         </div>
         </div>
     </nav>
@@ -60,9 +60,24 @@
     </div>
     <footer class="navbar justify-content-evenly fixed-bottom bg-success">
         <div class="container">
-            <span class="material-icons md-48">menu</span>
-            <span class="material-icons md-48">add_location</span>
-            <span class="material-icons md-48">groups</span>
+            <button type="button" class="btn btn-success btn-floating">
+                <span class="material-icons md-48">menu</span>
+                <!-- <a href="activities.html/"></a> this line doesn't work -->
+            </button>
+            <button type="button" class="btn btn-success btn-floating">
+                <span class="material-icons md-48">map</span>
+                <!-- <a href="google.com"></a> this line doesn't work -->
+            </button>
+            <button type="button" class="btn btn-large btn-success btn-floating">
+                <span class="material-icons md-48">add</span>
+            </button>
+            <button type="button" class="btn btn-success btn-floating">
+                <span class="material-icons md-48">groups</span>
+            </button>
+            <button type="button" class="btn btn-success btn-floating">
+                <span class="material-icons md-48">person</span>
+            </button>
+
         </div>
     </footer>
 
