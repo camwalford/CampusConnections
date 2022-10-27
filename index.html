@@ -35,7 +35,7 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Campus Connections</a>
             <!-- <form class="d-flex"> -->
@@ -58,25 +58,27 @@
             </div>
         </div>
     </div>
-    <footer class="navbar justify-content-evenly fixed-bottom bg-success">
+    <footer class="navbar justify-content-evenly fixed-bottom bg-primary">
         <div class="container">
-            <button type="button" class="btn btn-success btn-floating">
-                <span class="material-icons md-48">menu</span>
+            <a href="activities.html/">
+                <button type="button" class="btn btn-primary btn-floating">
+                    <span class="material-icons md-48 btn-primary">menu</span>
                 <!-- <a href="activities.html/"></a> this line doesn't work -->
-            </button>
-            <button type="button" class="btn btn-success btn-floating">
-                <span class="material-icons md-48">map</span>
+                </button>
+            </a>
+            <a href="map.html">
+                <button type="button" class="btn btn-primary btn-floating">
+                    <a href="map.html/"><span class="material-icons md-48 btn-primary">map</span></a>
                 <!-- <a href="google.com"></a> this line doesn't work -->
+                </button>
+            </a>
+            <button type="button" class="btn btn-large btn-primary btn-floating">
+                <a href="activities.html/"><span class="material-icons md-48 btn-primary">add</span></a>
             </button>
-            <button type="button" class="btn btn-large btn-success btn-floating">
-                <span class="material-icons md-48">add</span>
-            </button>
-            <button type="button" class="btn btn-success btn-floating">
-                <span class="material-icons md-48">groups</span>
-            </button>
-            <button type="button" class="btn btn-success btn-floating">
-                <span class="material-icons md-48">person</span>
-            </button>
+            <button type="button" class="btn btn-primary btn-floating">
+                <a href="activities.html/"><span class="material-icons md-48 btn-primary">groups</span></a>            </button>
+            <button type="button" class="btn btn-primary btn-floating">
+                <a href="activities.html/"><span class="material-icons md-48 btn-primary">person</span></a>            </button>
 
         </div>
     </footer>
