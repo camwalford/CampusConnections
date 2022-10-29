@@ -1,122 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Campus Connections</title>
-    <meta name="comp1800 template" content="My 1800 App">
+    <meta name="comp1800 template" content="My 1800 App" />
 
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap Library CSS CDN go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
     <!-- Boostrap Library JS CDN  go here -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
-    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
     <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-
-
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
+    />
 
     <!-- Other libraries go here -->
     <!-- Google Icons (Material Design)-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
 
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css" />
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <nav id="header"></nav>
 
-    <div id="form-window" class="container centering-container bg-primary bg-gradient p-4">
-        <h4 class="text-center">CREATE A NEW GROUP</h4>
-        <form class="centered">
-            <div class="form-group row">
-                <label for="activityTitle" class="col-sm-2 col-form-label">Title</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="activityTitle" placeholder="Enter your activity title">
-            </div>
-            </div>
-            <div class="form-group-row">
-                <label for="activityType">Type of Activity: </label>
-                <select class="form-control" id="activityType">
-                  <option>Exercise</option>
-                  <option>Socialize</option>
-                  <option>Study</option>
-                  <option>Food</option>
-                  <option>Games</option>
-                </select>
-            </div>
-            <fieldset class="form-group">
-            <div class="row">
-                <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-                <div class="col-sm-10">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                    <label class="form-check-label" for="gridRadios1">
-                    First radio
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                    <label class="form-check-label" for="gridRadios2">
-                    Second radio
-                    </label>
-                </div>
-                <div class="form-check disabled">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-                    <label class="form-check-label" for="gridRadios3">
-                    Third disabled radio
-                    </label>
-                </div>
-                </div>
-            </div>
-            </fieldset>
-            <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-                <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                    Example checkbox
-                </label>
-                </div>
-            </div>
-            </div>
-            <div class="form-group row">
-            <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">Sign in</button>
-            </div>
-            </div>
-            <div class="form-group row">
-                <label for="description">Description:</label>
-                <textarea class="form-control" id="description" rows="3"></textarea>
-            </div>
-            <div class="form-group row mt-4">
-                <button type="submit" id="createGroupButton" class="btn btn-light text-black mb-3 d-inline-block w-50">CREATE GROUP</button>
-              </div>
-        </form>
+    <div id="form-window" class="container centering-container bg-primary bg-gradient p-4" >
+      <h4 class="text-center">CREATE A NEW GROUP</h4>
+      <form class="centered">
+        <div class="form-group row mt-3">
+          <label for="activityTitle" class="col-sm-2 col-form-label">Title:</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="activityTitle"
+              placeholder="Enter a title"/>
+          </div>
         </div>
+        <div class="form-group-row mt-3">
+          <label for="activityType">Activity Type:&nbsp; </label>
+          <select class="custom-select mr-2" id="activityType">
+            <option selected>Choose...</option>
+            <option value="1">Socialize</option>
+            <option value="2">Study</option>
+            <option value="3">Food</option>
+            <option value="4">Games</option>
+            <option value="5">Exercise</option>
+          </select>
+        </div>
+        <div class="form-group-row mt-3">
+            <label for="building">Building:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+            <select class="custom-select mr-2" id="building">
+              <option selected>Choose...</option>
+              <option value="SW1">SW1</option>
+              <option value="SW2">SW2</option>
+              <option value="SW3">SW3</option>
+              <option value="SW4">SW4</option>
+              <option value="SW5">SW5</option>
+            </select>
+        </div>
+        <div class="form-group-row mt-3">
+            <label for="startTime">Time: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input id="startTime" type="time" name="startTime"/>
+            <label for="endTime">—</label>
+            <input id="endTime" type="time" name="endTime"/>
+        </div>
+        <div class="form-group-row mt-3">
+            <label for="participantNumber">Participants:&nbsp;&nbsp;&nbsp;</label>
+            <input type="number" id="participantNumber" value="2" pattern="[2-20]"></input>
+        </div>
+        <div class="form-group-row mt-3">
+          <label for="description">Description:</label>
+          <textarea class="form-control" id="description" rows="3"></textarea>
+        </div>
+        
+        <div class="form-group row mt-3">
+          <button type="submit" id="createGroupButton" class="btn btn-light text-black mb-3 d-inline-block w-50" value="CREATE GROUP">
+            CREATE GROUP
+          </button>
+        </div>
+      </form>
+    </div>
 
     <!-- main page content here -->
 
@@ -131,7 +129,5 @@
 
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->
-
-</body>
-
+  </body>
 </html>
