@@ -20,3 +20,13 @@
     background-color:rgb(187, 187, 187);
     box-shadow: 1px 1px 0px black;
 }
+#leaveGroupButton{
+    margin: 0 auto;
+    border: 1px solid black;
+    border: 1px solid grey;
+    box-shadow: 1px 1px 4px black;
+}
+#leaveGroupButton:hover{
+    background-color:rgb(187, 187, 187);
+    box-shadow: 1px 1px 0px black;
+}
