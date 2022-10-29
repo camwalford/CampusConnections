@@ -48,7 +48,8 @@
     <!------------------------------>
     <nav id="header"></nav>
 
-    <div class="container centering-container bg-primary bg-gradient">
+    <div id="form-window" class="container centering-container bg-primary bg-gradient p-4">
+        <h4 class="text-center">CREATE A NEW GROUP</h4>
         <form class="centered">
             <div class="form-group row">
                 <label for="activityTitle" class="col-sm-2 col-form-label">Title</label>
@@ -62,8 +63,8 @@
                   <option>Exercise</option>
                   <option>Socialize</option>
                   <option>Study</option>
-                  <option>4</option>
-                  <option>5</option>
+                  <option>Food</option>
+                  <option>Games</option>
                 </select>
             </div>
             <fieldset class="form-group">
@@ -107,10 +108,13 @@
                 <button type="submit" class="btn btn-primary">Sign in</button>
             </div>
             </div>
-            <div class="form-group">
+            <div class="form-group row">
                 <label for="description">Description:</label>
                 <textarea class="form-control" id="description" rows="3"></textarea>
             </div>
+            <div class="form-group row mt-4">
+                <button type="submit" id="createGroupButton" class="btn btn-light text-black mb-3 d-inline-block w-50">CREATE GROUP</button>
+              </div>
         </form>
         </div>
 

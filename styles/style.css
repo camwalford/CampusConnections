@@ -5,13 +5,23 @@
 .material-icons.md-56 { font-size: 56px; }
 
 .centering-container{
-    margin-top: 100px;
+    margin-top: 140px;
     margin-bottom: 85px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 20% 65% 15%;
-    background-color: blue;
+    grid-template-rows: 35% 50% 15%;
+    border-radius: 7%;
 }
 .centered{
     grid-row: 2
+}
+#createGroupButton{
+    margin: 0 auto;
+    border: 1px solid black;
+    border: 1px solid grey;
+    box-shadow: 1px 1px 4px black;
+}
+#createGroupButton:hover{
+    background-color:rgb(187, 187, 187);
+    box-shadow: 1px 1px 0px black;
 }
