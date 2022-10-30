@@ -51,9 +51,11 @@
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
-    <nav id="header"></nav>
+    <header>
+      <nav id="header"></nav>
+    </header>
 
-    <div id="form-window" class="container centering-container bg-primary bg-gradient p-5" >
+    <main id="form-window" class="container centering-container bg-primary bg-gradient p-5" >
       <button type="button" class="close rounded border-1 newButton" aria-label="Close">
             <span aria-hidden="true">&times;</span>
       </button>
@@ -65,6 +67,7 @@
             <input type="text" name="activityTitle" class="form-control" id="activityTitle" placeholder="Enter a title" required/>
           </div>
         </div>
+        <!-- TODO BRAINSTORM MORE OPTIONS OF ACTIVITIES, ADD ACTIVITY ICONS-->
         <div class="form-group-row mt-3">
           <label for="activityType"  class="col-sm-2 col-form-label">Activity Type: </label>
           <select class="custom-select mr-2" id="activityType" name="activityType" required>
@@ -76,6 +79,7 @@
             <option value="5">Exercise</option>
           </select>
         </div>
+        <!-- TODO ADD ALL ACTUAL BUILDINGS AND MAYBE PARKING LOTS/FIELDS -->
         <div class="form-group-row mt-3">
             <label for="building"  class="col-sm-2 col-form-label">Building: </label>
             <select class="custom-select mr-2" id="building" name="building" required>
@@ -154,16 +158,19 @@
               <option value="Other">Other</option>
             </select>
         </div>
+
         <div class="form-group-row mt-3">
             <label for="startTime" class="col-sm-2 col-form-label">Time: </label>
             <input id="startTime" type="time" name="startTime" required/>
             <label for="endTime">—</label>
             <input id="endTime" type="time" name="endTime" required/>
         </div>
+        
         <div class="form-group-row mt-3">
             <label for="participants"  class="col-sm-2 col-form-label">Participants:</label>
-            <input type="number" id="participants" value="2" pattern="[2-20]" name="participants" required></input>
+            <input class="col-sm-1" type="number" id="participants" value="2" pattern="[2-100]" name="participants" required></input>
         </div>
+        
         <div class="form-group-row mt-3">
           <label for="description">Description:</label>
           <textarea class="form-control" id="description" rows="3" name="description"></textarea>
@@ -175,11 +182,12 @@
           </button>
         </div>
       </form>
-    </div>
+    </main>
 
     <!-- main page content here -->
-
-    <nav id="navBar"></nav>
+    <footer>
+        <nav id="navBar"></nav>
+    </footer>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
