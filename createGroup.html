@@ -158,26 +158,26 @@
               <option value="Other">Other</option>
             </select>
         </div>
-
-        <div class="form-group-row mt-3">
+        
+        <div id="time-section" class="form-group-row mt-3">
             <label for="startTime" class="col-sm-2 col-form-label">Time: </label>
             <input id="startTime" type="time" name="startTime" required/>
             <label for="endTime">—</label>
             <input id="endTime" type="time" name="endTime" required/>
         </div>
         
-        <div class="form-group-row mt-3">
+        <div id="participant-section" class="form-group-row mt-3">
             <label for="participants"  class="col-sm-2 col-form-label">Participants:</label>
             <input class="col-sm-1" type="number" id="participants" value="2" pattern="[2-100]" name="participants" required></input>
         </div>
         
-        <div class="form-group-row mt-3">
+        <div id="description-section" class="form-group-row mt-3">
           <label for="description">Description:</label>
           <textarea class="form-control" id="description" rows="3" name="description"></textarea>
         </div>
         
-        <div class="form-group row mt-3">
-          <button type="submit" id="createGroupButton" class="btn btn-light text-black mb-3 d-inline-block w-50" value="CREATE GROUP" name="createGroupButton">
+        <div id="createButton-section"class="form-group row mt-3">
+          <button type="submit" id="createButton" class="btn btn-light text-black mb-3 d-inline-block w-50" value="CREATE GROUP" name="createButton">
             CREATE GROUP
           </button>
         </div>

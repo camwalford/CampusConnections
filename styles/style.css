@@ -23,13 +23,13 @@
     box-shadow: 1px 1px 0px black;
 }
 
-#createGroupButton{
+#createButton{
     margin: 0 auto;
     border: 1px solid black;
     border: 1px solid grey;
     box-shadow: 1px 1px 4px black;
 }
-#createGroupButton:hover{
+#createButton:hover{
     background-color:rgb(187, 187, 187);
     box-shadow: 1px 1px 0px black;
 }
