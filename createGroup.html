@@ -55,20 +55,21 @@
       <nav id="header"></nav>
     </header>
 
-    <main id="form-window" class="container centering-container bg-primary bg-gradient p-5" >
+    <main id="createGroup-container" class="container centering-container bg-primary bg-gradient p-5" >
       <button type="button" class="close rounded border-1 newButton" aria-label="Close">
             <span aria-hidden="true">&times;</span>
       </button>
       <h4 class="text-center mb-4">CREATE A NEW GROUP</h4>
       <form class="centered">
-        <div class="form-group row mt-3">
+
+        <div id="title-section" class="form-group row mt-3">
           <label for="activityTitle" class="col-sm-2 col-form-label">Title:</label>
           <div class="col-sm-9">
             <input type="text" name="activityTitle" class="form-control" id="activityTitle" placeholder="Enter a title" required/>
           </div>
         </div>
         <!-- TODO BRAINSTORM MORE OPTIONS OF ACTIVITIES, ADD ACTIVITY ICONS-->
-        <div class="form-group-row mt-3">
+        <div id="activityType-section"class="form-group-row mt-3">
           <label for="activityType"  class="col-sm-2 col-form-label">Activity Type: </label>
           <select class="custom-select mr-2" id="activityType" name="activityType" required>
             <option selected>Choose...</option>
@@ -80,7 +81,7 @@
           </select>
         </div>
         <!-- TODO ADD ALL ACTUAL BUILDINGS AND MAYBE PARKING LOTS/FIELDS -->
-        <div class="form-group-row mt-3">
+        <div id="location-section"class="form-group-row mt-3">
             <label for="building"  class="col-sm-2 col-form-label">Building: </label>
             <select class="custom-select mr-2" id="building" name="building" required>
               <option value="SE1">SE1</option>
