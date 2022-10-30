@@ -8,6 +8,9 @@
     margin-top: 120px;
     margin-bottom: 85px;
     border-radius: 5%;
+    border: 2px solid black;
+    box-shadow: 0px 0px 3px black;
+    
 }
 .newButton{
     margin: 0 auto;
