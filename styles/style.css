@@ -4,11 +4,12 @@
 .material-icons.md-48 { font-size: 48px; }
 .material-icons.md-56 { font-size: 56px; }
 
-#form-window{
+.centering-container{
     margin-top: 120px;
     margin-bottom: 85px;
     border-radius: 5%;
 }
+
 
 #createGroupButton{
     margin: 0 auto;
