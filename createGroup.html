@@ -56,7 +56,9 @@
     </header>
 
     <main id="createGroup-container" class="container centering-container bg-primary bg-gradient p-5" >
-      <button type="button" class="close rounded border-1 newButton" aria-label="Close">
+        
+      <!--TODO have exitButton link back to map-->
+      <button id="exitButton" type="button" class="close rounded border-1 newButton" aria-label="Close">
             <span aria-hidden="true">&times;</span>
       </button>
       <h4 class="text-center mb-4">CREATE A NEW GROUP</h4>
@@ -177,6 +179,7 @@
           <textarea class="form-control" id="description" rows="3" name="description"></textarea>
         </div>
         
+        <!--TODO creates new group in firestore server and sends you to new group page-->
         <div id="createButton-section"class="form-group row mt-3">
           <button type="submit" id="createButton" class="btn btn-light text-black mb-3 d-inline-block w-50" value="CREATE GROUP" name="createButton">
             CREATE GROUP
@@ -185,7 +188,7 @@
       </form>
     </main>
 
-    <!-- main page content here -->
+    
     <footer>
         <nav id="navBar"></nav>
     </footer>
