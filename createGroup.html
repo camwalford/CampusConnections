@@ -62,7 +62,7 @@
             <span aria-hidden="true">&times;</span>
       </button>
       <h4 class="text-center mb-4">CREATE A NEW GROUP</h4>
-      <form class="centered">
+      <form class="centered" method="post" onsubmit="return ValidationEvent()">
 
         <div id="title-section" class="form-group row mt-3">
           <label for="activityTitle" class="col-sm-2 col-form-label">Title:</label>
@@ -181,7 +181,7 @@
         
         <!--TODO creates new group in firestore server and sends you to new group page-->
         <div id="createButton-section"class="form-group row mt-3">
-          <button type="submit" id="createButton" class="btn btn-light text-black mb-3 d-inline-block w-50" value="CREATE GROUP" name="createButton">
+          <button type="submit" id="createButton" class="btn btn-light text-black mb-3 d-inline-block w-50" value="Submit" name="createButton">
             CREATE GROUP
           </button>
         </div>
@@ -199,6 +199,7 @@
     <script src="./scripts/firebaseAPI_TEAM26.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/authentication.js"></script>
+    <script src="./scripts/createGroup.js"></script>
 
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->
