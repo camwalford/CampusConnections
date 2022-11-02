@@ -1,6 +1,7 @@
 function ValidationEvent() {
     console.log("this was called");
 
+    var title1 = document.getElementById("activityTitle").value
     var name = document.getElementById("activityType").value;
     var building1 = document.getElementById("building").value;
     // var startTime = document.getElementById("startTime").value;
@@ -9,23 +10,22 @@ function ValidationEvent() {
     var description1 = document.getElementById("description").value;
 
     var activitiesRef = db.collection("activities");
-    // activitiesRef.add({
-    //     activityType: name,
-    //     building: building1,
-    //     participants: participants1,
-    //     description: description1,
-    //     last_updated: firebase.firestore.FieldValue.serverTimestamp()
-    // });
-        //this is a to test a bug
-        activitiesRef.add({
-            activityType: "test"
-        })
+    activitiesRef.add({
+        title: title1,
+        activityType: name,
+        building: building1,
+        participants: participants1,
+        currentParticipants: 1,
+        description: description1,
+        last_updated: firebase.firestore.FieldValue.serverTimestamp(),
+    });
 
-    console.log("this was exocuted");
 
-    for(let i = 0; i < 500; i++) {
-        console.log("")
-    }
 
-    return true;
+    console.log("this was executed");
+
+    window.open("group.html", "_self");
+
+
+    // return true;
 }
