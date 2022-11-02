@@ -4,9 +4,8 @@ function ValidationEvent() {
     var title1 = document.getElementById("activityTitle").value
     var type1 = document.getElementById("activityType").value;
     var building1 = document.getElementById("building").value;
-    //var currentMembers = 1;
-    // var startTime = document.getElementById("startTime").value;
-    // var endTime = document.getElementById("endTime").value;
+    var startTime = document.getElementById("startTime").value;
+    var endTime = document.getElementById("endTime").value;
     var participants1 = document.getElementById("participants").value;
     var description1 = document.getElementById("description").value;
 
@@ -16,7 +15,9 @@ function ValidationEvent() {
         activityType: type1,
         building: building1,
         participants: participants1,
-        //currentParticipants: currentMembers,
+        starttime: startTime,
+        endtime: endTime,
+        currentParticipants: 1,
         description: description1,
         last_updated: firebase.firestore.FieldValue.serverTimestamp(),
     });
