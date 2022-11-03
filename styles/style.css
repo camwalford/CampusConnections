@@ -47,3 +47,9 @@
     color:white;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
+.bg-BCIT{
+    background-color: #003c71;
+}
+button[class*="bg-BCIT"]:hover{
+    background-color:#003564
+}
