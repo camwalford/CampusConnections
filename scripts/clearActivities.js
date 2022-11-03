@@ -11,6 +11,7 @@ function clearActivities() {
 
 function checkActivities() {
 var today = new Date();
+var currentTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
     var activitiesRef = db.collection("activities");
     activitiesRef.get().then((querySnapshot) => {
