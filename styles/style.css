@@ -51,3 +51,9 @@
     margin-top: 83.6px;
     margin-bottom: 83.6px;
 }
+.bg-BCIT{
+    background-color: #003c71;
+}
+button[class*="bg-BCIT"]:hover{
+    background-color:#003564
+}
