@@ -9,12 +9,18 @@ function clearActivities() {
 }
 
 
-function clearActivities() {
+function checkActivities() {
+var today = new Date();
+
     var activitiesRef = db.collection("activities");
     activitiesRef.get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             //console.log(doc.id);
-            activitiesRef.doc(doc.id).delete();
+            if (activitiesRef.doc(doc.id).get(endTime) < currentTime) {
+                activitiesRef.doc(doc.id).delete();
+            }
         })
     })
 }
+
+checkActivities();
