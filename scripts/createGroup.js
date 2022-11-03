@@ -1,3 +1,5 @@
+//import { getDatabase, ref, set } from "firebase/database";
+
 function ValidationEvent() {
     console.log("this was called");
 
@@ -9,8 +11,30 @@ function ValidationEvent() {
     var participants1 = document.getElementById("participants").value;
     var description1 = document.getElementById("description").value;
 
-    var activitiesRef = db.collection("activities");
-    activitiesRef.add({
+    // var activitiesRef = db.collection("activities");
+    // activitiesRef.add({
+    //     title: title1,
+    //     activityType: type1,
+    //     building: building1,
+    //     participants: participants1,
+    //     starttime: startTime,
+    //     endtime: endTime,
+    //     currentParticipants: 1,
+    //     description: description1,
+    //     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
+    // });
+
+
+    // for (let i = 0; i < 100000; i++)
+    // {
+    //     console.log("waiting...")
+    // }
+
+    // console.log("this was executed");
+
+    // window.open("group.html", "_self");
+    var activitiesRef = db.collection("activities").doc();
+   activitiesRef.set({
         title: title1,
         activityType: type1,
         building: building1,
@@ -19,19 +43,16 @@ function ValidationEvent() {
         endtime: endTime,
         currentParticipants: 1,
         description: description1,
-        last_updated: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-
-
-    for (let i = 0; i < 100000; i++)
-    {
-        console.log("waiting...")
-    }
-
-    console.log("this was executed");
-
-    window.open("group.html", "_self");
-
-
-    // return true;
+        last_updated: firebase.firestore.FieldValue.serverTimestamp()
+      }, (error) => {
+        if (error) {
+          // The write failed...
+        } else {
+            console.log("this was executed");
+            window.open("group.html", "_self");
+        }
+      }).then(function() {
+        console.log("this was executed");
+        window.open("group.html", "_self");
+      });
 }
