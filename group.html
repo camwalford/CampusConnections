@@ -42,35 +42,36 @@
 
 </head>
 
-<body class="center-content background-map">
+<body id="body" class="center-content background-map">
 
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <nav id="header"></nav>
 
-    
-    <main id="currentGroupContainer" class="container centering-container bg-BCIT bg-gradient p-5" >
-      <button id="exitButton" type="button" class="close rounded border-1 newButton" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-      </button>
-      <div id="currentGroupTitle"><h3>Activity Title Goes Here</h3></div>
-      <div id="currentGroupLocation">Location</div>
-      <div id="participantNumber">0/3</div>
-      <div id="currentGroupDescription">description</div>
-      <div id="currentGroupTime">time</div>
-      <div id="currentGroupMembers">CurrentMembers</div>
-      <div id="currentGroupChat">chatwindow</div>
-      
-      
-      
-      <form>
-        <div class="row mt-3">
-          <button type="submit" id="leaveGroupButton" class="newButton btn btn-light text-black mb-3 d-inline-block w-50" value="LEAVE GROUP" name="leaveGroupButton">
-            LEAVE GROUP
-          </button>
-        </div>
-      </form>
+    <main id="main">
+      <div id="currentGroupContainer" class="container centering-container bg-BCIT bg-gradient p-5" >
+        <button id="exitButton" type="button" class="close rounded border-1 newButton" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+        </button>
+        <div id="currentGroupTitle"><h3>Activity Title Goes Here</h3></div>
+        <div id="currentGroupLocation">Location</div>
+        <div id="participantNumber">0/3</div>
+        <div id="currentGroupDescription">description</div>
+        <div id="currentGroupTime">time</div>
+        <div id="currentGroupMembers">CurrentMembers</div>
+        <div id="currentGroupChat">chatwindow</div>
+        
+        
+        
+        <form>
+          <div class="row mt-3">
+            <button type="submit" id="leaveGroupButton" class="newButton btn btn-light text-black mb-3 d-inline-block w-50" value="LEAVE GROUP" name="leaveGroupButton">
+              LEAVE GROUP
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
 
     <nav id="navBar"></nav>
@@ -82,6 +83,7 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/exitButton.js"></script>
+    <script src="./scripts/toMap.js"></script>
 
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->

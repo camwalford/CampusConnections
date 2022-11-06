@@ -48,148 +48,150 @@
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
   </head>
 
-  <body class="center-content background-map">
+  <body id = "body" class="center-content background-map">
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <header>
       <nav id="header"></nav>
     </header>
+    
 
-    <main id="createGroup-container" class="container centering-container bg-BCIT bg-gradient p-5" >
-        
-      <!--TODO have exitButton link back to map-->
-      <button id="exitButton" type="button" class="close rounded border-1 newButton" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-      </button>
-      <h4 class="text-center mb-4">CREATE A NEW GROUP</h4>
-      <form class="centered">
+    <main id = "main">
+      <div id="createGroup-container" class="container centering-container bg-BCIT bg-gradient p-5" >
+          
+        <!--TODO have exitButton link back to map-->
+        <button id="exitButton" type="button" class="close rounded border-1 newButton" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="text-center mb-4">CREATE A NEW GROUP</h4>
+        <form class="centered">
 
-        <div id="title-section" class="form-group row mt-3">
-          <label for="activityTitle" class="col-sm-2 col-form-label">Title:</label>
-          <div class="col-sm-9">
-            <input type="text" name="activityTitle" class="form-control" id="activityTitle" placeholder="Enter a title" required/>
+          <div id="title-section" class="form-group row mt-3">
+            <label for="activityTitle" class="col-sm-2 col-form-label">Title:</label>
+            <div class="col-sm-9">
+              <input type="text" name="activityTitle" class="form-control" id="activityTitle" placeholder="Enter a title" required/>
+            </div>
           </div>
-        </div>
-        <!-- TODO BRAINSTORM MORE OPTIONS OF ACTIVITIES, ADD ACTIVITY ICONS-->
-        <div id="activityType-section"class="form-group-row mt-3">
-          <label for="activityType"  class="col-sm-2 col-form-label">Activity Type: </label>
-          <select class="custom-select mr-2" id="activityType" name="activityType" required>
-            <option selected>Choose...</option>
-            <option value="1">Socialize</option>
-            <option value="2">Study</option>
-            <option value="3">Food</option>
-            <option value="4">Games</option>
-            <option value="5">Exercise</option>
-          </select>
-        </div>
-        <!-- TODO ADD ALL ACTUAL BUILDINGS AND MAYBE PARKING LOTS/FIELDS -->
-        <div id="location-section"class="form-group-row mt-3">
-            <label for="building"  class="col-sm-2 col-form-label">Building: </label>
-            <select class="custom-select mr-2" id="building" name="building" required>
-              <option value="SE1">SE1</option>
-              <option value="SE2">SE2</option>
-              <option value="SE3">SE3</option>
-              <option value="SE4">SE4</option>
-              <option value="SE5">SE5</option>
-              <option value="SE6">SE6</option>
-              <option value="SE7">SE7</option>
-              <option value="SE8">SE8</option>
-              <option value="SE9">SE9</option>
-              <option value="SE10">SE10</option>
-              <option value="SE11">SE11</option>
-              <option value="SE12">SE12</option>
-              <option value="SE13">SE13</option>
-              <option value="SE14">SE14</option>
-              <option value="SE15">SE15</option>
-              <option value="SE16">SE16</option>
-              <option value="SE17">SE17</option>
-              <option value="SE18">SE18</option>
-              <option value="SW1">SW1</option>
-              <option value="SW2">SW2</option>
-              <option value="SW3">SW3</option>
-              <option value="SW4">SW4</option>
-              <option value="SW5">SW5</option>
-              <option value="SW6">SW6</option>
-              <option value="SW7">SW7</option>
-              <option value="SW8">SW8</option>
-              <option value="SW9">SW9</option>
-              <option value="SW10">SW10</option>
-              <option value="SW11">SW11</option>
-              <option value="SW12">SW12</option>
-              <option value="SW13">SW13</option>
-              <option value="SW14">SW14</option>
-              <option value="SW15">SW15</option>
-              <option value="SW16">SW16</option>
-              <option value="SW17">SW17</option>
-              <option value="SW18">SW18</option>
-              <option value="NW1">NW1</option>
-              <option value="NW2">NW2</option>
-              <option value="NW3">NW3</option>
-              <option value="NW4">NW4</option>
-              <option value="NW5">NW5</option>
-              <option value="NW6">NW6</option>
-              <option value="NW7">NW7</option>
-              <option value="NW8">NW8</option>
-              <option value="NW9">NW9</option>
-              <option value="NW10">NW10</option>
-              <option value="NW11">NW11</option>
-              <option value="NW12">NW12</option>
-              <option value="NW13">NW13</option>
-              <option value="NW14">NW14</option>
-              <option value="NW15">NW15</option>
-              <option value="NW16">NW16</option>
-              <option value="NW17">NW17</option>
-              <option value="NW18">NW18</option>
-              <option value="NE1">NE1</option>
-              <option value="NE2">NE2</option>
-              <option value="NE3">NE3</option>
-              <option value="NE4">NE4</option>
-              <option value="NE5">NE5</option>
-              <option value="NE6">NE6</option>
-              <option value="NE7">NE7</option>
-              <option value="NE8">NE8</option>
-              <option value="NE9">NE9</option>
-              <option value="NE10">NE10</option>
-              <option value="NE11">NE11</option>
-              <option value="NE12">NE12</option>
-              <option value="NE13">NE13</option>
-              <option value="NE14">NE14</option>
-              <option value="NE15">NE15</option>
-              <option value="NE16">NE16</option>
-              <option value="NE17">NE17</option>
-              <option value="NE18">NE18</option>
-              <option value="Other">Other</option>
+          <!-- TODO BRAINSTORM MORE OPTIONS OF ACTIVITIES, ADD ACTIVITY ICONS-->
+          <div id="activityType-section"class="form-group-row mt-3">
+            <label for="activityType"  class="col-sm-2 col-form-label">Activity Type: </label>
+            <select class="custom-select mr-2" id="activityType" name="activityType" required>
+              <option selected>Choose...</option>
+              <option value="1">Socialize</option>
+              <option value="2">Study</option>
+              <option value="3">Food</option>
+              <option value="4">Games</option>
+              <option value="5">Exercise</option>
             </select>
-        </div>
-        
-        <div id="time-section" class="form-group-row mt-3">
-            <label for="startTime" class="col-sm-2 col-form-label">Time: </label>
-            <input id="startTime" type="time" name="startTime" required/>
-            <label for="endTime">—</label>
-            <input id="endTime" type="time" name="endTime" required/>
-        </div>
-        
-        <div id="participant-section" class="form-group-row mt-3">
-            <label for="participants"  class="col-sm-2 col-form-label">Participants:</label>
-            <input class="col-sm-1" type="number" id="participants" value="2" pattern="[2-100]" name="participants" required></input>
-        </div>
-        
-        <div id="description-section" class="form-group-row mt-3">
-          <label for="description">Description:</label>
-          <textarea class="form-control" id="description" rows="3" name="description"></textarea>
-        </div>
-        
-        <!--TODO creates new group in firestore server and sends you to new group page-->
-        
-        <div id="createButton-section"class="form-group row mt-3">
-          <button type="button" id="createButton" class="btn btn-light text-black mb-3 d-inline-block w-50" value="Submit" name="Submit" onclick = "ValidationEvent()">
-            CREATE GROUP
-          </button>
-        </div>
-      </form>
+          </div>
+          <!-- TODO ADD ALL ACTUAL BUILDINGS AND MAYBE PARKING LOTS/FIELDS -->
+          <div id="location-section"class="form-group-row mt-3">
+              <label for="building"  class="col-sm-2 col-form-label">Building: </label>
+              <select class="custom-select mr-2" id="building" name="building" required>
+                <option value="SE1">SE1</option>
+                <option value="SE2">SE2</option>
+                <option value="SE3">SE3</option>
+                <option value="SE4">SE4</option>
+                <option value="SE5">SE5</option>
+                <option value="SE6">SE6</option>
+                <option value="SE7">SE7</option>
+                <option value="SE8">SE8</option>
+                <option value="SE9">SE9</option>
+                <option value="SE10">SE10</option>
+                <option value="SE11">SE11</option>
+                <option value="SE12">SE12</option>
+                <option value="SE13">SE13</option>
+                <option value="SE14">SE14</option>
+                <option value="SE15">SE15</option>
+                <option value="SE16">SE16</option>
+                <option value="SE17">SE17</option>
+                <option value="SE18">SE18</option>
+                <option value="SW1">SW1</option>
+                <option value="SW2">SW2</option>
+                <option value="SW3">SW3</option>
+                <option value="SW4">SW4</option>
+                <option value="SW5">SW5</option>
+                <option value="SW6">SW6</option>
+                <option value="SW7">SW7</option>
+                <option value="SW8">SW8</option>
+                <option value="SW9">SW9</option>
+                <option value="SW10">SW10</option>
+                <option value="SW11">SW11</option>
+                <option value="SW12">SW12</option>
+                <option value="SW13">SW13</option>
+                <option value="SW14">SW14</option>
+                <option value="SW15">SW15</option>
+                <option value="SW16">SW16</option>
+                <option value="SW17">SW17</option>
+                <option value="SW18">SW18</option>
+                <option value="NW1">NW1</option>
+                <option value="NW2">NW2</option>
+                <option value="NW3">NW3</option>
+                <option value="NW4">NW4</option>
+                <option value="NW5">NW5</option>
+                <option value="NW6">NW6</option>
+                <option value="NW7">NW7</option>
+                <option value="NW8">NW8</option>
+                <option value="NW9">NW9</option>
+                <option value="NW10">NW10</option>
+                <option value="NW11">NW11</option>
+                <option value="NW12">NW12</option>
+                <option value="NW13">NW13</option>
+                <option value="NW14">NW14</option>
+                <option value="NW15">NW15</option>
+                <option value="NW16">NW16</option>
+                <option value="NW17">NW17</option>
+                <option value="NW18">NW18</option>
+                <option value="NE1">NE1</option>
+                <option value="NE2">NE2</option>
+                <option value="NE3">NE3</option>
+                <option value="NE4">NE4</option>
+                <option value="NE5">NE5</option>
+                <option value="NE6">NE6</option>
+                <option value="NE7">NE7</option>
+                <option value="NE8">NE8</option>
+                <option value="NE9">NE9</option>
+                <option value="NE10">NE10</option>
+                <option value="NE11">NE11</option>
+                <option value="NE12">NE12</option>
+                <option value="NE13">NE13</option>
+                <option value="NE14">NE14</option>
+                <option value="NE15">NE15</option>
+                <option value="NE16">NE16</option>
+                <option value="NE17">NE17</option>
+                <option value="NE18">NE18</option>
+                <option value="Other">Other</option>
+              </select>
+          </div>
+          
+          <div id="time-section" class="form-group-row mt-3">
+              <label for="startTime" class="col-sm-2 col-form-label">Time: </label>
+              <input id="startTime" type="time" name="startTime" required/>
+              <label for="endTime">—</label>
+              <input id="endTime" type="time" name="endTime" required/>
+          </div>
+          
+          <div id="participant-section" class="form-group-row mt-3">
+              <label for="participants"  class="col-sm-2 col-form-label">Participants:</label>
+              <input class="col-sm-1" type="number" id="participants" value="2" pattern="[2-100]" name="participants" required></input>
+          </div>
+          
+          <div id="description-section" class="form-group-row mt-3">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+          </div>
+          
+          <!--TODO creates new group in firestore server and sends you to new group page-->
+          
+          <div id="createButton-section"class="form-group row mt-3">
+            <button type="button" id="createButton" class="btn btn-light text-black mb-3 d-inline-block w-50" value="Submit" name="Submit" onclick = "ValidationEvent()">
+              CREATE GROUP
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
-
     
     <footer>
         <nav id="navBar"></nav>
@@ -204,6 +206,7 @@
     <script src="./scripts/createGroup.js"></script>
     <script src="./scripts/exitbutton.js"></script>
     <script src="./scripts/clearActivities.js"></script>
+    <script src="./scripts/toMap.js"></script>
 
     <!-- Link to scripts of your own -->
     <script src="./scripts/script.js"></script>
