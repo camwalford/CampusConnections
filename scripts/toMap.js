@@ -1,8 +1,8 @@
 
-document.getElementById('body').addEventListener('click', function backToMap2(){
+document.getElementById('main').addEventListener('click', function backToMap2(){
     window.open("./map.html", "_self" );
 });
 
-document.getElementById('main').addEventListener('click', function clickedElement(event){
+document.querySelector('main *').addEventListener('click', function clickedElement(event){
     event.stopPropagation();
 });
