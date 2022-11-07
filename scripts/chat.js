@@ -1,15 +1,13 @@
-import { getAuth } from "firebase/auth";
+document.getElementById("message-submit").addEventListener("submit", sendMessage)
 
-const auth = getAuth();
-const user = auth.currentUser;
-const displayName = user.displayName;
-const userId = user.uid;
+var currentGroupRef = db.collection("users").doc(currentUserID).get("currentGroup");
 
-var currentActivityRef = db.collection("users").document(userId).get("currentGroup");
+function sendMessage(e){
+    
+    if(currentUserID !== null){
+        console.log("the function was run" + user.displayName)
+        e.preventDefault();
 
-function sendMessage(submitPressed){
-    if(user !== null){
-        submitPressed.preventDefault();
         const timestamp = Date.now();
         const messageSubmit = document.getElementById("message-submit");
         const message = messageSubmit.value;
@@ -18,13 +16,13 @@ function sendMessage(submitPressed){
         messageSubmit.value = "";
 
     //auto scroll to bottom
-        document
-        .getElementById("messages")
-        .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+        // document
+        // .getElementById("messages")
+        // .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
     // create db collection and send in the data
-        db.collection("activities").doc(currentActivityRef).collection("chats").add({
-            username: displayName,
+        db.collection("activities").doc(currentGroupRef).collection("chats").add({
+            username: user.displayName,
             message: message,
             time: timestamp
         })
@@ -33,14 +31,13 @@ function sendMessage(submitPressed){
     }
   };
 
+// const fetchChat = db.collection("activities").doc(currentGroupRef).collection("chats");
 
-const fetchChat = db.collection("activities").doc(currentActivityRef).collection("chats");
-
-fetchChat.on("child_added", function (snapshot) {
-  const messages = snapshot.val();
-  const message = `<li class=${
-    displayName === messages.displayName ? "sent" : "receive"
-  }><span>${messages.displayName}: </span>${messages.message}</li>`;
-  // append the message on the page
-  document.getElementById("messages").innerHTML += message;
-});
+// fetchChat.on("child_added", function (snapshot) {
+//   const messages = snapshot.val();
+//   const message = `<li class=${
+//     displayName === messages.displayName ? "sent" : "receive"
+//   }><span>${messages.displayName}: </span>${messages.message}</li>`;
+//   // append the message on the page
+//   document.getElementById("messages").innerHTML += message;
+// });

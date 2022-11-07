@@ -60,7 +60,18 @@
         <div id="currentGroupDescription">description</div>
         <div id="currentGroupTime">time</div>
         <div id="currentGroupMembers">CurrentMembers</div>
-        <div id="currentGroupChat">chatwindow</div>
+        <div id="currentGroupChat">
+          <div id="chat-window" class="container">
+            <!-- messages will display here -->
+              <ul id="messages"></ul>
+  
+              <!-- form to send message -->
+              <form id="message-form">
+                  <input id="message-input" type="text"/>
+                  <button id="message-submit" type="submit">Send</button>
+              </form>
+            </div>
+        </div>
         
         
         
@@ -80,10 +91,12 @@
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_TEAM26.js"></script>
+    <script src="./scripts/script.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/exitButton.js"></script>
     <script src="./scripts/toMap.js"></script>
+    <script src="./scripts/chat.js"></script>
 
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->
