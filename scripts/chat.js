@@ -5,7 +5,7 @@ const user = auth.currentUser;
 const displayName = user.displayName;
 const userId = user.uid;
 
-var currentActivitiesRef = db.collection("users").document(userId).get("currentGroup");
+var currentActivityRef = db.collection("users").document(userId).get("currentGroup");
 
 function sendMessage(submitPressed){
     if(user !== null){
@@ -29,12 +29,12 @@ function sendMessage(submitPressed){
             time: timestamp
         })
     }else{
-        console.log("You are not signed in");
+        console.log("You are not signed in, how are you even in this group???");
     }
   };
 
 
-const fetchChat = db.collection("activities").doc(currentActivityRef).collection("chats").doc(currentChatRef);
+const fetchChat = db.collection("activities").doc(currentActivityRef).collection("chats");
 
 fetchChat.on("child_added", function (snapshot) {
   const messages = snapshot.val();
