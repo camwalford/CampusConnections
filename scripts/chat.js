@@ -2,8 +2,8 @@ document.getElementById("message-submit").addEventListener("submit", sendMessage
 
 var currentGroupRef = db.collection("users").doc(currentUserID).get("currentGroup");
 
-function sendMessage(e){
-    
+function sendMessage(){
+    console.log(user.displayName);
     if(currentUserID !== null){
         console.log("the function was run" + user.displayName)
         e.preventDefault();
