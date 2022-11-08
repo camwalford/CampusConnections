@@ -11,13 +11,14 @@ function clearActivities() {
 
 function checkActivities() {
 var today = new Date();
-var currentTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var currentTime = today.getHours() + ":" + today.getMinutes();
 
     var activitiesRef = db.collection("activities");
     activitiesRef.get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             //console.log(doc.id);
-            if (activitiesRef.doc(doc.id).get(endTime) < currentTime) {
+            console.log(activitiesRef.doc(doc.id).get("endtime") + "     " + currentTime);
+            if (activitiesRef.doc(doc.id).get("endtime") < currentTime) {
                 activitiesRef.doc(doc.id).delete();
             }
         })
