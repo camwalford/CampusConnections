@@ -42,10 +42,10 @@
 
 </head>
 
-<body>
+<body id = "body" class="background-map">
 <!-- Templates for general use, not displayed -->
 <template id="activityTemplate">
-    <div class="card py-2 mx-2" style="width: 18rem;">
+    <div class="card py-2 my-2 mx-2" style="width: 18rem;">
         <!-- <img class="card-image card-img-top" src=" ..." alt="..."> -->
         <div class="card-body">
             <h5 class="card-title">Card title</h5>
@@ -64,9 +64,9 @@
       <nav id="header"></nav>
     </header>
 
-    <main class="container centering-container" >
+    <main id = "main" class="center-content" >
     <!-- main page content here -->
-        <div class="container">
+        <div class="container centering-container bg-BCIT bg-gradient p-5">
             <h1>Current Activites: </h1>
             <!-- Here is container for cards  -->
             <div class="container">
@@ -88,6 +88,7 @@
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/activities.js"></script>
     <script src="./scripts/clearActivities.js"></script>
+    <script src="./scripts/toMap.js"></script>
 
 
     <!-- Link to scripts of your own -->

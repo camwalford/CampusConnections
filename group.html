@@ -42,6 +42,7 @@
 
 </head>
 
+<<<<<<< HEAD
   <body>
       <!-- Templates for general use, not displayed -->
     <template id="activityTemplate">
@@ -55,11 +56,16 @@
           </div>
       </div>
     </template>
+=======
+<body id="body" class="background-map">
+
+>>>>>>> c7f5d73ec140f848c291adb93abc3c9b3ed8279d
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <nav id="header"></nav>
 
+<<<<<<< HEAD
     
     <main class="container centering-container" >
       <!-- main page content here -->
@@ -95,6 +101,43 @@
         </div>
       </form>
     </main> -->
+=======
+    <main id="main" class="center-content">
+      <div id="currentGroupContainer" class="container centering-container bg-BCIT bg-gradient p-5" >
+        <button id="exitButton" type="button" class="close rounded border-1 newButton" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+        </button>
+        <div id="currentGroupTitle"><h3>Activity Title Goes Here</h3></div>
+        <div id="currentGroupLocation">Location</div>
+        <div id="participantNumber">0/3</div>
+        <div id="currentGroupDescription">description</div>
+        <div id="currentGroupTime">time</div>
+        <div id="currentGroupMembers">CurrentMembers</div>
+        <div id="currentGroupChat">
+          <div id="chat-window" class="container">
+            <!-- messages will display here -->
+              <ul id="messages"></ul>
+  
+              <!-- form to send message -->
+              <form id="message-form">
+                  <input id="message-input" type="text"/>
+                  <button id="message-submit" type="submit">Send</button>
+              </form>
+            </div>
+        </div>
+        
+        
+        
+        <form>
+          <div class="row mt-3">
+            <button type="submit" id="leaveGroupButton" class="newButton btn btn-light text-black mb-3 d-inline-block w-50" value="LEAVE GROUP" name="leaveGroupButton">
+              LEAVE GROUP
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+>>>>>>> c7f5d73ec140f848c291adb93abc3c9b3ed8279d
 
     <nav id="navBar"></nav>
 
@@ -102,11 +145,20 @@
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_TEAM26.js"></script>
+<<<<<<< HEAD
     <script src="./scripts/skeleton.js"></script>
     <!-- <script src="./scripts/authentication.js"></script> -->
     <script src="./scripts/exitButton.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/group.js"></script>
+=======
+    <script src="./scripts/authentication.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/exitButton.js"></script>
+    <script src="./scripts/toMap.js"></script>
+    <script src="./scripts/chat.js"></script>
+>>>>>>> c7f5d73ec140f848c291adb93abc3c9b3ed8279d
 
     <!-- Link to scripts of your own -->
 
