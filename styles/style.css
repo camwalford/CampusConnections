@@ -6,8 +6,7 @@
 
 html{
     height: 100vh;
-    width: 100vw;
-    
+    width: 100vw;    
 }
 
 body{
@@ -23,8 +22,9 @@ main{
 }
 
 .map{
-    height: 799px;
+    height: 100%;
     overflow: scroll;
+    object-fit: fill;
 }
 
 .center-content{
@@ -78,12 +78,14 @@ main{
     background-color: #003c71;
 }
 button[class*="bg-BCIT"]:hover{
-    background-color:#003564
+    background-color:#003564;
 }
 
 .background-map{
-    background-image: url("../images/BCIT_Map2_Low_Opacity.png")
+    background-image: url("../images/BCIT_Map2_Low_Opacity.png");
 }
+
+
 
 
 
