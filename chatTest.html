@@ -25,7 +25,7 @@
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+ 
         <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
 
@@ -49,14 +49,16 @@
               <!-- form to send message -->
               <form id="message-form">
                   <input id="message-input" type="text"/>
-                  <button id="message-submit" type="submit">Send</button>
+                    <button id="message-submit" name="message-submit" type="button">Send</button>
+                  </input>
               </form>
             </div>
         
 
-        <script src="./scripts/chat.js"></script>
         <script src="./scripts/firebaseAPI_TEAM26.js"></script>
         <script src="./scripts/skeleton.js"></script>
-        <script src="./scripts/authentication.js"></script>
+        <!-- <script src="./scripts/test.js"></script> -->
+        <script src="./scripts/chat.js"></script>
+        
     </body>
 </html>
