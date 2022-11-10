@@ -89,18 +89,17 @@ function displayCards(collection) {
 
 function displayGroup() {
   let cardTemplate = document.getElementById("activityTemplate");
-  console.log(currentUserID); //user doesn't exist yet which is super lame
   var currentGroupRef = db.collection("users").doc(currentUserID).get("currentGroup")
-  .then((snapshot) => {
-      var currentActivity = db.collection("activities").get(snapshot)
-        .then((snap) => {
-          console.log(snapshot);
+  .then(() => {
+      var currentActivity = db.collection("activities").get(currentGroupRef)
+        .then(() => {
+          console.log(currentGroupRef);
 
-          var title = snap.title; 
-          var activityType = snap.activityType; 
-          var building = snap.building;
-          var participants = snap.participants;
-          var description = snap.description;
+          var title = currentActivity.title; 
+          var activityType = currentActivity.activityType; 
+          var building = currentActivity.building;
+          var participants = currentActivity.participants;
+          var description = currentActivity.description;
 
           let newcard = cardTemplate.content.cloneNode(true);
 
