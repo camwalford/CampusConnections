@@ -6,16 +6,19 @@
 
 html{
     height: 100vh;
-    width: 100vw;    
+    width: 100vw;  
+     
 }
 
 body{
     height: calc(100% - 166.4px);
     margin: 82.4px 0px;
+    color: white; 
     
 }
 header, nav, footer{
     max-width: 100vw;
+    color: white; 
 }
 
 .clickbox{
@@ -76,14 +79,19 @@ main{
 }
 
 .bg-BCIT{
-    background-color: #003c71;
+    background-color:rgb(24, 64, 105);
+    color: white; 
 }
 button[class*="bg-BCIT"]:hover{
-    background-color:#003564;
+    background-color:rgb(24, 64, 105);
 }
 
 .background-map{
     background-image: url("../images/BCIT_Map2_Low_Opacity.png");
+}
+
+#activities-go-here{
+    color: black;
 }
 
 
