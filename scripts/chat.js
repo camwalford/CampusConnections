@@ -2,7 +2,6 @@
 //Invokes a click listener for the message-submit button
 document.getElementById("message-submit").addEventListener("click", function(e){
     firebase.auth().onAuthStateChanged(async(user) => {
-        
         //Checks if there is a current user logged in
         if(user){
             var uid = user.uid;
@@ -45,16 +44,17 @@ document.getElementById("message-submit").addEventListener("click", function(e){
             // document
             // .getElementById("messages")
             // .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-            //if(typeof message === 'string' && message.trim() !== ''){
+            if(typeof message === 'string' && message.trim() !== ''){
             //Adds message document to activity's chat collection with data.
                 db.collection("activities").doc(groupRef).collection("chats").add({
                     username: user.displayName,
                     message: message,
                     timesent: timestamp
                 });
+            }else{
+                alert("🤡🤡🤡 no empty messages 🤡🤡🤡")
+            }
         };
-
-
     });
 });
 
