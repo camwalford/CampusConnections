@@ -53,7 +53,7 @@
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                   card's content.</p>
-              <a class="btn btn-primary card-href">Join Now!</a>
+              <a class="btn btn-primary card-href">Leave Group</a>
           </div>
       </div>
     </template>
@@ -69,14 +69,17 @@
         <button id="exitButton" type="button" class="close rounded border-1 newButton" aria-label="Close">
               <span aria-hidden="true">&times;</span>
         </button>
-        <div id="currentGroupTitle"><h3>Activity Title Goes Here</h3></div>
-        <div id="currentGroupLocation">Location</div>
-        <div id="participantNumber">0/3</div>
-        <div id="currentGroupDescription">description</div>
-        <div id="currentGroupTime">time</div>
-        <div id="currentGroupMembers">CurrentMembers</div>
-        <div id="currentGroupChat">
-          <div id="chat-window" class="container">
+        <main id = "main" class="center-content" >
+          <!-- main page content here -->
+              <div class="container centering-container bg-BCIT bg-gradient p-5">
+                  <h1>Your Current Group: </h1>
+                  <!-- Here is container for cards  -->
+                  <div class="container">
+                      <div id="activities-go-here" class="row row-cols-auto">
+                      </div>
+                  </div>
+              </div>
+          </main>
             <!-- messages will display here -->
               <ul id="messages"></ul>
   
@@ -108,9 +111,11 @@
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_TEAM26.js"></script>
 
+    <script src="./scripts/script.js"></script>
+
     <script src="./scripts/group.js"></script>
     <!-- <script src="./scripts/authentication.js"></script> -->
-    <script src="./scripts/script.js"></script>
+
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/exitButton.js"></script>
     <script src="./scripts/toMap.js"></script>

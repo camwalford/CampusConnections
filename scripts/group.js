@@ -40,11 +40,15 @@
 
 function displayCards(collection) {
   let cardTemplate = document.getElementById("activityTemplate");
-//   console.log("test " + (currentUserID));
+  //   console.log("test " + (currentUserID));
 
-  var currentGroupRef = db.collection("users").doc(currentUserID).get("currentGroup")
+  var currentGroupRef = db
+    .collection("users")
+    .doc(currentUserID)
+    .get("currentGroup")
     .then((snip) => {
-      db.collection(collection).get()
+      db.collection(collection)
+        .get()
         .then((snap) => {
           snap.forEach((doc) => {
             //iterate thru each doc
@@ -59,7 +63,7 @@ function displayCards(collection) {
               var participants = doc.data().participants;
               var description = doc.data().description;
 
-               let newcard = cardTemplate.content.cloneNode(true);
+              let newcard = cardTemplate.content.cloneNode(true);
 
               //update title and text and image
               newcard.querySelector(".card-title").innerHTML = title;
@@ -88,36 +92,57 @@ function displayCards(collection) {
 }
 
 function displayGroup() {
-  let cardTemplate = document.getElementById("activityTemplate");
-  var currentGroupRef = db.collection("users").doc(currentUserID).get("currentGroup")
-  .then(() => {
-      var currentActivity = db.collection("activities").get(currentGroupRef)
-        .then(() => {
-          console.log(currentGroupRef);
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log(user.uid, " is logged in");
+      currentUserID = user.uid;
 
-          var title = currentActivity.title; 
-          var activityType = currentActivity.activityType; 
-          var building = currentActivity.building;
-          var participants = currentActivity.participants;
-          var description = currentActivity.description;
+      let cardTemplate = document.getElementById("activityTemplate");
+      console.log(currentUserID);
+      var currentGroupRef = db
+        .collection("users")
+        .doc(currentUserID)
+        .get()
+        .then((doc) => {
+          console.log(doc.data().currentGroup);
+          var currentActivity = db
+            .collection("activities")
+            .doc(doc.data().currentGroup)
+            .get()
+            .then((snap) => {
+              console.log(snap.data());
 
-          let newcard = cardTemplate.content.cloneNode(true);
+              var title = snap.data().title;
+              var activityType = snap.data().activityType;
+              var building = snap.data().building;
+              var participants = snap.data().participants;
+              var description = snap.data().description;
 
-          //update title and text and image
-          newcard.querySelector(".card-title").innerHTML = title;
-          newcard.querySelector(".card-text").innerHTML =
-            "type: " +
-            activityType +
-            "<br/>building: " +
-            building +
-            "<br/>participants: " +
-            participants +
-            "<br/>description: " +
-            description;
+              let newcard = cardTemplate.content.cloneNode(true);
 
-          document.getElementById("activities-go-here").appendChild(newcard);
+              //update title and text and image
+              newcard.querySelector(".card-title").innerHTML = title;
+              newcard.querySelector(".card-text").innerHTML =
+                "type: " +
+                activityType +
+                "<br/>building: " +
+                building +
+                "<br/>participants: " +
+                participants +
+                "<br/>description: " +
+                description;
+
+              document
+                .getElementById("activities-go-here")
+                .appendChild(newcard);
+            });
         });
-    });
+
+      //return user.uid;
+    } else {
+      console.log("no one is logged in");
+    }
+  });
 }
 
 //displayCards("activities");

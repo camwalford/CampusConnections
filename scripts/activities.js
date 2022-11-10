@@ -44,11 +44,14 @@ function displayCards(collection) {
 }
 
 function joinGroup(id){
-    console.log("uid of current user is" + currentUserID);
-    console.log("uid of activity is " + id);
     var currentUserRef = db.collection("users").doc(currentUserID);
     var joiningActivityRef = db.collection("activities").doc(id);
     var currentActivityRef = db.collection("activities").doc(currentUserRef.currentGroup);
+    
+    console.log("uid of current user is" + currentUserID);
+    console.log("uid of activity is " + id);
+    console.log("uid of previous activity is " + currentUserRef.currentGroup)
+
     //TODO currently joining a group succesfully increases the participants, leaving a group does not decrease
     currentActivityRef.update({
         currentParticipants: firebase.firestore.FieldValue.increment(-1),
@@ -59,7 +62,7 @@ function joinGroup(id){
     currentUserRef.update({
         currentGroup: id,
     }).then(() => {
-        window.open("group.html", "_self");
+        //window.open("group.html", "_self");
     });
 
 
