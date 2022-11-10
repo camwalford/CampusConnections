@@ -34,6 +34,7 @@ function joinGroup(id){
     console.log("uid of current user is" + currentUserID);
     console.log("uid of activity is " + id);
     var currentUserRef = db.collection("users").doc(currentUserID);
+    //TODO increase the number of people in that group by 1
     currentUserRef.update({
         currentGroup: id,
     }).then(() => {
