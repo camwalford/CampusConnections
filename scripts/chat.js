@@ -44,6 +44,7 @@ document.getElementById("message-submit").addEventListener("click", function(e){
             // document
             // .getElementById("messages")
             // .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+
             if(typeof message === 'string' && message.trim() !== ''){
             //Adds message document to activity's chat collection with data.
                 db.collection("activities").doc(groupRef).collection("chats").add({
@@ -51,20 +52,13 @@ document.getElementById("message-submit").addEventListener("click", function(e){
                     message: message,
                     timesent: timestamp
                 });
+
             }else{
                 alert("🤡🤡🤡 no empty messages 🤡🤡🤡")
             }
         };
+   
+
     });
 });
 
-// const fetchChat = db.collection("activities").doc(currentGroupRef).collection("chats");
-
-// fetchChat.on("child_added", function (snapshot) {
-//   const messages = snapshot.val();
-//   const message = `<li class=${
-//     displayName === messages.displayName ? "sent" : "receive"
-//   }><span>${messages.displayName}: </span>${messages.message}</li>`;
-//   // append the message on the page
-//   document.getElementById("messages").innerHTML += message;
-// });
