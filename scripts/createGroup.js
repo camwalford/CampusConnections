@@ -11,6 +11,12 @@ function ValidationEvent() {
     var participants1 = document.getElementById("participants").value;
     var description1 = document.getElementById("description").value;
 
+    var end = new Date();
+    //end.setDate(end.getDate() + 1); //adds one day
+
+//gotta figure out how to use the inputted endTime but for now this is fine
+    end.setHours(end.getHours() + 5); //adds 5 hours
+
     var activitiesRef = db.collection("activities");
     var currentUserRef = db.collection("users").doc(currentUserID);
     activitiesRef.add({
@@ -19,7 +25,7 @@ function ValidationEvent() {
         building: building1,
         participants: participants1,
         starttime: startTime,
-        endtime: endTime,
+        endtime: end,
         currentParticipants: 1,
         description: description1,
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
