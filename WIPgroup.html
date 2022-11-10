@@ -42,57 +42,60 @@
 
 </head>
 
-<body id = "body" class="background-map">
-<!-- Templates for general use, not displayed -->
-<template id="activityTemplate">
-    <div class="card py-2 my-2 mx-2" style="width: 18rem;">
-        <!-- <img class="card-image card-img-top" src=" ..." alt="..."> -->
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's content.</p>
-            <a class="btn btn-primary card-href" id="join-now">Join Now!</a>
-        </div>
-    </div>
-</template>
+<body id="body" class="background-map">
+      <!-- Templates for general use, not displayed -->
+    <template id="activityTemplate">
+      <div class="card py-2 mx-2" style="width: 18rem;">
+          <!-- <img class="card-image card-img-top" src=" ..." alt="..."> -->
+          <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+              <a class="btn btn-primary card-href">Leave Group</a>
+          </div>
+      </div>
+    </template>
 
+    <main id = "main" class="center-content" >
+      <!-- main page content here -->
+          <div class="container centering-container bg-BCIT bg-gradient p-5">
+              <h1>Your Current Group: </h1>
+              <!-- Here is container for cards  -->
+              <div class="container">
+                  <div id="activities-go-here" class="row row-cols-auto">
+                  </div>
+              </div>
+          </div>
+      </main>
 
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
-    <header>
-      <nav id="header"></nav>
-    </header>
+    <nav id="header"></nav>
 
-    <main id = "main" class="center-content" >
-    <!-- main page content here -->
-        <div class="container centering-container bg-BCIT bg-gradient p-5">
-            <h1>Current Activites: </h1>
-            <!-- Here is container for cards  -->
-            <div class="container">
-                <div id="activities-go-here" class="row row-cols-auto">
-                </div>
-            </div>
-        </div>
-    </main>
 
-    <footer>
-      <nav id="navBar"></nav>
-    </footer>   
+
+    <nav id="navBar"></nav>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_TEAM26.js"></script>
-    <script src="./scripts/skeleton.js"></script>
+
+    <script src="./scripts/script.js"></script>
+
+    <script src="./scripts/group.js"></script>
     <!-- <script src="./scripts/authentication.js"></script> -->
-    <script src="./scripts/activities.js"></script>
-    <script src="./scripts/clearActivities.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/exitButton.js"></script>
     <script src="./scripts/toMap.js"></script>
+    <script src="./scripts/chat.js"></script>
+    
 
 
     <!-- Link to scripts of your own -->
-    <script src="./scripts/script.js"></script>
+
 
 </body>
 
