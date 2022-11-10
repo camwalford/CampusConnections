@@ -11,20 +11,15 @@ html{
 
 body{
     height: calc(100% - 166.4px);
-    margin: 82.4px 0px;  
+    margin: 82.4px 0px;
+    
 }
 header, nav, footer{
     max-width: 100vw;
 }
 main{
-    width:100%;
-    height:100%;
-}
-
-.map{
-    height: 100%;
-    overflow: scroll;
-    object-fit: fill;
+    display: flex;
+    align-items: center;
 }
 
 .center-content{
