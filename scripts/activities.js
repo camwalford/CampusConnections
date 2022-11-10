@@ -47,7 +47,15 @@ function joinGroup(id){
     console.log("uid of current user is" + currentUserID);
     console.log("uid of activity is " + id);
     var currentUserRef = db.collection("users").doc(currentUserID);
-    //TODO increase the number of people in that group by 1
+    var joiningActivityRef = db.collection("activities").doc(id);
+    var currentActivityRef = db.collection("activities").doc(currentUserRef.currentGroup);
+    //TODO currently joining a group succesfully increases the participants, leaving a group does not decrease
+    currentActivityRef.update({
+        currentParticipants: firebase.firestore.FieldValue.increment(-1),
+    })
+    joiningActivityRef.update({
+        currentParticipants: firebase.firestore.FieldValue.increment(1),
+    })
     currentUserRef.update({
         currentGroup: id,
     }).then(() => {
