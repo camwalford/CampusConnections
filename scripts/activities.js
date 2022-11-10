@@ -62,7 +62,7 @@ function joinGroup(id){
     currentUserRef.update({
         currentGroup: id,
     }).then(() => {
-        //window.open("group.html", "_self");
+        window.open("group.html", "_self");
     });
 
 
