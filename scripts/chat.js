@@ -64,6 +64,8 @@ document.getElementById("message-submit").addEventListener("click", function(e){
     });
 });
 
+
+
 function displayCurrentMessages(){
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -71,64 +73,46 @@ function displayCurrentMessages(){
             let currentUserID = user.uid;
             let str;
             console.log("displaymessages " + currentUserID);
-            
             var currentGroupRef = db
             .collection("users")
             .doc(currentUserID)
             .get()
             .then((doc) => {
-                console.log(doc.data().currentGroup);
-                
-                var currentChats = db
-                    .collection("activities")
-                    .doc(doc.data().currentGroup)
-                    .collection("chats")
-                    .get()
-                    .then((snapshot) => {
-                        console.log(snapshot);
-
-                        //Each message in the database is added as a list item.
-                        snapshot.forEach((doc) =>{
-                            console.log(doc.id, " ", doc.data().message);
-                            // str = ("<li><span class=\"sent-by\">" 
-                            //     + doc.data().username + "</span>" 
-                            //     + "<span class=\"sent-message\">" 
-                            //     + doc.data().message + "</span></li>"); 
+                console.log(doc.data().currentGroup);       
+                db
+                .collection("activities")
+                .doc(doc.data().currentGroup)
+                .collection("chats")
+                .onSnapshot(function(snapshot) {
+                    console.log(snapshot);
+                    //Each message in the database is added as a list item.
+                    snapshot.docChanges().forEach(function(change) {
+                        if (change.type === "added") {
+                            console.log("New message: ", change.doc.data().message);
                             let li = document.createElement("li")
-                            
                             li.innerHTML = ("<li><span class=\"sent-by\">" 
-                                + doc.data().username + "</span>" 
+                                + change.doc.data().username + "</span>" 
                                 + "<span class=\"sent-message\">" 
-                                + doc.data().message + "</span></li>");
-                            
+                                + change.doc.data().message + "</span></li>");
                             messageList.appendChild(li);
-
-
-                            //let nameOfSender = document.createTextNode(doc.data().username); 
-                            
-                            //span = do                          
-                        });
-                        console.log(str);
-
-                        
-                        // snapshot.docChanges().forEach(function(change){
-                        //     if(change.type === "added"){
-                        //         console.log("New Message ", change.doc.data());
-                                
-                        //     }
-                        //     if(change.type === "removed"){
-                        //         console.log("Message Removed: ", change.doc.data())
-                        //     }
-
-                        
-
-
-
+                        }
+                        if (change.type === "modified") {
+                            console.log("Modified message: ", change.doc.data());
+                            // This is equivalent to child_changed
+                        }
+                        if (change.type === "removed") {
+                            console.log("Removed message: ", change.doc.data());
+                            // This is equivalent to child_removed
+                         }
                     });
+                });                          
             });
-
-            
-
         }
     });
-}
+};
+
+                        
+
+                
+   
+
