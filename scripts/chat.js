@@ -51,7 +51,8 @@ document.getElementById("message-submit").addEventListener("click", function(e){
                 db.collection("activities").doc(groupRef).collection("chats").add({
                     username: user.displayName,
                     message: message,
-                    timesent: timestamp
+                    timesent: timestamp,
+                    uid: currentUserID
                 });
                 console.log("Message was sent")
 
@@ -71,9 +72,10 @@ function displayCurrentMessages(){
         if (user) {
             let messageList = document.getElementById("messages");
             let currentUserID = user.uid;
-            let str;
             console.log("displaymessages " + currentUserID);
-            var currentGroupRef = db
+            
+            //Accessing the firestore chats 
+            db
             .collection("users")
             .doc(currentUserID)
             .get()
@@ -85,24 +87,40 @@ function displayCurrentMessages(){
                 .collection("chats")
                 .onSnapshot(function(snapshot) {
                     console.log(snapshot);
-                    //Each message in the database is added as a list item.
+                    
+                    //Each new message in the database is added as a list item.
                     snapshot.docChanges().forEach(function(change) {
                         if (change.type === "added") {
-                            console.log("New message: ", change.doc.data().message);
-                            let li = document.createElement("li")
-                            li.innerHTML = ("<li><span class=\"sent-by\">" 
-                                + change.doc.data().username + "</span>" 
-                                + "<span class=\"sent-message\">" 
-                                + change.doc.data().message + "</span></li>");
-                            messageList.appendChild(li);
+                            let str1 = change.doc.data().uid;
+                            let str2 = currentUserID;
+                            //checking if the user is sending or receiving the message
+                            if(str1 === str2){
+                                console.log("New message from: " + change.doc.data().username 
+                                    + " " + change.doc.data().message);
+                                let li = document.createElement("li")
+                                li.innerHTML = ("<li><span class=\"sent\">" 
+                                    + change.doc.data().username + "</span>" 
+                                    + "<span class=\"sent-message\">" 
+                                    + change.doc.data().message + "</span></li>");
+                                    messageList.appendChild(li);
+                            }else{
+                                console.log("New message from: " + change.doc.data().username 
+                                    + " " + change.doc.data().message);
+                                let li = document.createElement("li")
+                                li.innerHTML = ("<li><span class=\"received\">" 
+                                    + change.doc.data().username + "</span>" 
+                                    + "<span class=\"sent-message\">" 
+                                    + change.doc.data().message + "</span></li>");
+                                    messageList.appendChild(li);
+                            }
                         }
                         if (change.type === "modified") {
                             console.log("Modified message: ", change.doc.data());
-                            // This is equivalent to child_changed
+                            // TODO implement message editing
                         }
                         if (change.type === "removed") {
                             console.log("Removed message: ", change.doc.data());
-                            // This is equivalent to child_removed
+                            // TODO implement message removal
                          }
                     });
                 });                          

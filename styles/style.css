@@ -98,6 +98,40 @@ button[class*="bg-BCIT"]:hover{
     color:black;
 }
 
+#messages li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    background-color: #e8e8e8;
+    padding: 5px;
+    border-radius: 10px;
+    color: black;
+    width: 50%;
+}
+
+li span {
+    font-weight: bolder;
+}
+
+#chat-window {
+    width: 100%;
+    margin: auto;
+    overflow: scroll;
+}
+
+#message-form {
+    text-align: center;
+    width: 100%;
+}
+
+#message-input{
+    width: 80%;
+}
+
+#message-submit{
+    width: 15%;
+
+}
+
 
 
 
