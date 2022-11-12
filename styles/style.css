@@ -63,6 +63,11 @@ main{
     background-color:rgb(187, 187, 187);
     box-shadow: 1px 1px 0px black;
 }
+
+#currentGroupContainer{
+    max-width: 80%;
+}
+
 #leaveGroupButton{
     margin: 0 auto;
     border: 1px solid black;
@@ -98,6 +103,10 @@ button[class*="bg-BCIT"]:hover{
     color:black;
 }
 
+#messages{
+    margin: 10px 5px;
+    
+}
 
 #messages li {
     list-style-type: none;
@@ -119,6 +128,8 @@ li span {
     margin: auto;
     overflow-y: scroll;
     margin-bottom: 20px;
+    border: 1px solid rgb(37, 78, 120);
+    border-radius: 5px
 }
 
 #message-form {
@@ -129,15 +140,16 @@ li span {
 #message-input{
     width: 80%;
     margin-top: 15px;
+    border-radius: 5px;
 
 }
 
 #message-submit{
     width: 15%;
+    border-radius: 5px;
 }
 
-li:has(span[class="sender"]) {
-    background-color:rgb(24, 64, 105);
+li:has(span[class="sender"]) { 
     margin-left: 50%;
 }
 
@@ -147,6 +159,10 @@ li:has(span[class="reciever"]) {
 
 .sender:after, .receiver:after{
     content: ":  "
+}
+
+.sender{
+    
 }
 
 
