@@ -41,10 +41,10 @@ document.getElementById("message-submit").addEventListener("click", function(e){
             // clears the message input box
             messageInput.value = "";
         
-            //auto scroll to bottom
-            // document
-            // .getElementById("messages")
-            // .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+            
+            document
+            .getElementById("messages")
+            .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
             if(typeof message === 'string' && message.trim() !== ''){
             //Adds message document to activity's chat collection with data.
