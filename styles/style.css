@@ -68,6 +68,8 @@ main{
     max-width: 80%;
 }
 
+
+
 #leaveGroupButton{
     margin: 0 auto;
     border: 1px solid black;
@@ -103,9 +105,28 @@ button[class*="bg-BCIT"]:hover{
     color:black;
 }
 
+/*Styling for scrollbar*/
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px grey; 
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+background-color: rgb(182, 182, 182);
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: grey; 
+}
+
+/*Styling for chat*/
 #messages{
     margin: 10px 5px;
-    
 }
 
 #messages li {
@@ -132,28 +153,6 @@ li span {
     border: 1px solid rgb(37, 78, 120);
     border-radius: 5px
 }
-/* width */
-::-webkit-scrollbar {
-    width: 20px;
-}
-
-::-webkit-scrollbar-track {
-box-shadow: inset 0 0 5px grey; 
-border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-background-color: rgb(182, 182, 182);
-border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-background: grey; 
-}
-
-
 #message-form {
     text-align: center;
     width: 100%;
@@ -163,7 +162,6 @@ background: grey;
     width: 80%;
     margin-top: 15px;
     border-radius: 5px;
-
 }
 
 #message-submit{
@@ -195,8 +193,62 @@ li:has(span[class="reciever"]) {
     color: grey;
 }
 
+/*Styling for activities*/
+#activities-container{
+    padding: 25px;
+}
+
+/*filter and searchbar*/
+#activity-search-input {
+    background-image: url('../images/searchicon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-size: 23px;
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+  }
+  
+  #activities-list{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  #activities-list li{
+    list-style-type: none;
+    padding: 10px 0px;
+    margin: 0px;
+  }
 
 
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+  }
 
 
 

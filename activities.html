@@ -67,8 +67,35 @@
 
     <main id = "main" class="center-content" >
     <!-- main page content here -->
-        <div class="container centering-container bg-BCIT bg-gradient p-5">
+        <div id="activities-container" class="container centering-container bg-BCIT bg-gradient">
             <h1>Current Activites: </h1>
+            <input type="text" id="activity-search-input" onkeyup="activitySearch()" placeholder="Search activities...">
+
+                <ul id="activities-list">
+                    <li><button class="accordion">Section 1</button>
+                        <div class="panel">
+                          <p>Lorem ipsum...</p>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="accordion">activity</button>
+                        <div class="panel">
+                          <p>Lorem ipsum...</p>
+                        </div></li>
+                    <li> 
+                        <button class="accordion">Section 2</button>
+                        <div class="panel">
+                          <p>Lorem ipsum...</p>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="accordion">Section 3</button>
+                        <div class="panel">
+                          <p>Lorem ipsum...</p>
+                        </div>
+                    </li>
+
+                </ul>
             <!-- Here is container for cards  -->
             <div class="container">
                 <div id="activities-go-here" class="row row-cols-auto">
