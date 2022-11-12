@@ -45,15 +45,19 @@
 <body id = "body" class="background-map">
     <!-- Templates for general use, not displayed -->
     <template id="activityTemplate">
-        <div class="card py-2 my-2 mx-2" style="width: 18rem;">
-            <!-- <img class="card-image card-img-top" src=" ..." alt="..."> -->
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a class="btn btn-primary card-href" id="join-now">Join Now!</a>
+        <li>
+            <button class="accordion" type="button" onclick="togglePanel()">
+              <span class="accordion-title">Section 1</span>
+              <span class="accordion-type">Type of activity</span>
+              <span class="accordion-building">Building number</span>
+              <span class="accordion-participants">Number of the current participants.</span>
+            </button>
+            <div class="panel">
+              <span class="accordion-startTime">Start time of activity</span>
+              <span class="accordion-description">Description of said activity</span>
+              <a class="btn btn-primary card-href" id="join-now">Join Now!</a>
             </div>
-        </div>
+        </li>
     </template>
 
 
@@ -69,38 +73,10 @@
     <!-- main page content here -->
         <div id="activities-container" class="container centering-container bg-BCIT bg-gradient">
             <h1>Current Activites: </h1>
+            <!-- Autocomplete search -->
             <input type="text" id="activity-search-input" onkeyup="activitySearch()" placeholder="Search activities...">
-
-                <ul id="activities-list">
-                    <li><button class="accordion">Section 1</button>
-                        <div class="panel">
-                          <p>Lorem ipsum...</p>
-                        </div>
-                    </li>
-                    <li>
-                        <button class="accordion">activity</button>
-                        <div class="panel">
-                          <p>Lorem ipsum...</p>
-                        </div></li>
-                    <li> 
-                        <button class="accordion">Section 2</button>
-                        <div class="panel">
-                          <p>Lorem ipsum...</p>
-                        </div>
-                    </li>
-                    <li>
-                        <button class="accordion">Section 3</button>
-                        <div class="panel">
-                          <p>Lorem ipsum...</p>
-                        </div>
-                    </li>
-
-                </ul>
-            <!-- Here is container for cards  -->
-            <div class="container">
-                <div id="activities-go-here" class="row row-cols-auto">
-                </div>
-            </div>
+            <!--Container for list of activities-->
+            <ul id="activities-go-here"></ul>
         </div>
     </main>
 

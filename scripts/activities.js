@@ -1,5 +1,5 @@
 function displayCards(collection) {
-    let cardTemplate = document.getElementById("activityTemplate");
+    let accordionTemplate = document.getElementById("activityTemplate");
 
     db.collection(collection).get()
         .then(snap => {
@@ -21,15 +21,19 @@ function displayCards(collection) {
                 var currentTime = new Date();
 								
                 var activityID = doc.id;    //get unique ID to each hike to be used for fetching right image
-                let newcard = cardTemplate.content.cloneNode(true);
+                let newAccordion = accordionTemplate.content.cloneNode(true);
 
                 //update title and text and image
-                newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-text').innerHTML = "type: " + activityType + "<br/>building: " + building + "<br/>participants: " + participants + "<br/>description: " + description;
-                // newcard.querySelector('.card-image').src = `./images/${hikeID}.jpg`; //Example: NV01.jpg
+                newAccordion.querySelector('.accordion-title').innerHTML = title;
+                newAccordion.querySelector('.accordion-type').innerHTML = activityType;
+                newAccordion.querySelector('.accordion-building').innerHTML = building;
+                newAccordion.querySelector('.accordion-participants').innerHTML = participants;
+                newAccordion.querySelector('.accordion-description').innerHTML = description;;
+
+                // newAccordion.querySelector('.card-image').src = `./images/${hikeID}.jpg`; //Example: NV01.jpg
 
                 //give unique ids to all elements for future use
-                newcard.querySelector('a').onclick = () => joinGroup(activityID);
+                newAccordion.querySelector('a').onclick = () => joinGroup(activityID);
                 
                 //delete the file if the time is up or if there are no participants
                 console.log(endTime.toDate() + " : " + currentTime);
@@ -37,7 +41,7 @@ function displayCards(collection) {
                     db.collection(collection).doc(activityID).delete();
                 } else {
                 //attach to gallery
-                document.getElementById(collection + "-go-here").appendChild(newcard);
+                document.getElementById(collection + "-go-here").appendChild(newAccordion);
                 }
             })
         })

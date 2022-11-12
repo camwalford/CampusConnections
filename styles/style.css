@@ -211,13 +211,13 @@ li:has(span[class="reciever"]) {
     margin-bottom: 12px; /* Add some space below the input */
   }
   
-  #activities-list{
+  #activities-go-here{
     list-style-type: none;
     padding: 0px;
     margin: 0px;
   }
 
-  #activities-list li{
+  #activities-go-here li{
     list-style-type: none;
     padding: 10px 0px;
     margin: 0px;
@@ -233,8 +233,15 @@ li:has(span[class="reciever"]) {
     width: 100%;
     text-align: left;
     border: none;
+    border-radius: 5px;
     outline: none;
     transition: 0.4s;
+  }
+
+  .activityTemplate li{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
   }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
