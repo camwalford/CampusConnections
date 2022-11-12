@@ -37,7 +37,7 @@ main{
     align-items: center;
 }
 .centering-container{
-    border-radius: 5%;
+    border-radius: 15px;
     border: 2px solid black;
     box-shadow: 0px 0px 3px black; 
 }
@@ -128,6 +128,7 @@ li span {
     margin: auto;
     overflow-y: scroll;
     margin-bottom: 20px;
+    background-color: white;
     border: 1px solid rgb(37, 78, 120);
     border-radius: 5px
 }
@@ -162,9 +163,16 @@ li:has(span[class="reciever"]) {
 }
 
 .sender{
-    
+    display: block;
+    font-size: smaller;
+    color: grey;
 }
 
+.receiver{
+    display: block;
+    font-size: smaller;
+    color: grey;
+}
 
 
 
