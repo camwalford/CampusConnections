@@ -132,7 +132,16 @@ function displayCurrentMessages(){
     });
 };
 
-                        
+
+// Send chat when the user presses enter
+document.getElementById("message-input").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("message-submit").click();
+  }
+});                        
 
                 
    
