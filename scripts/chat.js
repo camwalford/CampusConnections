@@ -98,19 +98,19 @@ function displayCurrentMessages(){
                                 console.log("New message from: " + change.doc.data().username 
                                     + " " + change.doc.data().message);
                                 let li = document.createElement("li")
-                                li.innerHTML = ("<li><span class=\"sent\">" 
+                                li.innerHTML = ("<span class=\"sender\">" 
                                     + change.doc.data().username + "</span>" 
                                     + "<span class=\"sent-message\">" 
-                                    + change.doc.data().message + "</span></li>");
+                                    + change.doc.data().message + "</span>");
                                     messageList.appendChild(li);
                             }else{
                                 console.log("New message from: " + change.doc.data().username 
                                     + " " + change.doc.data().message);
                                 let li = document.createElement("li")
-                                li.innerHTML = ("<li><span class=\"received\">" 
+                                li.innerHTML = ("<span class=\"receiver\">" 
                                     + change.doc.data().username + "</span>" 
                                     + "<span class=\"sent-message\">" 
-                                    + change.doc.data().message + "</span></li>");
+                                    + change.doc.data().message + "</span>");
                                     messageList.appendChild(li);
                             }
                         }

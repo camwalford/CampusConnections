@@ -98,6 +98,7 @@ button[class*="bg-BCIT"]:hover{
     color:black;
 }
 
+
 #messages li {
     list-style-type: none;
     margin-bottom: 10px;
@@ -114,8 +115,9 @@ li span {
 
 #chat-window {
     width: 100%;
+    height: 200px;
     margin: auto;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 #message-form {
@@ -125,12 +127,28 @@ li span {
 
 #message-input{
     width: 80%;
+    margin-top: 15px;
+
 }
 
 #message-submit{
     width: 15%;
-
 }
+
+li:has(span[class="sender"]) {
+    background-color: #a79cb3;
+    margin-left: 50%;
+}
+
+li:has(span[class="reciever"]) {
+    margin-right: 50%;
+}
+
+.sender:after, .receiver:after{
+    content: ":  "
+}
+
+
 
 
 
