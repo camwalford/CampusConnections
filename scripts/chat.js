@@ -122,6 +122,9 @@ function displayCurrentMessages(){
                             console.log("Removed message: ", change.doc.data());
                             // TODO implement message removal
                          }
+                         document
+                         .getElementById("messages")
+                         .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
                     });
                 });                          
             });

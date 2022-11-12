@@ -118,6 +118,7 @@ li span {
     height: 200px;
     margin: auto;
     overflow-y: scroll;
+    margin-bottom: 20px;
 }
 
 #message-form {
@@ -136,7 +137,7 @@ li span {
 }
 
 li:has(span[class="sender"]) {
-    background-color: #a79cb3;
+    background-color:rgb(24, 64, 105);
     margin-left: 50%;
 }
 
