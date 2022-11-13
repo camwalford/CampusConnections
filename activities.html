@@ -45,19 +45,19 @@
 <body id = "body" class="background-map">
     <!-- Templates for general use, not displayed -->
     <template id="activityTemplate">
-        <li>
-            <button class="accordion" type="button" onclick="togglePanel()">
-              <span class="accordion-title">Section 1</span>
-              <span class="accordion-type">Type of activity</span>
-              <span class="accordion-building">Building number</span>
-              <span class="accordion-participants">Number of the current participants.</span>
-            </button>
-            <div class="panel">
-              <span class="accordion-startTime">Start time of activity</span>
-              <span class="accordion-description">Description of said activity</span>
-              <a class="btn btn-primary card-href" id="join-now">Join Now!</a>
-            </div>
+        <li class="accordion">
+            <span class="accordion-title">Section 1</span>
+            <span class="accordion-type">Type of activity</span>
+            <span class="accordion-building">Building number</span>
+            <span class="accordion-participants">Number of the current participants.</span>
+            <span class="material-symbols-outlined">expand_more</span>
         </li>
+        <div class="panel">
+            <span class="accordion-startTime">Start time of activity</span>
+            <span class="accordion-description">Description of said activity</span>
+            <a class="btn btn-primary card-href" id="join-now">Join Now!</a>
+        </div>
+        
     </template>
 
 

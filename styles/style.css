@@ -215,13 +215,10 @@ li:has(span[class="reciever"]) {
     list-style-type: none;
     padding: 0px;
     margin: 0px;
+    max-height: 50vh;
+    overflow-y: scroll;
   }
 
-  #activities-go-here li{
-    list-style-type: none;
-    padding: 10px 0px;
-    margin: 0px;
-  }
 
 
 /* Style the buttons that are used to open and close the accordion panel */
@@ -250,11 +247,22 @@ li:has(span[class="reciever"]) {
   }
   
   /* Style the accordion panel. Note: hidden by default */
-  .panel {
-    padding: 0 18px;
+  .panel {  
+    padding: 0px 18px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     background-color: white;
-    display: none;
+    max-height: 0;
     overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+  .panel span{ 
+    padding: 0px 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
   }
 
 

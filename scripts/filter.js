@@ -19,17 +19,24 @@ function activitySearch() {
   }
 
 
+function accordion(){
+    setTimeout(() => {  
+        console.log("World!"); 
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
-
-
-
- function togglePanel(){
-    console.log("button clicked");
-    // /* Toggle between hiding and showing the active panel */
-    var panel = document.querySelector(".panel");
-      if (panel.style.display === "block") {
-       panel.style.display = "none";
-     } else {
-       panel.style.display = "block";
-    }
- }
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                     panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    }, 1000)
+}
+accordion();
+  
