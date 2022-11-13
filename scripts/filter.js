@@ -8,7 +8,7 @@ function activitySearch() {
   
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < li.length; i++) {
-      a = li[i].getElementsByClassName("accordion-title")[0];
+      a = li[i].getElementsByClassName("search-queries")[0];
       txtValue = a.textContent || a.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         li[i].style.display = "";
@@ -21,7 +21,7 @@ function activitySearch() {
 
 function accordion(){
     setTimeout(() => {  
-        console.log("World!"); 
+        console.log("activities loaded"); 
         var acc = document.getElementsByClassName("accordion");
         var i;
 
@@ -39,4 +39,6 @@ function accordion(){
     }, 1000)
 }
 accordion();
-  
+
+
+

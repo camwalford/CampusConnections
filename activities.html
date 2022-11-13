@@ -46,9 +46,11 @@
     <!-- Templates for general use, not displayed -->
     <template id="activityTemplate">
         <li class="accordion">
-            <span class="accordion-title">Section 1</span>
-            <span class="accordion-type">Type of activity</span>
-            <span class="accordion-building">Building number</span>
+            <div class="search-queries">
+                <span class="accordion-title">Section 1</span>
+                <span class="accordion-type">Type of activity</span>
+                <span class="accordion-building">Building number</span>
+            </div>
             <span class="accordion-participants">Number of the current participants.</span>
             <span class="material-symbols-outlined">expand_more</span>
         </li>
@@ -74,7 +76,7 @@
         <div id="activities-container" class="container centering-container bg-BCIT bg-gradient">
             <h1>Current Activites: </h1>
             <!-- Autocomplete search -->
-            <input type="text" id="activity-search-input" onkeyup="activitySearch()" placeholder="Search activities...">
+            <input type="text" id="activity-search-input" onkeyup="activitySearch()" placeholder="Search by title, building, or type of activity...">
             <!--Container for list of activities-->
             <ul id="activities-go-here"></ul>
         </div>

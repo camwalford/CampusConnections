@@ -200,26 +200,25 @@ li:has(span[class="reciever"]) {
 
 /*filter and searchbar*/
 #activity-search-input {
-    background-image: url('../images/searchicon.png'); /* Add a search icon to input */
-    background-position: 10px 12px; /* Position the search icon */
+    background-image: url('../images/searchicon.png'); 
+    background-position: 10px 12px; 
     background-size: 23px;
-    background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 100%; /* Full-width */
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
+    background-repeat: no-repeat; 
+    width: 100%; 
+    font-size: 16px; 
+    padding: 12px 20px 12px 40px; 
+    border: 1px solid #ddd; 
+    margin-bottom: 12px; 
   }
   
   #activities-go-here{
     list-style-type: none;
-    padding: 0px;
+    padding: 10px;
     margin: 0px;
     max-height: 50vh;
     overflow-y: scroll;
   }
-
-
+ 
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
@@ -227,6 +226,7 @@ li:has(span[class="reciever"]) {
     color: #444;
     cursor: pointer;
     padding: 18px;
+    margin-top: 10px;
     width: 100%;
     text-align: left;
     border: none;
@@ -244,11 +244,13 @@ li:has(span[class="reciever"]) {
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
   .active, .accordion:hover {
     background-color: #ccc;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    
   }
   
-  /* Style the accordion panel. Note: hidden by default */
   .panel {  
-    padding: 0px 18px;
+    padding: 0px 20px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: white;
@@ -257,13 +259,19 @@ li:has(span[class="reciever"]) {
     transition: max-height 0.2s ease-out;
   }
 
-  .panel span{ 
-    padding: 0px 18px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  }
+.panel span{ 
+padding: 0px 18px;
+margin: 0px;
+background-color: white;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.2s ease-out;
+}
+
+
+.search-queries{
+    display: inline-block;
+}
 
 
 
