@@ -40,14 +40,14 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    
 
 </head>
 
 <body id="body" class="background-map">
       <!-- Templates for general use, not displayed -->
     <template id="activityTemplate">
-      <div class="card py-2 mx-2" style="width: 18rem;">
+      <div style="width: 18rem;">
           <!-- <img class="card-image card-img-top" src=" ..." alt="..."> -->
           <div class="card-body">
               <h5 class="card-title">Card title</h5>
@@ -65,13 +65,13 @@
     <nav id="header"></nav>
 
     <main id="main" class="center-content">
-      <div id="currentGroupContainer" class="container bg-BCIT bg-gradient p-5" >
+      <div id="currentGroupContainer" class="container centering-container bg-BCIT p-5" >
         <button id="exitButton" type="button" class="close rounded border-1 newButton" aria-label="Close">
               <span aria-hidden="true">&times;</span>
         </button>
         <main id = "main" class="center-content" >
           <!-- main page content here -->
-              <div class="container bg-BCIT bg-gradient p-5">
+              <div class="container bg-BCIT p-5">
                   <h1>Your Current Group: </h1>
                   <!-- Here is container for cards  -->
                   <div class="container">
@@ -79,28 +79,30 @@
                       </div>
                   </div>
               </div>
-          </main>
-            <!-- messages will display here -->
-              <ul id="messages"></ul>
-  
-              <!-- form to send message -->
+        </main>
+            
+            <div id="chat-window">
+              <ul id="messages">
+              <!-- messages will display here -->
+              </ul>
+            </div>
               <form id="message-form">
                 <input id="message-input" type="text"/>
                   <button id="message-submit" name="message-submit" type="button">Send</button>
                 </input>
-            </form>
-            </div>
+              </form>
+            
         </div>
         
         
         
-        <form>
+        <!-- <form>
           <div class="row mt-3">
             <button type="submit" id="leaveGroupButton" class="newButton btn btn-light text-black mb-3 d-inline-block w-50" value="LEAVE GROUP" name="leaveGroupButton">
               LEAVE GROUP
             </button>
           </div>
-        </form>
+        </form> -->
       </div>
     </main>
 

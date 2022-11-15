@@ -45,15 +45,21 @@
 <body id = "body" class="background-map">
     <!-- Templates for general use, not displayed -->
     <template id="activityTemplate">
-        <div class="card py-2 my-2 mx-2" style="width: 18rem;">
-            <!-- <img class="card-image card-img-top" src=" ..." alt="..."> -->
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a class="btn btn-primary card-href" id="join-now">Join Now!</a>
+        <li class="accordion">
+            <div class="search-queries">
+                <span class="accordion-title">Section 1</span>
+                <span class="accordion-type">Type of activity</span>
+                <span class="accordion-building">Building number</span>
             </div>
+            <span class="accordion-participants">Number of the current participants.</span>
+            <span class="material-symbols-outlined">expand_more</span>
+        </li>
+        <div class="panel">
+            <span class="accordion-startTime">Start time of activity</span>
+            <span class="accordion-description">Description of said activity</span>
+            <a class="btn btn-primary card-href" id="join-now">Join Now!</a>
         </div>
+        
     </template>
 
 
@@ -67,13 +73,12 @@
 
     <main id = "main" class="center-content" >
     <!-- main page content here -->
-        <div class="container centering-container bg-BCIT bg-gradient p-5">
+        <div id="activities-container" class="container centering-container bg-BCIT bg-gradient">
             <h1>Current Activites: </h1>
-            <!-- Here is container for cards  -->
-            <div class="container">
-                <div id="activities-go-here" class="row row-cols-auto">
-                </div>
-            </div>
+            <!-- Autocomplete search -->
+            <input type="text" id="activity-search-input" onkeyup="activitySearch()" placeholder="Search by title, building, or type of activity...">
+            <!--Container for list of activities-->
+            <ul id="activities-go-here"></ul>
         </div>
     </main>
 
@@ -91,6 +96,7 @@
     <script src="./scripts/activities.js"></script>
     <script src="./scripts/clearActivities.js"></script>
     <script src="./scripts/toMap.js"></script>
+    <script src="./scripts/filter.js"></script>
 
 
     <!-- Link to scripts of your own -->
