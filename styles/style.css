@@ -273,5 +273,28 @@ transition: max-height 0.2s ease-out;
     display: inline-block;
 }
 
+.accordion{
+    display: grid;
+    grid-template-columns: 75% 15% 10%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "search-queries participant-number arrow"
+    
+}
+.search-queries{
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "title activity-type building"
+}
+
+.accordion > span{
+    
+    display: flex;
+    justify-content: flex-end;
+}
+
+
 
 
