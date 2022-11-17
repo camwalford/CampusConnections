@@ -47,25 +47,16 @@
 <body id="body" class="background-map">
       <!-- Templates for general use, not displayed -->
     <template id="activityTemplate">
-      <div style="width: 18rem;">
+      
           <!-- <img class="card-image card-img-top" src=" ..." alt="..."> -->
-          <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                  <div id="chat-window">
-                    <ul id="messages">
-                    <!-- messages will display here -->
-                    </ul>
-                  </div>
-                    <form id="message-form">
-                      <input id="message-input" type="text"/>
-                        <button id="message-submit" name="message-submit" type="button">Send</button>
-                      </input>
-                    </form>
-              <a class="btn btn-primary card-href">Leave Group</a>
-          </div>
+      <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+              
+          <a class="btn btn-primary card-href">Leave Group</a>
       </div>
+      
     </template>
 
 
@@ -81,14 +72,24 @@
         </button>
         <main id = "main" class="center-content" >
           <!-- main page content here -->
-              <div class="container bg-BCIT">
-                  <h1>Your Current Group: </h1>
+              
+                  <!-- <h1>Your Current Group: </h1> -->
                   <!-- Here is container for cards  -->
-                  <div class="container">
-                      <div id="activities-go-here" class="row row-cols-auto">
+                  <div class="container bg-BCIT">
+                      <div id="activities-go-here" >
                       </div>
+                      <div id="chat-window">
+                        <ul id="messages">
+                        <!-- messages will display here -->
+                        </ul>
+                      </div>
+                        <form id="message-form">
+                          <input id="message-input" type="text"/>
+                            <button id="message-submit" name="message-submit" type="button">Send</button>
+                          </input>
+                        </form>
                   </div>
-              </div>
+              
         </main>
             
             

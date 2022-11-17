@@ -1,7 +1,8 @@
-displayCurrentMessages()
+displayCurrentMessages();
 //Invokes a click listener for the message-submit button
 
 document.getElementById("message-submit").addEventListener("click", function(e){
+    console.log("submit clicked");
     firebase.auth().onAuthStateChanged(async(user) => {
         //Checks if there is a current user logged in
         if(user){
