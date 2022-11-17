@@ -39,7 +39,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/groupStyle.css">
     
 
 </head>
@@ -53,6 +53,16 @@
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                   card's content.</p>
+                  <div id="chat-window">
+                    <ul id="messages">
+                    <!-- messages will display here -->
+                    </ul>
+                  </div>
+                    <form id="message-form">
+                      <input id="message-input" type="text"/>
+                        <button id="message-submit" name="message-submit" type="button">Send</button>
+                      </input>
+                    </form>
               <a class="btn btn-primary card-href">Leave Group</a>
           </div>
       </div>
@@ -65,13 +75,13 @@
     <nav id="header"></nav>
 
     <main id="main" class="center-content">
-      <div id="currentGroupContainer" class="container centering-container bg-BCIT p-5" >
+      <div id="currentGroupContainer" class="container centering-container bg-BCIT" >
         <button id="exitButton" type="button" class="close rounded border-1 newButton" aria-label="Close">
               <span aria-hidden="true">&times;</span>
         </button>
         <main id = "main" class="center-content" >
           <!-- main page content here -->
-              <div class="container bg-BCIT p-5">
+              <div class="container bg-BCIT">
                   <h1>Your Current Group: </h1>
                   <!-- Here is container for cards  -->
                   <div class="container">
@@ -81,16 +91,7 @@
               </div>
         </main>
             
-            <div id="chat-window">
-              <ul id="messages">
-              <!-- messages will display here -->
-              </ul>
-            </div>
-              <form id="message-form">
-                <input id="message-input" type="text"/>
-                  <button id="message-submit" name="message-submit" type="button">Send</button>
-                </input>
-              </form>
+            
             
         </div>
         
