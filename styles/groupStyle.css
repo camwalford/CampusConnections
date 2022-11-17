@@ -76,11 +76,6 @@ main{
     box-shadow: 1px 1px 0px black;
 }
 
-#currentGroupContainer{
-    max-width: 95%;
-    max-height: 100%;
-    padding: 15px;
-}
 
 #groupNav span{
     color:rgb(40, 40, 40);

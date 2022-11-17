@@ -60,16 +60,16 @@
     </div>
 
     <main id = "main" class="center-content">
-      <div id="createGroup-container" class="container centering-container bg-BCIT bg-gradient p-5" >
+      <div id="createGroup-container" class="container centering-container bg-BCIT bg-gradient" >
           
         <!--TODO have exitButton link back to map-->
         <button id="exitButton" type="button" class="close rounded border-1 newButton" aria-label="Close">
               <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="text-center mb-4">CREATE A NEW GROUP</h4>
+        <h5 class="text-center mb-1">CREATE YOUR NEW GROUP</h5>
         <form class="centered">
 
-          <div id="title-section" class="form-group row mt-3">
+          <div id="title-section" class="form-group row ">
             <label for="activityTitle" class="col-sm-2 col-form-label">Title:</label>
             <div class="col-sm-9">
               <input type="text" name="activityTitle" class="form-control" id="activityTitle" placeholder="Enter a title" required/>
@@ -155,7 +155,7 @@
           
           <div id="description-section" class="form-group-row mt-3">
             <label for="description">Description:</label>
-            <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+            <textarea class="form-control" id="description" rows="1" name="description"></textarea>
           </div>
           
           <!--TODO creates new group in firestore server and sends you to new group page-->
