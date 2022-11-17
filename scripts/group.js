@@ -75,7 +75,7 @@ function leaveGroup(id) {
     currentParticipants: firebase.firestore.FieldValue.increment(-1),
   })
   .then(() => {
-    //window.open("group.html", "_self");
+    window.open("activities.html", "_self");
   });
 }
 

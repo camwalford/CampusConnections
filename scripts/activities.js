@@ -81,7 +81,7 @@ function joinGroup(id) {
                 currentGroup: id,
               })
               .then(() => {
-                //window.open("group.html", "_self");
+                window.open("group.html", "_self");
               });
           } else {
             //snap.data().currentParticipants = 1;
@@ -99,7 +99,7 @@ function joinGroup(id) {
                 currentGroup: id,
               })
               .then(() => {
-                //window.open("group.html", "_self");
+                window.open("group.html", "_self");
               });
           }
         });
