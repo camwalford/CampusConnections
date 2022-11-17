@@ -27,7 +27,7 @@ function displayCards(collection) {
                 newAccordion.querySelector('.accordion-title').innerHTML = title;
                 newAccordion.querySelector('.accordion-type').innerHTML = activityType;
                 newAccordion.querySelector('.accordion-building').innerHTML = building;
-                newAccordion.querySelector('.accordion-participants').innerHTML = participants;
+                newAccordion.querySelector('.accordion-participants').innerHTML = CurrentParticipants;
                 newAccordion.querySelector('.accordion-description').innerHTML = description;;
 
                 // newAccordion.querySelector('.card-image').src = `./images/${hikeID}.jpg`; //Example: NV01.jpg
@@ -50,16 +50,35 @@ function displayCards(collection) {
 function joinGroup(id){
     var currentUserRef = db.collection("users").doc(currentUserID);
     var joiningActivityRef = db.collection("activities").doc(id);
-    var currentActivityRef = db.collection("activities").doc(currentUserRef.currentGroup);
+    
+    var currentActivityRef = db
+    .collection("users")
+    .doc(currentUserID)
+    .get()
+    .then((doc) => {
+        var currentActivity = db
+        .collection("activities")
+        .doc(doc.data().currentGroup)
+        .get()
+        .then((snap) => {
+            //implement something to check if you try to join the group you're already in, it currently breaks it
+          console.log(snap.data().currentParticipants);
+          snap.data().currentParticipants = 1;
+          db.collection("activities").doc(doc.data().currentGroup).update({
+            currentParticipants: snap.data().currentParticipants - 1,
+          })
+        });
+    });
+
     
     console.log("uid of current user is" + currentUserID);
     console.log("uid of activity is " + id);
-    console.log("uid of previous activity is " + currentUserRef.currentGroup)
+    console.log("uid of previous activity is " + currentUserRef.currentGroup);
 
     //TODO currently joining a group succesfully increases the participants, leaving a group does not decrease
-    currentActivityRef.update({
-        currentParticipants: firebase.firestore.FieldValue.increment(-1),
-    })
+    // currentActivityRef.update({
+    //     currentParticipants: firebase.firestore.FieldValue.increment(-1),
+    // })
     joiningActivityRef.update({
         currentParticipants: firebase.firestore.FieldValue.increment(1),
     })

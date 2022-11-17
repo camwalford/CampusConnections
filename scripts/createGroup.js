@@ -38,8 +38,11 @@ function ValidationEvent() {
             window.open("group.html", "_self");
         }
       }).then((docRef) => {
+        if(currentUserRef.currentGroup != null) { //if the currentGroup is not null
+          console.log("leaving current group"); //leave the current group
+        }
         currentUserRef.update({
-            currentGroup: docRef.id
+            currentGroup: docRef.id //join the newly created group
         });
         window.open("group.html", "_self");
       });
