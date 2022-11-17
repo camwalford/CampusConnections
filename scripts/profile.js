@@ -2,9 +2,9 @@ function displayProfile() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user.uid);
-        console.log(user.name);
+        console.log(user.displayName);
         console.log(user.email);
-        document.getElementById("username").innerHTML = "user: " + user.name;
+        document.getElementById("username").innerHTML = "user: " + user.displayName;
         document.getElementById("email").innerHTML = "email: " + user.email;
         document.getElementById("users-program").innerHTML = "program: " + user.program;
         document.getElementById("schoolyear").innerHTML = "year: " + user.year;
