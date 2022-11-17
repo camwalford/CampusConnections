@@ -6,40 +6,39 @@
 
 @font-face {
     font-family: 'robotoregular';
-    src: url('fonts/webfontkit-roboto-regular-webfont.woff2') format('woff2'),
-         url('roboto-regular-webfont.woff') format('woff'),
-         url('roboto-regular-webfont.ttf') format('truetype');
+    src: url('/font/roboto-regular-webfont.woff2') format('woff2'),
+         url('/font/roboto-regular-webfont.woff') format('woff'),
+         url('/font/roboto-regular-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
 }
 
-html{
-    height: 100vh;
-    width: 100vw;
-    font-family: robotoregular;
-     
+*{
+    font-family: robotoregular, sans-serif;
 }
 
-body{
-    height: calc(100% - 166.4px);
-    margin: 82.4px 0px;
-    color: white; 
-    
+html{
+    height: 100vh;
+    width: 100vw;     
 }
-header, nav, footer{
+
+footer{
     max-width: 100vw;
-    color: white; 
+    color: rgb(0, 0, 0); 
+    border: 1px solid lightgrey;
+    border-radius: 0px;
+}
+
+nav{
+    border-radius: 50px;
+    border: 1px solid rgb(202, 202, 202);
 }
 
 .clickbox{
     height: 100%;
     width: 100%;
     margin: 0;
-}
-main{
-    height: 100%;
-    width: 100%;
 }
 
 .center-content{
@@ -53,63 +52,24 @@ main{
     box-shadow: 0px 0px 3px black; 
 }
 
-.newButton{
-    margin: 0 auto;
-    border: 1px solid black;
-    border: 1px solid grey;
-    box-shadow: 1px 1px 2px black;
-}
-.newButton:hover{
-    background-color:rgb(187, 187, 187);
-    box-shadow: 1px 1px 0px black;
-}
-
-#createButton{
-    margin: 0 auto;
-    border: 1px solid black;
-    border: 1px solid grey;
-    box-shadow: 1px 1px 4px black;
-}
-#createButton:hover{
-    background-color:rgb(187, 187, 187);
-    box-shadow: 1px 1px 0px black;
-}
-
-#currentGroupContainer{
-    max-width: 80%;
-}
-
-
-
-#leaveGroupButton{
-    margin: 0 auto;
-    border: 1px solid black;
-    border: 1px solid grey;
-    box-shadow: 1px 1px 4px black;
-}
-#leaveGroupButton:hover{
-    background-color:rgb(187, 187, 187);
-    box-shadow: 1px 1px 0px black;
-}
 #header-logo{
     color:white;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 .bg-BCIT{
-    background-color:rgb(24, 64, 105);
-    color: white; 
+    background-color:rgb(255, 255, 255);
+    color: rgb(113, 113, 113); 
 }
+
+
+
 button[class*="bg-BCIT"]:hover{
-    background-color:rgb(24, 64, 105);
+    background-color:rgb(206, 206, 206);
 }
 
 .background-map{
     background-image: url("../images/BCIT_Map2_Low_Opacity.png");
-}
-
-#activities-go-here{
-    color: black;
 }
 
 .blacktext{
@@ -136,176 +96,3 @@ background: grey;
 }
 
 /*Styling for chat*/
-#messages{
-    margin: 10px 5px;
-}
-
-#messages li {
-    list-style-type: none;
-    margin-bottom: 10px;
-    background-color: #e8e8e8;
-    padding: 5px;
-    border-radius: 10px;
-    color: black;
-    width: 50%;
-}
-
-li span {
-    font-weight: bolder;
-}
-
-#chat-window {
-    width: 100%;
-    height: 200px;
-    margin: auto;
-    overflow-y: scroll;
-    margin-bottom: 20px;
-    background-color: white;
-    border: 1px solid rgb(37, 78, 120);
-    border-radius: 5px
-}
-#message-form {
-    text-align: center;
-    width: 100%;
-}
-
-#message-input{
-    width: 80%;
-    margin-top: 15px;
-    border-radius: 5px;
-}
-
-#message-submit{
-    width: 15%;
-    border-radius: 5px;
-}
-
-li:has(span[class="sender"]) { 
-    margin-left: 50%;
-}
-
-li:has(span[class="reciever"]) {
-    margin-right: 50%;
-}
-
-.sender:after, .receiver:after{
-    content: ":  "
-}
-
-.sender{
-    display: block;
-    font-size: smaller;
-    color: grey;
-}
-
-.receiver{
-    display: block;
-    font-size: smaller;
-    color: grey;
-}
-
-/*Styling for activities*/
-#activities-container{
-    padding: 25px;
-}
-
-/*filter and searchbar*/
-#activity-search-input {
-    background-image: url('../images/searchicon.png'); 
-    background-position: 10px 12px; 
-    background-size: 23px;
-    background-repeat: no-repeat; 
-    width: 100%; 
-    font-size: 16px; 
-    padding: 12px 20px 12px 40px; 
-    border: 1px solid #ddd; 
-    margin-bottom: 12px; 
-  }
-  
-  #activities-go-here{
-    list-style-type: none;
-    padding: 10px;
-    margin: 0px;
-    max-height: 50vh;
-    overflow-y: scroll;
-  }
- 
-
-/* Style the buttons that are used to open and close the accordion panel */
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    margin-top: 10px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    transition: 0.4s;
-  }
-
-  .activityTemplate li{
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
-  }
-  
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .accordion:hover {
-    background-color: #ccc;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    
-  }
-  
-  .panel {  
-    padding: 0px 20px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  }
-
-.panel span{ 
-padding: 0px 18px;
-margin: 0px;
-background-color: white;
-max-height: 0;
-overflow: hidden;
-transition: max-height 0.2s ease-out;
-}
-
-
-.search-queries{
-    display: inline-block;
-}
-
-.accordion{
-    display: grid;
-    grid-template-columns: 75% 15% 10%;
-    grid-template-rows: auto;
-    grid-template-areas:
-    "search-queries participant-number arrow"
-    
-}
-.search-queries{
-    display: grid;
-    grid-template-columns: 50% 25% 25%;
-    grid-template-rows: auto;
-    grid-template-areas:
-    "title activity-type building"
-}
-
-.accordion > span{
-    
-    display: flex;
-    justify-content: flex-end;
-}
-
-
-
-
