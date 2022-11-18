@@ -93,7 +93,7 @@ main{
     box-shadow: 1px 1px 0px black;
 }
 
-#activities-go-here{
+#groups-go-here{
     color: black;
     list-style-type: none;
     margin: 0px;
@@ -175,7 +175,7 @@ li:has(span[class="reciever"]) {
     color: grey;
 }
 
-/*Styling for activities*/
+/*Styling for groups*/
 
 
 /*filter and searchbar*/

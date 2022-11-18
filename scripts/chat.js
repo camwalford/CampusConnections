@@ -48,8 +48,8 @@ document.getElementById("message-submit").addEventListener("click", function(e){
             .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
             if(typeof message === 'string' && message.trim() !== ''){
-            //Adds message document to activity's chat collection with data.
-                db.collection("activities").doc(groupRef).collection("chats").add({
+            //Adds message document to groups's chat collection with data.
+                db.collection("groups").doc(groupRef).collection("chats").add({
                     username: user.displayName,
                     message: message,
                     timesent: timestamp,
@@ -83,7 +83,7 @@ function displayCurrentMessages(){
             .then((doc) => {
                 console.log(doc.data().currentGroup);       
                 db
-                .collection("activities")
+                .collection("groups")
                 .doc(doc.data().currentGroup)
                 .collection("chats")
                 .onSnapshot(function(snapshot) {

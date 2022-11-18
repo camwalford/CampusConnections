@@ -4,7 +4,7 @@ function displayGroup() {
       console.log(user.uid, " is logged in");
       currentUserID = user.uid;
 
-      let cardTemplate = document.getElementById("activityTemplate");
+      let cardTemplate = document.getElementById("groupTemplate");
       console.log(currentUserID);
       var currentGroupRef = db
         .collection("users")
@@ -12,20 +12,20 @@ function displayGroup() {
         .get()
         .then((doc) => {
           console.log(doc.data().currentGroup);
-          var currentActivity = db
-            .collection("activities")
+          var currentGroup = db
+            .collection("groups")
             .doc(doc.data().currentGroup)
             .get()
             .then((snap) => {
               console.log(snap.data());
 
               var title = snap.data().title;
-              var activityType = snap.data().activityType;
-              var activityID = snap.id; //gets the unique id for the activity
+              var groupType = snap.data().groupType;
+              var groupID = snap.id; //gets the unique id for the group
               var building = snap.data().building;
               var participants = snap.data().participants;
               var description = snap.data().description;
-              console.log("id is "+ activityID);
+              console.log("id is "+ groupID);
 
               let newcard = cardTemplate.content.cloneNode(true);
 
@@ -33,7 +33,7 @@ function displayGroup() {
               newcard.querySelector(".card-title").innerHTML = title;
               newcard.querySelector(".card-text").innerHTML =
                 "type: " +
-                activityType +
+                groupType +
                 "<br/>building: " +
                 building +
                 "<br/>participants: " +
@@ -41,10 +41,10 @@ function displayGroup() {
                 "<br/>description: " +
                 description;
 
-              newcard.querySelector("a").onclick = () => leaveGroup(activityID);
+              newcard.querySelector("a").onclick = () => leaveGroup(groupID);
 
               document
-                .getElementById("activities-go-here")
+                .getElementById("groups-go-here")
                 .appendChild(newcard);
             });
         });
@@ -58,24 +58,24 @@ function displayGroup() {
 
 function leaveGroup(id) {
   var currentUserRef = db.collection("users").doc(currentUserID);
-  var ActivityRef = db.collection("activities").doc(id);
+  var GroupRef = db.collection("groups").doc(id);
 
   console.log("uid of current user is" + currentUserID);
-  console.log("uid of activity is " + id);
+  console.log("uid of group is " + id);
 
   //TODO currently joining a group succesfully increases the participants, leaving a group does not decrease
-  // currentActivityRef.update({
+  // currentGroupRef.update({
   //     currentParticipants: firebase.firestore.FieldValue.increment(-1),
   // })
   currentUserRef.update({
     currentGroup: "none",
   });
 
-  ActivityRef.update({
+  GroupRef.update({
     currentParticipants: firebase.firestore.FieldValue.increment(-1),
   })
   .then(() => {
-    window.open("activities.html", "_self");
+    window.open("groupsList.html", "_self");
   });
 }
 

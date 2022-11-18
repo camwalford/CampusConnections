@@ -14,7 +14,7 @@
 
 }
 
-#activitiesNav span{
+#groupsNav span{
     color:rgb(40, 40, 40);
 }
 
@@ -49,13 +49,13 @@ main{
     box-shadow: 0px 0px 3px black; 
 }
 
-/*Styling for activities*/
-#activities-container{
+/*Styling for groups*/
+#groups-container{
     padding: 25px;
 }
 
 /*filter and searchbar*/
-#activity-search-input {
+#group-search-input {
     background-image: url('../images/searchicon.png'); 
     background-position: 10px 12px; 
     background-size: 23px;
@@ -67,7 +67,7 @@ main{
     margin-bottom: 12px; 
   }
   
-  #activities-go-here{
+  #groups-go-here{
     list-style-type: none;
     padding: 10px;
     margin: 0px;
@@ -91,7 +91,7 @@ main{
     transition: 0.4s;
   }
 
-  .activityTemplate li{
+  .groupTemplate li{
     list-style-type: none;
     padding: 0px;
     margin: 0px;
@@ -142,7 +142,7 @@ transition: max-height 0.2s ease-out;
     grid-template-columns: 50% 25% 25%;
     grid-template-rows: auto;
     grid-template-areas:
-    "title activity-type building"
+    "title group-type building"
 }
 
 .accordion > span{

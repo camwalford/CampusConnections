@@ -3,8 +3,8 @@
 function ValidationEvent() {
     console.log("uid of current user is" + currentUserID);
 
-    var title1 = document.getElementById("activityTitle").value;
-    var type1 = document.getElementById("activityType").value;
+    var title1 = document.getElementById("groupTitle").value;
+    var type1 = document.getElementById("groupType").value;
     var building1 = document.getElementById("building").value;
     //var startTime = document.getElementById("startTime").value;
     //var endTime = document.getElementById("endTime").value;
@@ -18,11 +18,11 @@ function ValidationEvent() {
 //gotta figure out how to use the inputted endTime but for now this is fine
     end.setHours(end.getHours() + parseInt(length)); //adds 5 hours
 
-    var activitiesRef = db.collection("activities");
+    var groupsRef = db.collection("groups");
     var currentUserRef = db.collection("users").doc(currentUserID);
-    activitiesRef.add({
+    groupsRef.add({
         title: title1,
-        activityType: type1,
+        groupType: type1,
         building: building1,
         participants: participants1,
         // starttime: startTime,

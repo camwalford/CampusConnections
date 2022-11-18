@@ -1,7 +1,7 @@
-function activitySearch() {
+function groupSearch() {
     // Declare variables
     var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById('activity-search-input');
+    input = document.getElementById('group-search-input');
     filter = input.value.toUpperCase();
     ul = document.getElementById("activities-go-here");
     li = ul.getElementsByTagName('li');
