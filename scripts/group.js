@@ -4,7 +4,7 @@ function displayGroup() {
       console.log(user.uid, " is logged in");
       currentUserID = user.uid;
 
-      let cardTemplate = document.getElementById("groupTemplate");
+      let groupTemplate = document.getElementById("group-template");
       console.log(currentUserID);
       var currentGroupRef = db
         .collection("users")
@@ -23,29 +23,35 @@ function displayGroup() {
               var groupType = snap.data().groupType;
               var groupID = snap.id; //gets the unique id for the group
               var building = snap.data().building;
-              var participants = snap.data().participants;
+              var currentParticipants = snap.data().currentParticipants;
+              var maxParticipants = snap.data().participants;
               var description = snap.data().description;
+              var startTime;
+              var endTime = snap.data().endtime;
               console.log("id is "+ groupID);
 
-              let newcard = cardTemplate.content.cloneNode(true);
+              let newGroup = groupTemplate.content.cloneNode(true);
 
               //update title and text and image
-              newcard.querySelector(".card-title").innerHTML = title;
-              newcard.querySelector(".card-text").innerHTML =
-                "type: " +
-                groupType +
-                "<br/>building: " +
-                building +
-                "<br/>participants: " +
-                participants +
-                "<br/>description: " +
-                description;
+              newGroup.getElementById("group-title").innerHTML = title;
+              newGroup.getElementById("group-type").innerHTML =
+              groupType;
+              newGroup.getElementById("group-building").innerHTML =
+              building;
+              newGroup.getElementById("group-time").innerHTML =
+              "00:00" + "-" + "00:00";
+              newGroup.getElementById("group-participants").innerHTML =
+              currentParticipants + "/" +  maxParticipants;
+              newGroup.getElementById("group-description").innerHTML =
+              "Description: " +  description;
+               
+             
 
-              newcard.querySelector("a").onclick = () => leaveGroup(groupID);
+              newGroup.querySelector("#group-leave").onclick = () => leaveGroup(groupID);
 
               document
                 .getElementById("groups-go-here")
-                .appendChild(newcard);
+                .appendChild(newGroup);
             });
         });
 

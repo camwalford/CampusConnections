@@ -47,15 +47,17 @@
 
 <body id="body" class="background-map">
       <!-- Templates for general use, not displayed -->
-    <template id="groupTemplate">
+    <template id="group-template">
       
           <!-- <img class="card-image card-img-top" src=" ..." alt="..."> -->
-      <div>
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-              
-          <a class="btn btn-primary card-href">Leave Group</a>
+      <div id="group-grid-container">
+          <span id="group-title">Card title</span>
+          <span id="group-type"></span>
+          <span id="group-building"></span>
+          <span id="group-time"></span>
+          <span id="group-participants"></span>
+          <span id="group-description"></span>
+          <span id="group-leave">Leave Group</span>
       </div>
       
     </template>
@@ -107,18 +109,13 @@
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_TEAM26.js"></script>
-
     <script src="./scripts/script.js"></script>
-
     <script src="./scripts/group.js"></script>
-    <!-- <script src="./scripts/authentication.js"></script> -->
-
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/exitButton.js"></script>
     <script src="./scripts/toMap.js"></script>
     <script src="./scripts/chat.js"></script>
 
-    <!-- Link to scripts of your own -->
 
 
 </body>

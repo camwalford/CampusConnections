@@ -48,11 +48,52 @@ main{
 }
 
 #groups-go-here{
-    color: black;
     list-style-type: none;
     margin: 0px;
     height: 20%;
 }
+
+#group-grid-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 40% 40% 10%;
+    grid-template-rows: 25% 20% 40% 15%;
+    grid-template-areas: 
+    "title title type"
+    "building time time"
+    "description description participants"
+    "leave leave leave"
+}
+
+#group-title{
+    grid-area: title;
+}
+
+#group-type{
+    grid-area: type;
+}
+
+#group-building{
+    grid-area: building;
+}
+
+#group-time{
+    grid-area: time;
+}
+
+#group-participants{
+    grid-area: participants;
+}
+
+#group-description{
+    grid-area: description;
+    
+}
+
+#group-leave{
+    grid-area: leave;
+}
+
 
 /*Styling for chat*/
 #messages{
