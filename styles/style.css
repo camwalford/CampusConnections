@@ -41,15 +41,21 @@ nav{
     margin: 0;
 }
 
+
 .newButton{
-    margin: 0 auto;
+    /* margin: 0 auto;
     border: 1px solid black;
     border: 1px solid grey;
-    box-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 2px black; */
+    height: 24px;
+    display: inline-block;
+    font-size: 20pt;
+    color: rgb(113, 113, 113);
 }
+
 .newButton:hover{
-    background-color:rgb(187, 187, 187);
-    box-shadow: 1px 1px 0px black;
+    color:rgb(37, 37, 37);
+
 }
 
 .center-content{
@@ -57,6 +63,7 @@ nav{
     justify-content: center;
     align-items: center;
 }
+
 .centering-container{
     border-radius: 15px;
     border: 2px solid black;

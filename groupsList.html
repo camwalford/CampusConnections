@@ -74,6 +74,11 @@
     <main id = "main" class="center-content" >
     <!-- main page content here -->
         <div id="groups-container" class="container centering-container bg-BCIT bg-gradient">
+            <div id="exitButton" class=" newButton">
+                <span class="material-symbols-outlined">
+                  close
+                  </span>
+              </div>
             <h1>Current Groups: </h1>
             <!-- Autocomplete search -->
             <input type="text" id="group-search-input" onkeyup="groupSearch()" placeholder="Search by title, building, or type of group...">
@@ -94,10 +99,12 @@
     <script src="./scripts/firebaseAPI_TEAM26.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <!-- <script src="./scripts/authentication.js"></script> -->
+    
     <script src="./scripts/groupsList.js"></script>
     <script src="./scripts/clearGroups.js"></script>
     <script src="./scripts/toMap.js"></script>
     <script src="./scripts/filter.js"></script>
+    <script src="./scripts/exitButton.js"></script>
 
 
     <!-- Link to scripts of your own -->

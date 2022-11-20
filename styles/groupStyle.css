@@ -54,17 +54,6 @@ main{
 }
 
 
-.newButton{
-    margin: 0 auto;
-    border: 1px solid black;
-    border: 1px solid grey;
-    box-shadow: 1px 1px 2px black;
-}
-.newButton:hover{
-    background-color:rgb(187, 187, 187);
-    box-shadow: 1px 1px 0px black;
-}
-
 #createButton{
     margin: 0 auto;
     border: 1px solid black;
@@ -175,8 +164,12 @@ li:has(span[class="reciever"]) {
     color: grey;
 }
 
-/*Styling for groups*/
+/*Styling for group container*/
 
+#currentGroupContainer{
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
 
 /*filter and searchbar*/
   
