@@ -37,11 +37,11 @@ function displayGroup() {
               newGroup.getElementById("group-type").innerHTML =
               groupType;
               newGroup.getElementById("group-building").innerHTML =
-              building;
+              "<span id=\"pin\" class=\"material-symbols-outlined\">location_on</span>"+ building;
               newGroup.getElementById("group-time").innerHTML =
-              "00:00" + "-" + "00:00";
+              "<span id=\"clock\" class=\"material-symbols-outlined\">schedule</span>" + "00:00" + "-" + "00:00";
               newGroup.getElementById("group-participants").innerHTML =
-              currentParticipants + "/" +  maxParticipants;
+              "<span id=\"person\" class=\"material-icons\">person</span>" + currentParticipants + "/" +  maxParticipants;
               newGroup.getElementById("group-description").innerHTML =
               "Description: " +  description;
                

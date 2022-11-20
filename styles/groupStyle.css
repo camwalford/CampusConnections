@@ -47,6 +47,19 @@ main{
     box-shadow: 1px 1px 0px black;
 }
 
+/*Styling for group container*/
+h5{
+    margin: 0;
+    color: black;
+}
+#currentGroupContainer{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    /* min-height: max(70%, 425px); */
+    /* max-height: min(100%, 425px) */
+}
+
+
 #groups-go-here{
     list-style-type: none;
     margin: 0px;
@@ -54,22 +67,34 @@ main{
 }
 
 #group-grid-container{
+    min-height: 240px;
     display: grid;
     width: 100%;
-    grid-template-columns: 40% 40% 10%;
-    grid-template-rows: 25% 20% 40% 15%;
+    grid-template-columns: 8% 20% 30% 27% 15%;
+    grid-template-rows: 25% 20% 40% 10%;
     grid-template-areas: 
-    "title title type"
-    "building time time"
-    "description description participants"
-    "leave leave leave"
+    "exit title title title participants"
+    "type type building time time"
+    "description description description description description"
+    "extra extra extra leave extra2"
+}
+
+#exitButton, #exitButton span{
+    position:absolute;
 }
 
 #group-title{
+    font-weight:bold;
+    font-size: 14pt;
+    color: rgb(0, 0, 0);
     grid-area: title;
+    position: relative;
+    top: 10%;
 }
 
 #group-type{
+    position:relative;
+    top: 8%;
     grid-area: type;
 }
 
@@ -83,17 +108,52 @@ main{
 
 #group-participants{
     grid-area: participants;
+    font-size: 10pt;
+}
+
+
+#person{
+    position: relative;
+    top: 8%;
+    left: 3%;
+    font-size: 16pt;
+}
+
+#clock{
+    position: relative;
+    top: 9%;
+    right: 1%;
+    font-size: 16pt;
+}
+
+#pin{
+    position: relative;
+    top: 9%;
+    right: 1%;
+    font-size: 16pt;
 }
 
 #group-description{
     grid-area: description;
+    color: black;
+    overflow-wrap: normal;
+    max-width: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
     
 }
 
 #group-leave{
     grid-area: leave;
+    text-decoration: underline;
+    font-size: 10pt;
+    position: relative;
+    left: 60%;
 }
 
+.group-info-small{
+    font-size: 11pt;
+}
 
 /*Styling for chat*/
 #messages{
@@ -130,6 +190,7 @@ li span {
     border: 1px solid rgb(37, 78, 120);
     border-radius: 5px
 }
+
 #message-form {
     text-align: center;
     width: 100%;
@@ -170,12 +231,6 @@ li:has(span[class="reciever"]) {
     color: grey;
 }
 
-/*Styling for group container*/
-
-#currentGroupContainer{
-    padding-top: 12px;
-    padding-bottom: 12px;
-}
 
 /*filter and searchbar*/
   
