@@ -24,10 +24,9 @@
 }
 
 body{
-    height: 100%;
-    margin:0;
-    width: 100%;
-    color: white;     
+    height: calc(100% - 150px);
+    margin: 75px 0px;
+    color: white;   
 }
 
 main{
@@ -37,9 +36,12 @@ main{
     overflow-y:scroll;
 }
 
+main::-webkit-scrollbar{
+    height: 0px;
+}
+
 #map{
-    margin-bottom: 74.4px;
-    margin-top: 80px;
+   
 }
 
 

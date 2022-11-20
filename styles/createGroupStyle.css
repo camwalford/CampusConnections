@@ -26,10 +26,9 @@ html{
 }
 
 body{
-    height: calc(100% - 166.4px);
-    margin: 82.4px 0px;
-    color: white; 
-    
+    height: calc(100% - 150px);
+    margin: 75px 0px;
+    color: white;   
 }
 
 main{
