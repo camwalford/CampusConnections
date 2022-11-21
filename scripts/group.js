@@ -47,7 +47,7 @@ function displayGroup() {
                
              
 
-              newGroup.querySelector("#group-leave").onclick = () => leaveGroup(groupID);
+              document.querySelector("#leave").onclick = () => leaveGroup(groupID);
 
               document
                 .getElementById("groups-go-here")
@@ -85,4 +85,15 @@ function leaveGroup(id) {
   });
 }
 
+
 displayGroup();
+
+
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
