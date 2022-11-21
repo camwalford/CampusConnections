@@ -53,6 +53,8 @@ main{
     max-width: 95%;
     max-height: 100%;
     min-height: max(50%, 350px) !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 15px 15px 15px 15px;
     overflow-y: scroll;
 }
@@ -60,6 +62,7 @@ main{
 @media screen and (max-width: 576px) {
     #createGroup-container{
         max-width: 100%;
+        overflow-y: scroll;
         max-height: 100%;
         min-height: max(50%, 350px) !important;
         padding: 15px 15px 15px 15px;
@@ -68,13 +71,18 @@ main{
         /* grid-template-columns: ; */
         font-size: 11pt;   
     }
+    #createGroup-container::-webkit-scrollbar{
+        width: 0px;
+    }
     
     h5{
-        font-size:medium
+        font-size:large;
+        margin: 0;
     }
-    #title-section{
+    #title-section #groupTitle{
 
     }
+    
     #location-section{
         margin-top: 10px;
     }

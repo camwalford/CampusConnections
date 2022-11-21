@@ -30,6 +30,13 @@ body{
 main{
     height: 100%;
     width: 100%;
+    min-height: 444px;
+    overflow-y: scroll;
+    padding: 0;
+}
+
+main::-webkit-scrollbar{
+    width: 0px;
 }
 
 #groupNav span{
@@ -55,7 +62,9 @@ h5{
 #currentGroupContainer{
     padding-top: 12px;
     padding-bottom: 12px;
-    min-height: 92px;
+    min-height: 418px;
+    /* margin-bottom: 60px; */
+    /* margin-top: 60px; */
     /* min-height: max(70%, 425px); */
     /* max-height: min(100%, 425px) */
 }
@@ -80,8 +89,8 @@ h5{
     "extra extra extra extra leave extra2"
 }
 
-#exitButton, #exitButton span{
-    position:absolute;
+#exitButton{
+    grid-area: exit;
 }
 
 #group-title{
