@@ -49,7 +49,20 @@
   </head>
 
   <body id="body" class="background-map">
+    <div id="id01" class="modal">
+      
+      <form class="modal-content" action="/action_page.php">
+        <div class="modalcontainer">
+          <h1>Create Group</h1>
+          <p>Are you sure you want to create this group?</p>
     
+          <div class="clearfix">
+            <button onclick="document.getElementById('id01').style.display='none'"  title="Close Modal" type="button" class="cancelbtn">Cancel</button>
+            <button id="leave" type="button" class="createbtn" onclick = "ValidationEvent()">Create</button>
+          </div>
+        </div>
+      </form>
+    </div>
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
@@ -164,7 +177,7 @@
           <!--TODO creates new group in firestore server and sends you to new group page-->
           
           <div id="createButton-section"class="form-group row mt-3">
-            <button type="button" id="createButton" class="btn btn-light text-black mb-0 d-inline-block w-50" value="Submit" name="Submit" onclick = "ValidationEvent()">
+            <button type="button" id="createButton" class="btn btn-light text-black mb-0 d-inline-block w-50" value="Submit" name="Submit" onclick="document.getElementById('id01').style.display='block'">
               CREATE GROUP
             </button>
           </div>
