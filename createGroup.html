@@ -68,14 +68,14 @@
             close
             </span>
         </div>
-        <h5 class="text-center mb-1">CREATE YOUR NEW GROUP</h5>
+        <h5 id="header" class="text-center mb-1">CREATE YOUR NEW GROUP</h5>
         <form class="centered">
 
           <div id="title-section" class="form-group row ">
             <label for="groupTitle" class="col-sm-2 col-form-label">Title:</label>
             <div class="col-sm-9">
               <input type="text" name="groupTitle" class="form-control" id="groupTitle" placeholder="Enter a title" required
-              minlength="4" maxlength="30"/>
+              minlength="4" maxlength="35"/>
             </div>
           </div>
           <!-- TODO BRAINSTORM MORE OPTIONS OF GROUPS, ADD group ICONS-->
@@ -158,7 +158,7 @@
           
           <div id="description-section" class="form-group-row mt-3">
             <label for="description">Description:</label>
-            <textarea class="form-control" id="description" rows="1" name="description"></textarea>
+            <textarea class="form-control" id="description" rows="1" name="description" placeholder="Enter a detailed description"></textarea>
           </div>
           
           <!--TODO creates new group in firestore server and sends you to new group page-->
