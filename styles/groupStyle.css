@@ -349,6 +349,8 @@ li:has(span[class="reciever"]) {
   
   #noGroup{
     text-align:center;
+    position: relative;
+    top: 115px;
   }
 
  
