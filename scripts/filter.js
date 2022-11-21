@@ -1,3 +1,5 @@
+
+
 function groupSearch() {
     // Declare variables
     var input, filter, ul, li, a, i, txtValue;
@@ -40,5 +42,13 @@ function accordion(){
 }
 accordion();
 
+let params = new URL(window.location.href);
+var buildingId = params.searchParams.get("buildingId");
 
+if(buildingId !== null){
+  input = document.getElementById('group-search-input');
+  input.value = buildingId;
 
+  setTimeout(groupSearch, 700);
+}
+  
