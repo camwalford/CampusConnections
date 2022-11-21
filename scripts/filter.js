@@ -3,7 +3,7 @@ function groupSearch() {
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById('group-search-input');
     filter = input.value.toUpperCase();
-    ul = document.getElementById("activities-go-here");
+    ul = document.getElementById("groups-go-here");
     li = ul.getElementsByTagName('li');
   
     // Loop through all list items, and hide those who don't match the search query

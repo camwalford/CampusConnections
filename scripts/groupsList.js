@@ -26,7 +26,7 @@ function displayCards(collection) {
         newAccordion.querySelector(".accordion-type").innerHTML = groupType;
         newAccordion.querySelector(".accordion-building").innerHTML = building;
         newAccordion.querySelector(".accordion-participants").innerHTML =
-          CurrentParticipants;
+          CurrentParticipants + "/" + participants;
         newAccordion.querySelector(".accordion-description").innerHTML =
           description;
 
