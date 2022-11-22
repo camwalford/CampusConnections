@@ -9,6 +9,7 @@ function displayProfile() {
         document.getElementById("users-program").innerHTML = "program: " + user.program;
         document.getElementById("schoolyear").innerHTML = "year: " + user.year;
 
+        //document.getElementByID("edit").onclick = () => edit(activityID);
         //document.getElementsByID("edit").onclick = () => edit(activityID);
       } else {
         console.log("no one is logged in");
