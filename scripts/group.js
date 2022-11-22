@@ -4,7 +4,7 @@ function displayGroup() {
       console.log(user.uid, " is logged in");
       currentUserID = user.uid;
 
-      let cardTemplate = document.getElementById("activityTemplate");
+      let groupTemplate = document.getElementById("group-template");
       console.log(currentUserID);
       var currentGroupRef = db
         .collection("users")
@@ -12,41 +12,62 @@ function displayGroup() {
         .get()
         .then((doc) => {
           console.log(doc.data().currentGroup);
-          var currentActivity = db
-            .collection("activities")
-            .doc(doc.data().currentGroup)
-            .get()
-            .then((snap) => {
-              console.log(snap.data());
 
-              var title = snap.data().title;
-              var activityType = snap.data().activityType;
-              var activityID = snap.id; //gets the unique id for the activity
-              var building = snap.data().building;
-              var participants = snap.data().participants;
-              var description = snap.data().description;
-              console.log("id is "+ activityID);
+          //Checks if user is in a group and displays the group information and chat if it's true.
+          if(doc.data().currentGroup !== "none"){
+            var currentGroup = db
+              .collection("groups")
+              .doc(doc.data().currentGroup)
+              .get()
+              .then((snap) => {
+                console.log(snap.data());
+                
 
-              let newcard = cardTemplate.content.cloneNode(true);
+                var title = snap.data().title;
+                var groupType = snap.data().groupType;
+                var groupID = snap.id; //gets the unique id for the group
+                var building = snap.data().building;
+                var currentParticipants = snap.data().currentParticipants;
+                var maxParticipants = snap.data().participants;
+                var description = snap.data().description;
+                var startTime;
+                var endTime = snap.data().endtime;
+                console.log("id is "+ groupID);
 
-              //update title and text and image
-              newcard.querySelector(".card-title").innerHTML = title;
-              newcard.querySelector(".card-text").innerHTML =
-                "type: " +
-                activityType +
-                "<br/>building: " +
-                building +
-                "<br/>participants: " +
-                participants +
-                "<br/>description: " +
-                description;
+                let newGroup = groupTemplate.content.cloneNode(true);
 
-              newcard.querySelector("a").onclick = () => leaveGroup(activityID);
+                //update title and text and image
+                newGroup.getElementById("group-title").innerHTML = title;
+                newGroup.getElementById("group-type").innerHTML =
+                groupType;
+                newGroup.getElementById("group-building").innerHTML =
+                "<span id=\"pin\" class=\"material-symbols-outlined\">location_on</span>"+ building;
+                newGroup.getElementById("group-time").innerHTML =
+                "<span id=\"clock\" class=\"material-symbols-outlined\">schedule</span>" + "00:00" + "-" + "00:00";
+                newGroup.getElementById("group-participants").innerHTML =
+                "<span id=\"person\" class=\"material-icons\">person</span>" + currentParticipants + "/" +  maxParticipants;
+                newGroup.getElementById("group-description").innerHTML =
+                "Description: " +  description;
+                
+              
 
-              document
-                .getElementById("activities-go-here")
-                .appendChild(newcard);
-            });
+                document.querySelector("#leave").onclick = () => leaveGroup(groupID);
+
+                document
+                  .getElementById("groups-go-here")
+                  .appendChild(newGroup);
+                
+                var chat = document.getElementById('chat');
+                chat.style.display="block";
+                
+              });
+          //If user is not in a group, displays message and link to groupList page
+          }else{
+            document.getElementById("currentGroupContainer").innerHTML = "<div onclick=\"backToMap()\" id=\"exitButton\" class=\" newButton\">"
+            + "<span id=\"exitButton\" class=\"material-symbols-outlined\">close</span>"
+            + "</div><div id=\"noGroup\"><p>You are not currently in a group.</p>"
+            + "<a id=\"noGroupLink\" href=\"./groupsList.html\">Find a new group here!</a></div>"
+          }
         });
 
       //return user.uid;
@@ -58,25 +79,36 @@ function displayGroup() {
 
 function leaveGroup(id) {
   var currentUserRef = db.collection("users").doc(currentUserID);
-  var ActivityRef = db.collection("activities").doc(id);
+  var GroupRef = db.collection("groups").doc(id);
 
   console.log("uid of current user is" + currentUserID);
-  console.log("uid of activity is " + id);
+  console.log("uid of group is " + id);
 
   //TODO currently joining a group succesfully increases the participants, leaving a group does not decrease
-  // currentActivityRef.update({
+  // currentGroupRef.update({
   //     currentParticipants: firebase.firestore.FieldValue.increment(-1),
   // })
   currentUserRef.update({
     currentGroup: "none",
   });
 
-  ActivityRef.update({
+  GroupRef.update({
     currentParticipants: firebase.firestore.FieldValue.increment(-1),
   })
   .then(() => {
-    //window.open("group.html", "_self");
+    window.open("groupsList.html", "_self");
   });
 }
 
+
 displayGroup();
+
+
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

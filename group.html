@@ -39,26 +39,49 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/groupStyle.css">
+    
     
 
 </head>
 
 <body id="body" class="background-map">
       <!-- Templates for general use, not displayed -->
-    <template id="activityTemplate">
+    <template id="group-template">
       
           <!-- <img class="card-image card-img-top" src=" ..." alt="..."> -->
-      <div>
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-              
-          <a class="btn btn-primary card-href">Leave Group</a>
-      </div>
-      
+      <div id="group-grid-container">
+          <div id="exitButton" class=" newButton" onclick="backToMap()">
+            <span id="exitButton" class="material-symbols-outlined">
+              close
+            </span>
+          </div>
+          <span id="group-title">Card title</span>
+          <span id="group-type"></span>
+          <span id="group-building"></span>
+          <span id="group-time"></span>
+          <span id="group-participants"></span>
+          <span id="group-description"></span>
+          <span id="group-leave" onclick="document.getElementById('id01').style.display='block'">Leave Group</span>
+        </div>
+
     </template>
 
+    <div id="id01" class="modal">
+      
+      <form class="modal-content" action="/action_page.php">
+        <div class="modalcontainer">
+          <h1>Leave Group</h1>
+          <p>Are you sure you want to leave this group?</p>
+    
+          <div class="clearfix">
+            <button onclick="document.getElementById('id01').style.display='none'"  title="Close Modal" type="button" class="cancelbtn">Cancel</button>
+            <button id="leave" type="button" class="leavebtn">Leave</button>
+          </div>
+        </div>
+      </form>
+    </div>
 
     <!------------------------------>
     <!-- Your HTML Layout go here -->
@@ -69,11 +92,9 @@
       
       <div id="currentGroupContainer" class="container centering-container bg-BCIT bg-gradient" >
         
-        <button id="exitButton" type="button" class="close rounded border-1 newButton" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-        </button>
+        
 
-        <div id="activities-go-here" ></div>
+        <div id="groups-go-here"></div>
 
         <div id="chat">
           <div id="chat-window">
@@ -89,14 +110,6 @@
       </div>
     </main>
     
-        <!-- <form>
-          <div class="row mt-3">
-            <button type="submit" id="leaveGroupButton" class="newButton btn btn-light text-black mb-3 d-inline-block w-50" value="LEAVE GROUP" name="leaveGroupButton">
-              LEAVE GROUP
-            </button>
-          </div>
-        </form> -->
-      
 
     <nav id="navBar"></nav>
 
@@ -104,18 +117,14 @@
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_TEAM26.js"></script>
-
     <script src="./scripts/script.js"></script>
-
     <script src="./scripts/group.js"></script>
-    <!-- <script src="./scripts/authentication.js"></script> -->
-
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/exitButton.js"></script>
+    
     <script src="./scripts/toMap.js"></script>
     <script src="./scripts/chat.js"></script>
+    <script src="./scripts/exitButton.js"></script>
 
-    <!-- Link to scripts of your own -->
 
 
 </body>

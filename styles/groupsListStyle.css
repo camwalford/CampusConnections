@@ -1,0 +1,155 @@
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-56 { font-size: 56px; }
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('fonts/webfontkit-roboto-regular-webfont.woff2') format('woff2'),
+         url('roboto-regular-webfont.woff') format('woff'),
+         url('roboto-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#groupsNav span{
+    color:rgb(40, 40, 40);
+}
+
+html{
+    height: 100vh;
+    width: 100vw;
+    font-family: robotoregular;
+     
+}
+
+body{
+    height: calc(100% - 150px);
+    margin: 75px 0px;
+    color: white;   
+}
+
+main{
+    height: 100%;
+    width: 100%;
+}
+
+.center-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centering-container{
+    border-radius: 15px;
+    border: 2px solid black;
+    box-shadow: 0px 0px 3px black; 
+}
+
+/*Styling for groups*/
+#groups-container{
+    padding: 25px;
+}
+
+/*filter and searchbar*/
+#group-search-input {
+    background-image: url('../images/searchicon.png'); 
+    background-position: 10px 12px; 
+    background-size: 23px;
+    background-repeat: no-repeat; 
+    width: 100%; 
+    font-size: 16px; 
+    padding: 12px 20px 12px 40px; 
+    border: 1px solid #ddd; 
+    margin-bottom: 12px; 
+  }
+  
+  #groups-go-here{
+    list-style-type: none;
+    padding: 10px;
+    margin: 0px;
+    max-height: 50vh;
+    overflow-y: scroll;
+  }
+ 
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    margin-top: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.4s;
+  }
+
+  .groupTemplate li{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+    background-color: #ccc;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    
+  }
+  
+  .panel {  
+    padding: 0px 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+.panel span{ 
+padding: 0px 18px;
+margin: 0px;
+background-color: white;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.2s ease-out;
+}
+
+
+.search-queries{
+    display: inline-block;
+}
+
+.accordion{
+    display: grid;
+    grid-template-columns: 75% 15% 10%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "search-queries participant-number arrow"
+    
+}
+.search-queries{
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "title group-type building"
+}
+
+.accordion > span{
+    
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+

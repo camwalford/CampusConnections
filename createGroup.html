@@ -45,11 +45,24 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/createGroupStyle.css" />
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <link rel="stylesheet" href="./styles/style.css">
   </head>
 
   <body id="body" class="background-map">
+    <div id="id01" class="modal">
+      
+      <form class="modal-content" action="/action_page.php">
+        <div class="modalcontainer">
+          <h1>Create Group</h1>
+          <p>Are you sure you want to create this group?</p>
     
+          <div class="clearfix">
+            <button onclick="document.getElementById('id01').style.display='none'"  title="Close Modal" type="button" class="cancelbtn">Cancel</button>
+            <button id="leave" type="button" class="createbtn" onclick = "ValidationEvent()">Create</button>
+          </div>
+        </div>
+      </form>
+    </div>
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
@@ -63,28 +76,31 @@
       <div id="createGroup-container" class="container centering-container bg-BCIT bg-gradient" >
           
         <!--TODO have exitButton link back to map-->
-        <button id="exitButton" type="button" class="close rounded border-1 newButton" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-        </button>
-        <h5 class="text-center mb-1">CREATE YOUR NEW GROUP</h5>
+        <div id="exitButton" class="newButton">
+          <span class="material-symbols-outlined">
+            close
+            </span>
+        </div>
+        <h5 id="header" class="text-center">CREATE YOUR NEW GROUP</h5>
         <form class="centered">
 
           <div id="title-section" class="form-group row ">
-            <label for="activityTitle" class="col-sm-2 col-form-label">Title:</label>
+            <label for="groupTitle" class="col-sm-2 col-form-label">Title:</label>
             <div class="col-sm-9">
-              <input type="text" name="activityTitle" class="form-control" id="activityTitle" placeholder="Enter a title" required/>
+              <input type="text" name="groupTitle" class="form-control" id="groupTitle" placeholder="Enter a title" required
+              minlength="4" maxlength="35"/>
             </div>
           </div>
-          <!-- TODO BRAINSTORM MORE OPTIONS OF ACTIVITIES, ADD ACTIVITY ICONS-->
-          <div id="activityType-section"class="form-group-row mt-3">
-            <label for="activityType"  class="col-sm-2 col-form-label">Activity Type: </label>
-            <select class="custom-select mr-2" id="activityType" name="activityType" required>
+          <!-- TODO BRAINSTORM MORE OPTIONS OF GROUPS, ADD group ICONS-->
+          <div id="groupType-section"class="form-group-row mt-3">
+            <label for="groupType"  class="col-sm-2 col-form-label">Group Type: </label>
+            <select class="custom-select mr-2" id="groupType" name="groupType" required>
               <option selected>Choose...</option>
-              <option value="1">Socialize</option>
-              <option value="2">Study</option>
-              <option value="3">Food</option>
-              <option value="4">Games</option>
-              <option value="5">Exercise</option>
+              <option value="🤣 Socialize">Socialize</option>
+              <option value="📖 Study">Study</option>
+              <option value="🍔 Food">Food</option>
+              <option value="🎮 Games">Games</option>
+              <option value="🏈 Exercise">Exercise</option>
             </select>
           </div>
           <!-- TODO ADD ALL ACTUAL BUILDINGS AND MAYBE PARKING LOTS/FIELDS -->
@@ -155,13 +171,13 @@
           
           <div id="description-section" class="form-group-row mt-3">
             <label for="description">Description:</label>
-            <textarea class="form-control" id="description" rows="1" name="description"></textarea>
+            <textarea class="form-control" id="description" rows="1" name="description" placeholder="Enter a detailed description"></textarea>
           </div>
           
           <!--TODO creates new group in firestore server and sends you to new group page-->
           
           <div id="createButton-section"class="form-group row mt-3">
-            <button type="button" id="createButton" class="btn btn-light text-black mb-3 d-inline-block w-50" value="Submit" name="Submit" onclick = "ValidationEvent()">
+            <button type="button" id="createButton" class="btn btn-light text-black mb-0 d-inline-block w-50" value="Submit" name="Submit" onclick="document.getElementById('id01').style.display='block'">
               CREATE GROUP
             </button>
           </div>
@@ -181,7 +197,7 @@
     <!-- <script src="./scripts/authentication.js"></script> -->
     <script src="./scripts/createGroup.js"></script>
     <script src="./scripts/exitbutton.js"></script>
-    <script src="./scripts/clearActivities.js"></script>
+    <script src="./scripts/clearGroups.js"></script>
     <script src="./scripts/toMap.js"></script>
 
     <!-- Link to scripts of your own -->

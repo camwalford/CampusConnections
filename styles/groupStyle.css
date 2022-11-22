@@ -22,65 +22,26 @@ html{
 }
 
 body{
-    height: calc(100% - 166.4px);
-    margin: 82.4px 0px;
-    color: white; 
-    
+    height: calc(100% - 150px);
+    margin: 75px 0px;
+    color: white;   
 }
-header, nav, footer{
-    max-width: 100vw;
-    color: white; 
-}
-
-.clickbox{
-    height: 100%;
-    width: 100%;
-    margin: 0;
-}
+ 
 main{
     height: 100%;
     width: 100%;
+    min-height: 444px;
+    overflow-y: scroll;
+    padding: 0;
 }
 
-.center-content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+main::-webkit-scrollbar{
+    width: 0px;
 }
-.centering-container{
-    border-radius: 15px;
-    border: 2px solid black;
-    box-shadow: 0px 0px 3px black; 
-}
-
-
-.newButton{
-    margin: 0 auto;
-    border: 1px solid black;
-    border: 1px solid grey;
-    box-shadow: 1px 1px 2px black;
-}
-.newButton:hover{
-    background-color:rgb(187, 187, 187);
-    box-shadow: 1px 1px 0px black;
-}
-
-#createButton{
-    margin: 0 auto;
-    border: 1px solid black;
-    border: 1px solid grey;
-    box-shadow: 1px 1px 4px black;
-}
-#createButton:hover{
-    background-color:rgb(187, 187, 187);
-    box-shadow: 1px 1px 0px black;
-}
-
 
 #groupNav span{
     color:rgb(40, 40, 40);
 }
-
 
 #leaveGroupButton{
     margin: 0 auto;
@@ -92,48 +53,120 @@ main{
     background-color:rgb(187, 187, 187);
     box-shadow: 1px 1px 0px black;
 }
-#header-logo{
-    color:white;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-}
 
-.bg-BCIT{
-    background-color:rgb(24, 64, 105);
-    color: white; 
-}
-button[class*="bg-BCIT"]:hover{
-    background-color:rgb(24, 64, 105);
-}
-
-.background-map{
-    background-image: url("../images/BCIT_Map2_Low_Opacity.png");
-}
-
-#activities-go-here{
+/*Styling for group container*/
+h5{
+    margin: 0;
     color: black;
 }
-
-.blacktext{
-    color:black;
+#currentGroupContainer{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    min-height: 418px;
+    /* margin-bottom: 60px; */
+    /* margin-top: 60px; */
+    /* min-height: max(70%, 425px); */
+    /* max-height: min(100%, 425px) */
 }
 
-/*Styling for scrollbar*/
-::-webkit-scrollbar {
-    width: 20px;
+
+#groups-go-here{
+    list-style-type: none;
+    margin: 0px;
+    height: 20%;
 }
 
-::-webkit-scrollbar-track {
-box-shadow: inset 0 0 5px grey; 
-border-radius: 10px;
+#group-grid-container{
+    min-height: 240px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 10% 10% 10% 30% 27% 15%;
+    grid-template-rows: 25% 20% 40% 10%;
+    grid-template-areas: 
+    "exit title title title title participants"
+    "type type type building time time"
+    "description description description description description description"
+    "extra extra extra extra leave extra2"
 }
 
-::-webkit-scrollbar-thumb {
-background-color: rgb(182, 182, 182);
-border-radius: 10px;
+#exitButton{
+    grid-area: exit;
 }
 
-::-webkit-scrollbar-thumb:hover {
-background: grey; 
+#group-title{
+    font-weight:bold;
+    font-size: 15pt;
+    color: rgb(0, 0, 0);
+    grid-area: title;
+    position: relative;
+    top: 10%;
+}
+
+#group-type{
+    position:relative;
+    top: 8%;
+    grid-area: type;
+    text-align: left;
+}
+
+#group-building{
+    grid-area: building;
+    text-align: center;
+}
+
+#group-time{
+    grid-area: time;
+    text-align: center;
+}
+
+#group-participants{
+    grid-area: participants;
+    font-size: 10pt;
+}
+
+
+#person{
+    position: relative;
+    top: 8%;
+    left: 3%;
+    font-size: 16pt;
+}
+
+#clock{
+    position: relative;
+    top: 9%;
+    right: 1%;
+    font-size: 16pt;
+}
+
+#pin{
+    position: relative;
+    top: 9%;
+    right: 1%;
+    font-size: 16pt;
+}
+
+#group-description{
+    grid-area: description;
+    color: black;
+    overflow-wrap: normal;
+    max-width: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
+    
+}
+
+#group-leave{
+    grid-area: leave;
+    text-decoration: underline;
+    font-size: 10pt;
+    position: relative;
+    left: 60%;
+}
+
+
+.group-info-small{
+    font-size: 11pt;
 }
 
 /*Styling for chat*/
@@ -159,6 +192,7 @@ li span {
 #chat{
     height: 20%;
     overflow: hidden;
+    display: none;
 }
 
 #chat-window {
@@ -171,6 +205,7 @@ li span {
     border: 1px solid rgb(37, 78, 120);
     border-radius: 5px
 }
+
 #message-form {
     text-align: center;
     width: 100%;
@@ -211,94 +246,112 @@ li:has(span[class="reciever"]) {
     color: grey;
 }
 
-/*Styling for activities*/
+.modal, .modal * {box-sizing: border-box}
 
-
-/*filter and searchbar*/
-  
-  #activities-go-here{
-    list-style-type: none;
-    margin: 0px;
-    height: 20%;
+/* Set a style for all buttons */
+.modal button {
     
-  }
- 
-
-/* Style the buttons that are used to open and close the accordion panel */
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    margin-top: 10px;
-    width: 100%;
-    text-align: left;
+    color: rgb(0, 0, 0);
+    padding: 14px 20px;
+    margin: 8px 0;
     border: none;
-    border-radius: 5px;
-    outline: none;
-    transition: 0.4s;
-  }
-
-  .activityTemplate li{
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
   }
   
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .accordion:hover {
+  .modal button:hover {
+    opacity:1;
+  }
+  
+  /* Float cancel and delete buttons and add an equal width */
+  .cancelbtn, .deletebtn {
+    float: left;
+    width: 50%;
+  }
+  
+  /* Add a color to the cancel button */
+  .cancelbtn {
     background-color: #ccc;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    
+    color: black;
   }
   
-  .panel {  
-    padding: 0px 20px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
+  /* Add a color to the delete button */
+  .leavebtn {
+    background-color: #f44336;
+  }
+  
+  /* Add padding and center-align text to the container */
+  .modalcontainer {
+    padding: 16px;
+    text-align: center;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    color: black;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 0px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 50% auto 50% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* Style the horizontal ruler */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* The Modal Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
+  
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Change styles for cancel button and delete button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .cancelbtn, .deletebtn {
+      width: 100%;
+    }
+  }
+  
+  #noGroup{
+    text-align:center;
+    position: relative;
+    top: 115px;
   }
 
-.panel span{ 
-padding: 0px 18px;
-margin: 0px;
-background-color: white;
-max-height: 0;
-overflow: hidden;
-transition: max-height 0.2s ease-out;
-}
-
-
-.search-queries{
-    display: inline-block;
-}
-
-.accordion{
-    display: grid;
-    grid-template-columns: 75% 15% 10%;
-    grid-template-rows: auto;
-    grid-template-areas:
-    "search-queries participant-number arrow"
-    
-}
-.search-queries{
-    display: grid;
-    grid-template-columns: 50% 25% 25%;
-    grid-template-rows: auto;
-    grid-template-areas:
-    "title activity-type building"
-}
-
-.accordion > span{
-    
-    display: flex;
-    justify-content: flex-end;
-}
-
-
-
+ 
 

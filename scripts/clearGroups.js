@@ -1,4 +1,4 @@
-function clearActivities() {
+function clearGroups() {
     var activitiesRef = db.collection("activities");
     activitiesRef.get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -9,7 +9,7 @@ function clearActivities() {
 }
 
 
-function checkActivities() {
+function checkGroups() {
 var today = new Date();
 var currentTime = today.getHours() + ":" + today.getMinutes();
 
@@ -25,4 +25,4 @@ var currentTime = today.getHours() + ":" + today.getMinutes();
     })
 }
 
-checkActivities();
+checkGroups();

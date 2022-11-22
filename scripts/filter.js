@@ -1,9 +1,11 @@
-function activitySearch() {
+
+
+function groupSearch() {
     // Declare variables
     var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById('activity-search-input');
+    input = document.getElementById('group-search-input');
     filter = input.value.toUpperCase();
-    ul = document.getElementById("activities-go-here");
+    ul = document.getElementById("groups-go-here");
     li = ul.getElementsByTagName('li');
   
     // Loop through all list items, and hide those who don't match the search query
@@ -40,5 +42,13 @@ function accordion(){
 }
 accordion();
 
+let params = new URL(window.location.href);
+var buildingId = params.searchParams.get("buildingId");
 
+if(buildingId !== null){
+  input = document.getElementById('group-search-input');
+  input.value = buildingId;
 
+  setTimeout(groupSearch, 700);
+}
+  
