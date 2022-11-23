@@ -128,6 +128,9 @@ function displayCurrentMessages() {
                     let li = document.createElement("li");
                     li.innerHTML =
                       '<span class="receiver">' +
+                      '<img id="mypic-goes-here" src="' +
+                      change.doc.data().userpfp +
+                      '" width="20px" height="20px" />' +
                       change.doc.data().username +
                       "</span>" +
                       '<span class="sent-message">' +
