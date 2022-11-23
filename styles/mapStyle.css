@@ -43,7 +43,7 @@ main::-webkit-scrollbar{
 #map{
   height:100%; 
   width: auto;
-  margin-top: 75px;
+  /* margin-top: 75px; */
 }
 
 
