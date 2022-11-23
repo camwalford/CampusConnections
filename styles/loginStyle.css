@@ -2,7 +2,7 @@ body{
     height: calc(100% - 150px);
     margin: 75px 0px;
     color: white; 
-    background-image: url('../images/students-wallpapers.jpg');
+    background-image: url('../images/students-wallpapers.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
