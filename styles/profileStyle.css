@@ -39,3 +39,12 @@ main{
 #profileContainer{
     padding: 15px;
 }
+
+#clickables {
+    display:flex;
+    flex-direction: row;
+}
+
+#logout {
+    flex-grow: 1;
+}

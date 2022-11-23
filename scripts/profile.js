@@ -1,25 +1,59 @@
 function displayProfile() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log(user.uid);
-        console.log(user.displayName);
-        console.log(user.email);
-        document.getElementById("username").innerHTML = "user: " + user.displayName;
-        document.getElementById("email").innerHTML = "email: " + user.email;
-        document.getElementById("users-program").innerHTML = "program: " + user.program;
-        document.getElementById("schoolyear").innerHTML = "year: " + user.year;
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      //go to the correct user document by referencing to the user uid
+      currentUser = db.collection("users").doc(user.uid);
+      //get the document for current user.
+      currentUser.get().then((userDoc) => {
+        //get the data fields of the user
+        var userName = userDoc.data().name;
+        var userEmail = userDoc.data().email;
 
-        //document.getElementByID("edit").onclick = () => edit(activityID);
-        //document.getElementsByID("edit").onclick = () => edit(activityID);
-      } else {
-        console.log("no one is logged in");
-      }
+        //if the data fields are not empty, then write them in to the form.
+        if (userName != null) {
+          document.getElementById("username").value = userName;
+        }
+        if (userEmail != null) {
+          document.getElementById("email").value = userEmail;
+        }
+      });
+    } else {
+      console.log("no one is logged in");
+    }
+  });
+}
+
+function edit() {
+  document.getElementById("personalInfoFields").disabled = false;
+}
+
+function save() {
+  userName = document.getElementById("username").value; //get the value of the field with id="nameInput"
+  userEmail = document.getElementById("email").value; //get the value of the field with id="schoolInput"
+
+  currentUser
+    .update({
+      name: userName,
+      email: userEmail
+    })
+    .then(() => {
+      console.log("Document successfully updated!");
     });
-  }
+  document.getElementById("personalInfoFields").disabled = true;
+}
 
-  function edit() {
-    console.log("edit");
-  }
-  
-  displayProfile();
-  
+function logout() {
+  console.log("logging out user");
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      // Sign-out successful.
+      window.location.href = "index.html";
+    })
+    .catch((error) => {
+      // An error happened.
+    });
+}
+
+displayProfile();
