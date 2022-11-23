@@ -22,9 +22,17 @@ function displayCards(collection) {
         var groupID = doc.id; //get unique ID to each hike to be used for fetching right image
         let newAccordion = accordionTemplate.content.cloneNode(true);
 
-        startTime = startTime.toDate().getHours() + ":" + startTime.toDate().getMinutes();
+        if(startTime.toDate().getHours() > 12) {
+          startTime = startTime.toDate().getHours()-12 + ":" + startTime.toDate().getMinutes()+"pm";
+        } else {
+          startTime = startTime.toDate().getHours()-12 + ":" + startTime.toDate().getMinutes()+"am";
+        }
 
-        let end = endTime.toDate().getHours() + ":" + endTime.toDate().getMinutes();
+        if(endTime.toDate().getHours() > 12) {
+          end = endTime.toDate().getHours()-12 + ":" + endTime.toDate().getMinutes()+"pm";
+        } else {
+          end = endTime.toDate().getHours()-12 + ":" + endTime.toDate().getMinutes()+"am";
+        }
 
         //update title and text and image
         newAccordion.querySelector(".accordion-title").innerHTML = title;

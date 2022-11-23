@@ -36,9 +36,21 @@ function displayGroup() {
                 var endTime = snap.data().endtime;
                 console.log("id is "+ groupID);
 
-                startTime = startTime.toDate().getHours() + ":" + startTime.toDate().getMinutes();
+                if(startTime.toDate().getHours() > 12) {
+                  startTime = startTime.toDate().getHours()-12 + ":" + startTime.toDate().getMinutes()+"pm";
+                } else {
+                  startTime = startTime.toDate().getHours()-12 + ":" + startTime.toDate().getMinutes()+"am";
+                }
 
-                endTime = endTime.toDate().getHours() + ":" + endTime.toDate().getMinutes();
+                if(endTime.toDate().getHours() > 12) {
+                  endTime = endTime.toDate().getHours()-12 + ":" + endTime.toDate().getMinutes()+"pm";
+                } else {
+                  endTime = endTime.toDate().getHours()-12 + ":" + endTime.toDate().getMinutes()+"am";
+                }
+
+                
+
+                //endTime = endTime.toDate().getHours() + ":" + endTime.toDate().getMinutes();
 
                 let newGroup = groupTemplate.content.cloneNode(true);
 
