@@ -121,4 +121,7 @@ border-radius: 10px;
 background: grey; 
 }
 
+#mypic-goes-here {
+    border-radius: 50%;
+}
 /*Styling for chat*/

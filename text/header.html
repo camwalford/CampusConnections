@@ -1,3 +1,4 @@
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
 <!-- Just an image -->
 <nav id="topNav" class="navbar navbar-light fixed-top bg-BCIT">
@@ -14,8 +15,13 @@
       </a>
     <a id="profileHeader" href="profile.html">
         <button type="button" class="btn btn-floating bg-BCIT">
-            <span class="material-icons md-24">settings</span>
+          <div id="header-profile-container">
+            <img id="mypic-goes-here" src="images/defaultpfp.jpg" width="30px" height="30px" />
+          </div>
         </button>
     </a> 
     </div>
   </nav>
+
+
+  <script src="./scripts/header.js"></script>

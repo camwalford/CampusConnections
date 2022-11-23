@@ -31,11 +31,11 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <link
       type="text/css"
       rel="stylesheet"
-      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
-    />
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
 
     <!-- Other libraries go here -->
     <!-- Google Icons (Material Design)-->
@@ -70,6 +70,12 @@
         <h1>User Profile</h1>
         <form>
           <fieldset class="mb-3" id="personalInfoFields" disabled>
+            <div class="form-group py-5">
+              <div id="profile-container">
+                <img id="mypic-goes-here" src="images/defaultpfp.jpg" width="200px" height="200px" />
+              </div>
+              <input id="mypic-input" type="file" />
+            </div>
             <div class="form-group">
               <label>Name</label>
               <input
@@ -95,9 +101,13 @@
               <button type="button" class="btn btn-danger">Logout</button>
             </div>
             <div class="d-flex justify-content-end mt-5">
-              <button type="button" class="btn btn-secondary" onclick="edit()">Edit</button>
+              <button type="button" class="btn btn-secondary" onclick="edit()">
+                Edit
+              </button>
               <span style="width: 10px"></span>
-              <button type="button" class="btn btn-info" onclick="save()">Save</button>
+              <button type="button" class="btn btn-info" onclick="save()">
+                Save
+              </button>
             </div>
           </div>
         </form>
