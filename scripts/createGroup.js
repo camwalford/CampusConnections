@@ -6,17 +6,23 @@ function ValidationEvent() {
   var title1 = document.getElementById("groupTitle").value;
   var type1 = document.getElementById("groupType").value;
   var building1 = document.getElementById("building").value;
-  //var startTime = document.getElementById("startTime").value;
-  //var endTime = document.getElementById("endTime").value;
-  var length = document.getElementById("length").value;
+  var startTime = document.getElementById("startTime").value;
+  var endTime = document.getElementById("endTime").value;
+  //var length = document.getElementById("length").value;
   var participants1 = document.getElementById("participants").value;
   var description1 = document.getElementById("description").value;
 
-  var end = new Date();
+  let today = new Date();
+  let start = new Date(today.getFullYear()+"-"+(today.getMonth() + 1)+"-"+today.getUTCDate()+"T"+startTime+":00.000");
+  //console.log(start);
+  let end = new Date(today.getFullYear()+"-"+(today.getMonth() + 1)+"-"+today.getUTCDate()+"T"+endTime+":00.000");
+
+  //new Date('2022-05-14T07:06:05.123')
+
   //end.setDate(end.getDate() + 1); //adds one day
 
 //gotta figure out how to use the inputted endTime but for now this is fine
-  end.setHours(end.getHours() + parseInt(length)); //adds 5 hours
+  //end.setHours(end.getHours() + parseInt(length)); //adds 5 hours
 
   var groupsRef = db.collection("groups");
   var currentUserRef = db.collection("users").doc(currentUserID);
@@ -25,7 +31,7 @@ function ValidationEvent() {
       groupType: type1,
       building: building1,
       participants: participants1,
-      // starttime: startTime,
+      starttime: start,
       endtime: end,
       currentParticipants: 1,
       description: description1,

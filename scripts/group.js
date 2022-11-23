@@ -29,10 +29,28 @@ function displayGroup() {
                 var building = snap.data().building;
                 var currentParticipants = snap.data().currentParticipants;
                 var maxParticipants = snap.data().participants;
+                var startTime = snap.data().starttime;
+                var endTime = snap.data().endtime;
                 var description = snap.data().description;
                 var startTime;
                 var endTime = snap.data().endtime;
                 console.log("id is "+ groupID);
+
+                if(startTime.toDate().getHours() > 12) {
+                  startTime = startTime.toDate().getHours()-12 + ":" + startTime.toDate().getMinutes()+"pm";
+                } else {
+                  startTime = startTime.toDate().getHours()-12 + ":" + startTime.toDate().getMinutes()+"am";
+                }
+
+                if(endTime.toDate().getHours() > 12) {
+                  endTime = endTime.toDate().getHours()-12 + ":" + endTime.toDate().getMinutes()+"pm";
+                } else {
+                  endTime = endTime.toDate().getHours()-12 + ":" + endTime.toDate().getMinutes()+"am";
+                }
+
+                
+
+                //endTime = endTime.toDate().getHours() + ":" + endTime.toDate().getMinutes();
 
                 let newGroup = groupTemplate.content.cloneNode(true);
 
@@ -43,7 +61,7 @@ function displayGroup() {
                 newGroup.getElementById("group-building").innerHTML =
                 "<span id=\"pin\" class=\"material-symbols-outlined\">location_on</span>"+ building;
                 newGroup.getElementById("group-time").innerHTML =
-                "<span id=\"clock\" class=\"material-symbols-outlined\">schedule</span>" + "00:00" + "-" + "00:00";
+                "<span id=\"clock\" class=\"material-symbols-outlined\">schedule</span>" + startTime + " - " + endTime;
                 newGroup.getElementById("group-participants").innerHTML =
                 "<span id=\"person\" class=\"material-icons\">person</span>" + currentParticipants + "/" +  maxParticipants;
                 newGroup.getElementById("group-description").innerHTML =
