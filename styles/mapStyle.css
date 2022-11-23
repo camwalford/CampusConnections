@@ -24,8 +24,8 @@
 }
 
 body{
-    height: calc(100% - 150px);
-    margin: 75px 0px;
+    height: calc(100% - 75px);
+    margin: 0px 0px 75px 0px;
     color: white;   
 }
 
@@ -41,7 +41,9 @@ main::-webkit-scrollbar{
 }
 
 #map{
-   
+  height:100%; 
+  width: auto;
+  margin-top: 75px;
 }
 
 
