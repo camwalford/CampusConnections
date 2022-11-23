@@ -11,6 +11,7 @@ function displayCards(collection) {
         var groupType = doc.data().groupType; // get value of the "details" key
         var groupID = doc.id; //gets the unique id for the group
         var building = doc.data().building;
+        var startTime = doc.data().starttime;
         var endTime = doc.data().endtime;
         var participants = doc.data().participants;
         var CurrentParticipants = doc.data().currentParticipants;
@@ -21,9 +22,14 @@ function displayCards(collection) {
         var groupID = doc.id; //get unique ID to each hike to be used for fetching right image
         let newAccordion = accordionTemplate.content.cloneNode(true);
 
+        startTime = startTime.toDate().getHours() + ":" + startTime.toDate().getMinutes();
+
+        let end = endTime.toDate().getHours() + ":" + endTime.toDate().getMinutes();
+
         //update title and text and image
         newAccordion.querySelector(".accordion-title").innerHTML = title;
         newAccordion.querySelector(".accordion-type").innerHTML = groupType;
+        newAccordion.querySelector(".accordion-time").innerHTML = startTime + " - " + end;
         newAccordion.querySelector(".accordion-building").innerHTML = building;
         newAccordion.querySelector(".accordion-participants").innerHTML =
           CurrentParticipants + "/" + participants;
@@ -33,7 +39,7 @@ function displayCards(collection) {
         newAccordion.querySelector("a").onclick = () => joinGroup(groupID);
 
         //delete the file if the time is up or if there are no participants
-        console.log(endTime.toDate() + " : " + currentTime);
+        //console.log(endTime.toDate() + " : " + currentTime);
         if (endTime.toDate() < currentTime || CurrentParticipants < 1) {
           db.collection(collection).doc(groupID).delete();
         } else {
