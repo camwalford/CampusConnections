@@ -4,7 +4,7 @@
 <head>
     <title>Campus Connections</title>
     <meta name="comp1800 template" content="My 1800 App">
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
     <!-- Bootstrap Library CSS CDN go here -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- Boostrap Library JS CDN  go here -->
+    <!-- Bootstrap Library JS CDN  go here -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
@@ -38,48 +38,29 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/indexStyle.css" 
+    <link rel="stylesheet" href="./styles/indexStyle.css">
 </head>
-    
-    <body>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-    <!--TODO style/center hero, maybe wrap in container-->
-    <header>
-        <nav id="header"></nav>
-    </header>
+<body>
 
     <main class="center-content">
         <div class="px-4 py-5 my-5 text-center">
-            <!--TODO change picture-->
-            <h1 class="display-5 fw-bold">Campus Connections</h1>
+            <h1 class="display-1 fw-bold">Campus Connections</h1>
             <div class="col-lg-6 mx-auto">
-                <p class="lead mb-4 blacktext">Welcome to Campus Connections!<br>The only app where you can find people
-                    for fun and exciting groups with at BCIT at any time! Simply log-in and create a group for the group
-                    you want!</p>
+                <hr>
+                <p class="lead mb-4">Kickstart your school experience by meeting life-long future friends.</p>
+                <hr>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <a href="login.html"><button type="button" class="btn bg-BCIT btn-lg px-4 gap-3">Login</button></a>
+                    <a href="login.html"><button type="button" class="btn text-light px-lg-5 gap-3"><div id="fontMad">Meet Up</div></button></a>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer>
-        <!-- <nav id="navBar"></nav> -->
-    </footer>
-
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_TEAM26.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/authentication.js"></script>
 
-    <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
-
-    </body>
+</body>
 
 </html>
