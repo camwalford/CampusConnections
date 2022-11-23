@@ -11,11 +11,14 @@ function ValidationEvent() {
   //var length = document.getElementById("length").value;
   var participants1 = document.getElementById("participants").value;
   var description1 = document.getElementById("description").value;
-  console.log(Date.parse(startTime));
-  console.log(Date.parse(endTime));
 
-  var start = new Date(Date.parse(startTime));
-  var end = new Date(Date.parse(endTime));
+  let today = new Date();
+  let start = new Date(today.getFullYear()+"-"+(today.getMonth() + 1)+"-"+today.getUTCDate()+"T"+startTime+":00.000");
+  //console.log(start);
+  let end = new Date(today.getFullYear()+"-"+(today.getMonth() + 1)+"-"+today.getUTCDate()+"T"+endTime+":00.000");
+
+  //new Date('2022-05-14T07:06:05.123')
+
   //end.setDate(end.getDate() + 1); //adds one day
 
 //gotta figure out how to use the inputted endTime but for now this is fine
