@@ -22,16 +22,17 @@ function displayCards(collection) {
         var groupID = doc.id; //get unique ID to each hike to be used for fetching right image
         let newAccordion = accordionTemplate.content.cloneNode(true);
 
+        //converts the date to a 12 hour clock
         if(startTime.toDate().getHours() > 12) {
           startTime = startTime.toDate().getHours()-12 + ":" + startTime.toDate().getMinutes()+"pm";
         } else {
-          startTime = startTime.toDate().getHours()-12 + ":" + startTime.toDate().getMinutes()+"am";
+          startTime = startTime.toDate().getHours() + ":" + startTime.toDate().getMinutes()+"am";
         }
 
         if(endTime.toDate().getHours() > 12) {
           end = endTime.toDate().getHours()-12 + ":" + endTime.toDate().getMinutes()+"pm";
         } else {
-          end = endTime.toDate().getHours()-12 + ":" + endTime.toDate().getMinutes()+"am";
+          end = endTime.toDate().getHours() + ":" + endTime.toDate().getMinutes()+"am";
         }
 
         //update title and text and image
@@ -46,8 +47,11 @@ function displayCards(collection) {
 
         newAccordion.querySelector("a").onclick = () => joinGroup(groupID);
 
+
+        //let today = new Date();
+        //endTime = new Date(today.getFullYear()+"-"+(today.getMonth() + 1)+"-"+today.getUTCDate()+"T"+endTime+":00.000");
         //delete the file if the time is up or if there are no participants
-        //console.log(endTime.toDate() + " : " + currentTime);
+        console.log(endTime.toDate() + " : " + currentTime);
         if (endTime.toDate() < currentTime || CurrentParticipants < 1) {
           db.collection(collection).doc(groupID).delete();
         } else {

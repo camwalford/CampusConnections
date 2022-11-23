@@ -39,13 +39,13 @@ function displayGroup() {
                 if(startTime.toDate().getHours() > 12) {
                   startTime = startTime.toDate().getHours()-12 + ":" + startTime.toDate().getMinutes()+"pm";
                 } else {
-                  startTime = startTime.toDate().getHours()-12 + ":" + startTime.toDate().getMinutes()+"am";
+                  startTime = startTime.toDate().getHours() + ":" + startTime.toDate().getMinutes()+"am";
                 }
 
                 if(endTime.toDate().getHours() > 12) {
                   endTime = endTime.toDate().getHours()-12 + ":" + endTime.toDate().getMinutes()+"pm";
                 } else {
-                  endTime = endTime.toDate().getHours()-12 + ":" + endTime.toDate().getMinutes()+"am";
+                  endTime = endTime.toDate().getHours() + ":" + endTime.toDate().getMinutes()+"am";
                 }
 
                 
