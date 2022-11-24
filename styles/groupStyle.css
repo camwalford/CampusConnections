@@ -1,33 +1,38 @@
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-.material-icons.md-56 { font-size: 56px; }
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&family=Montserrat&display=swap');
+/* font-family: 'lato', 'Merriweather', 'Montserrat', sans-serif; */
 
-@font-face {
-    font-family: 'robotoregular';
-    src: url('fonts/webfontkit-roboto-regular-webfont.woff2') format('woff2'),
-         url('roboto-regular-webfont.woff') format('woff'),
-         url('roboto-regular-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-
+.material-icons.md-18 {
+    font-size: 18px;
 }
 
-html{
+.material-icons.md-24 {
+    font-size: 24px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
+.material-icons.md-56 {
+    font-size: 56px;
+}
+
+html {
     height: 100vh;
     width: 100vw;
-    font-family: robotoregular;
-     
 }
 
-body{
+body {
     height: calc(100% - 150px);
     margin: 75px 0px;
-    color: white;   
+    color: white;
 }
- 
-main{
+
+main {
     height: 100%;
     width: 100%;
     min-height: 444px;
@@ -35,31 +40,33 @@ main{
     padding: 0;
 }
 
-main::-webkit-scrollbar{
+main::-webkit-scrollbar {
     width: 0px;
 }
 
-#groupNav span{
-    color:rgb(40, 40, 40);
+#groupNav span {
+    color: rgb(40, 40, 40);
 }
 
-#leaveGroupButton{
+#leaveGroupButton {
     margin: 0 auto;
     border: 1px solid black;
     border: 1px solid grey;
     box-shadow: 1px 1px 4px black;
 }
-#leaveGroupButton:hover{
-    background-color:rgb(187, 187, 187);
+
+#leaveGroupButton:hover {
+    background-color: rgb(187, 187, 187);
     box-shadow: 1px 1px 0px black;
 }
 
 /*Styling for group container*/
-h5{
+h5 {
     margin: 0;
     color: black;
 }
-#currentGroupContainer{
+
+#currentGroupContainer {
     padding-top: 12px;
     padding-bottom: 12px;
     min-height: 418px;
@@ -70,31 +77,31 @@ h5{
 }
 
 
-#groups-go-here{
+#groups-go-here {
     list-style-type: none;
     margin: 0px;
     height: 20%;
 }
 
-#group-grid-container{
+#group-grid-container {
     min-height: 240px;
     display: grid;
     width: 100%;
     grid-template-columns: 10% 10% 10% 30% 27% 15%;
     grid-template-rows: 25% 20% 40% 10%;
-    grid-template-areas: 
-    "exit title title title title participants"
-    "type type type building time time"
-    "description description description description description description"
-    "extra extra extra extra leave extra2"
+    grid-template-areas:
+        "exit title title title title participants"
+        "type type type building time time"
+        "description description description description description description"
+        "extra extra extra extra leave extra2"
 }
 
-#exitButton{
+#exitButton {
     grid-area: exit;
 }
 
-#group-title{
-    font-weight:bold;
+#group-title {
+    font-weight: bold;
     font-size: 15pt;
     color: rgb(0, 0, 0);
     grid-area: title;
@@ -102,61 +109,61 @@ h5{
     top: 10%;
 }
 
-#group-type{
-    position:relative;
+#group-type {
+    position: relative;
     top: 8%;
     grid-area: type;
     text-align: left;
 }
 
-#group-building{
+#group-building {
     grid-area: building;
     text-align: center;
 }
 
-#group-time{
+#group-time {
     grid-area: time;
     text-align: center;
 }
 
-#group-participants{
+#group-participants {
     grid-area: participants;
     font-size: 10pt;
 }
 
 
-#person{
+#person {
     position: relative;
     top: 8%;
     left: 3%;
     font-size: 16pt;
 }
 
-#clock{
+#clock {
     position: relative;
     top: 9%;
     right: 1%;
     font-size: 16pt;
 }
 
-#pin{
+#pin {
     position: relative;
     top: 9%;
     right: 1%;
     font-size: 16pt;
 }
 
-#group-description{
+#group-description {
     grid-area: description;
     color: black;
     overflow-wrap: normal;
     max-width: 100%;
     word-wrap: break-word;
     word-break: break-all;
-    
+
 }
 
-#group-leave{
+#group-leave {
     grid-area: leave;
     text-decoration: underline;
     font-size: 10pt;
@@ -165,12 +172,12 @@ h5{
 }
 
 
-.group-info-small{
+.group-info-small {
     font-size: 11pt;
 }
 
 /*Styling for chat*/
-#messages{
+#messages {
     margin: 10px 5px;
 }
 
@@ -189,7 +196,7 @@ li span {
     font-weight: bolder;
 }
 
-#chat{
+#chat {
     height: 20%;
     overflow: hidden;
     display: none;
@@ -211,18 +218,18 @@ li span {
     width: 100%;
 }
 
-#message-input{
+#message-input {
     width: 80%;
     margin-top: 15px;
     border-radius: 5px;
 }
 
-#message-submit{
+#message-submit {
     width: max(15%, 52px);
     border-radius: 5px;
 }
 
-li:has(span[class="sender"]) { 
+li:has(span[class="sender"]) {
     margin-left: 50%;
 }
 
@@ -230,27 +237,31 @@ li:has(span[class="reciever"]) {
     margin-right: 50%;
 }
 
-.sender:after, .receiver:after{
+.sender:after,
+.receiver:after {
     content: ":  "
 }
 
-.sender{
+.sender {
     display: block;
     font-size: smaller;
     color: grey;
 }
 
-.receiver{
+.receiver {
     display: block;
     font-size: smaller;
     color: grey;
 }
 
-.modal, .modal * {box-sizing: border-box}
+.modal,
+.modal * {
+    box-sizing: border-box
+}
 
 /* Set a style for all buttons */
 .modal button {
-    
+
     color: rgb(0, 0, 0);
     padding: 14px 20px;
     margin: 8px 0;
@@ -258,100 +269,110 @@ li:has(span[class="reciever"]) {
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
-  }
-  
-  .modal button:hover {
-    opacity:1;
-  }
-  
-  /* Float cancel and delete buttons and add an equal width */
-  .cancelbtn, .deletebtn {
+}
+
+.modal button:hover {
+    opacity: 1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn,
+.deletebtn {
     float: left;
     width: 50%;
-  }
-  
-  /* Add a color to the cancel button */
-  .cancelbtn {
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
     background-color: #ccc;
     color: black;
-  }
-  
-  /* Add a color to the delete button */
-  .leavebtn {
+}
+
+/* Add a color to the delete button */
+.leavebtn {
     background-color: #f44336;
-  }
-  
-  /* Add padding and center-align text to the container */
-  .modalcontainer {
+}
+
+/* Add padding and center-align text to the container */
+.modalcontainer {
     padding: 16px;
     text-align: center;
-  }
-  
-  /* The Modal (background) */
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 5; /* Sit on top */
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 5;
+    /* Sit on top */
     color: black;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100vh; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    /* Full width */
+    height: 100vh;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
     padding-top: 0px;
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
+}
+
+/* Modal Content/Box */
+.modal-content {
     background-color: #fefefe;
-    margin: 50% auto 50% auto; /* 5% from the top, 15% from the bottom and centered */
+    margin: 50% auto 50% auto;
+    /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* Style the horizontal ruler */
-  hr {
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
-  }
-  
-  /* The Modal Close Button (x) */
-  .close {
+}
+
+/* The Modal Close Button (x) */
+.close {
     position: absolute;
     right: 35px;
     top: 15px;
     font-size: 40px;
     font-weight: bold;
     color: #f1f1f1;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: #f44336;
     cursor: pointer;
-  }
-  
-  /* Clear floats */
-  .clearfix::after {
+}
+
+/* Clear floats */
+.clearfix::after {
     content: "";
     clear: both;
     display: table;
-  }
-  
-  /* Change styles for cancel button and delete button on extra small screens */
-  @media screen and (max-width: 300px) {
-    .cancelbtn, .deletebtn {
-      width: 100%;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+
+    .cancelbtn,
+    .deletebtn {
+        width: 100%;
     }
-  }
-  
-  #noGroup{
-    text-align:center;
+}
+
+#noGroup {
+    text-align: center;
     position: relative;
     top: 115px;
-  }
-
- 
-
+}

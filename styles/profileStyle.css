@@ -1,47 +1,54 @@
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-.material-icons.md-56 { font-size: 56px; }
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&family=Montserrat&display=swap');
+/* font-family: 'lato', 'Merriweather', 'Montserrat', sans-serif; */
 
-@font-face {
-    font-family: 'robotoregular';
-    src: url('fonts/webfontkit-roboto-regular-webfont.woff2') format('woff2'),
-         url('roboto-regular-webfont.woff') format('woff'),
-         url('roboto-regular-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-
+.material-icons.md-18 {
+    font-size: 18px;
 }
 
-#profileHeader span{
-    color:rgb(40, 40, 40);
+.material-icons.md-24 {
+    font-size: 24px;
 }
 
-html{
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
+
+.material-icons.md-56 {
+    font-size: 56px;
+}
+
+#profileHeader span {
+    color: rgb(40, 40, 40);
+}
+
+html {
     height: 100vh;
     width: 100vw;
     font-family: robotoregular;
-     
+
 }
 
-body{
+body {
     height: calc(100% - 150px);
     margin: 75px 0px;
-    color: white;   
+    color: white;
 }
 
-main{
+main {
     height: 100%;
     width: 100%;
 }
 
-#profileContainer{
+#profileContainer {
     padding: 15px;
 }
 
 #clickables {
-    display:flex;
+    display: flex;
     flex-direction: row;
 }
 

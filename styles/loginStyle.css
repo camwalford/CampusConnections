@@ -1,7 +1,10 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&family=Montserrat&display=swap');
+/* font-family: 'lato', 'Merriweather', 'Montserrat', sans-serif; */
+
+body {
     height: calc(100% - 150px);
     margin: 75px 0px;
-    color: white; 
+    color: white;
     background-image: url('../images/students-wallpapers.png');
     background-repeat: no-repeat;
     background-size: cover;

@@ -1,210 +1,232 @@
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-.material-icons.md-56 { font-size: 56px; }
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Merriweather&family=Montserrat&display=swap');
+/* font-family: 'lato', 'Merriweather', 'Montserrat', sans-serif; */
 
-@font-face {
-    font-family: 'robotoregular';
-    src: url('fonts/webfontkit-roboto-regular-webfont.woff2') format('woff2'),
-         url('roboto-regular-webfont.woff') format('woff'),
-         url('roboto-regular-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+.material-icons.md-56 {
+  font-size: 56px;
+}
+
+#createNav span {
+  color: rgb(40, 40, 40);
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
 
 }
 
-#createNav span{
-    color:rgb(40, 40, 40);
+body {
+  height: calc(100% - 150px);
+  margin: 75px 0px;
+  color: white;
 }
 
-html{
-    height: 100vh;
-    width: 100vw;
-    font-family: robotoregular;
-     
-}
+main {
+  height: 100%;
+  width: 100%;
 
-body{
-    height: calc(100% - 150px);
-    margin: 75px 0px;
-    color: white;   
-}
-
-main{
-    height: 100%;
-    width: 100%;
-    
 }
 
 
-#createButton{
-    margin: 0 auto;
-    border: 1px solid black;
-    border: 1px solid grey;
-    box-shadow: 1px 1px 4px black;
-}
-#createButton:hover{
-    background-color:rgb(187, 187, 187);
-    box-shadow: 1px 1px 0px black;
+#createButton {
+  margin: 0 auto;
+  border: 1px solid black;
+  border: 1px solid grey;
+  box-shadow: 1px 1px 4px black;
 }
 
-#createGroup-container{
-    max-width: 95%;
-    max-height: 100%;
-    min-height: max(50%, 350px) !important;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 15px 15px 15px 15px;
-    overflow-y: scroll;
+#createButton:hover {
+  background-color: rgb(187, 187, 187);
+  box-shadow: 1px 1px 0px black;
+}
+
+#createGroup-container {
+  max-width: 95%;
+  max-height: 100%;
+  min-height: max(50%, 350px) !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 15px 15px 15px 15px;
+  overflow-y: scroll;
 }
 
 @media screen and (max-width: 576px) {
-    #createGroup-container{
-        max-width: 100%;
-        overflow-y: scroll;
-        max-height: 100%;
-        min-height: max(50%, 350px) !important;
-        padding: 15px 15px 15px 15px;
-        margin: 10px;
-        /* display: grid; */
-        /* grid-template-columns: ; */
-        font-size: 11pt;   
-    }
-    #createGroup-container::-webkit-scrollbar{
-        width: 0px;
-    }
-    
-    h5{
-        font-size:large;
-        margin: 0;
-    }
-    #title-section #groupTitle{
+  #createGroup-container {
+    max-width: 100%;
+    overflow-y: scroll;
+    max-height: 100%;
+    min-height: max(50%, 350px) !important;
+    padding: 15px 15px 15px 15px;
+    margin: 10px;
+    /* display: grid; */
+    /* grid-template-columns: ; */
+    font-size: 11pt;
+  }
 
-    }
+  #createGroup-container::-webkit-scrollbar {
+    width: 0px;
+  }
 
-    #location-section{
-        margin-top: 10px;
-    }
-    #groupType-section{
-        margin-top: 10px;
-    }
-    #time-section{
-        
-    }
+  h5 {
+    font-size: large;
+    margin: 0;
+  }
 
-    #participant-section{
-        
-    }
-    #participant-section #participants{
-        width: 3em;
-        /* border-radius: 5px; */
-    }
-    #description-section{
-        
-    }
-    #createButton-section{
-        
-    }
-    
-    
+  #title-section #groupTitle {}
+
+  #location-section {
+    margin-top: 10px;
+  }
+
+  #groupType-section {
+    margin-top: 10px;
+  }
+
+  #time-section {}
+
+  #participant-section {}
+
+  #participant-section #participants {
+    width: 3em;
+    /* border-radius: 5px; */
+  }
+
+  #description-section {}
+
+  #createButton-section {}
+
+
 }
-.modal, .modal * {box-sizing: border-box}
+
+.modal,
+.modal * {
+  box-sizing: border-box
+}
 
 /* Set a style for all buttons */
 .modal button {
-    
-    color: rgb(0, 0, 0);
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-  }
-  
-  .modal button:hover {
-    opacity:1;
-  }
-  
-  /* Float cancel and delete buttons and add an equal width */
-  .cancelbtn, .deletebtn {
-    float: left;
-    width: 50%;
-  }
-  
-  /* Add a color to the cancel button */
-  .cancelbtn {
-    background-color: #ccc;
-    color: black;
-  }
-  
-  /* Add a color to the delete button */
-  .createbtn {
-    background-color: #92f436;
-  }
-  
-  /* Add padding and center-align text to the container */
-  .modalcontainer {
-    padding: 16px;
-    text-align: center;
-  }
+
+  color: rgb(0, 0, 0);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.modal button:hover {
+  opacity: 1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn,
+.deletebtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the delete button */
+.createbtn {
+  background-color: #92f436;
+}
+
+/* Add padding and center-align text to the container */
+.modalcontainer {
+  padding: 16px;
+  text-align: center;
+}
+
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 5; /* Sit on top */
-    color: black;
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100vh; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 0px;
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 5;
+  /* Sit on top */
+  color: black;
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100vh;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  padding-top: 0px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 50% auto 50% auto;
+  /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* The Modal Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+
+  .cancelbtn,
+  .deletebtn {
+    width: 100%;
   }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: #fefefe;
-    margin: 50% auto 50% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* Style the horizontal ruler */
-  hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
-  }
-  
-  /* The Modal Close Button (x) */
-  .close {
-    position: absolute;
-    right: 35px;
-    top: 15px;
-    font-size: 40px;
-    font-weight: bold;
-    color: #f1f1f1;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #f44336;
-    cursor: pointer;
-  }
-  
-  /* Clear floats */
-  .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  
-  /* Change styles for cancel button and delete button on extra small screens */
-  @media screen and (max-width: 300px) {
-    .cancelbtn, .deletebtn {
-      width: 100%;
-    }
-  }
+}

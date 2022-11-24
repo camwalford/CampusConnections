@@ -1,133 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Campus Connections</title>
-    <meta name="comp1800 template" content="My 1800 App" />
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <title>Campus Connections</title>
+  <meta name="comp1800 template" content="My 1800 App" />
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
 
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <!-- Boostrap Library JS CDN  go here -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"/>
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
 
-    <!-- Other libraries go here -->
-    <!-- Google Icons (Material Design)-->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/profileStyle.css" />
-    <link rel="stylesheet" href="./styles/style.css" />
-  </head>
+  <!-- Other libraries go here -->
+  <!-- Google Icons (Material Design)-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-  <body class="background-map">
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-    <header>
-      <nav id="header"></nav>
-    </header>
+  <!-- Link to styles of your own -->
+  <link rel="stylesheet" href="./styles/profileStyle.css" />
+  <link rel="stylesheet" href="./styles/style.css" />
+</head>
 
-    <!-- body of content -->
-    <main id="main" class="center-content">
-      <div
-        id="profileContainer"
-        class="container centering-container bg-BCIT bg-gradient"
-      >
-        <h1>User Profile</h1>
-        <form>
-          <fieldset class="mb-3" id="personalInfoFields" disabled>
-            <div class="form-group py-5">
-              <div id="profile-container">
-                <img id="mypic-goes-here" src="images/defaultpfp.jpg" width="200px" height="200px" />
-              </div>
-              <input id="mypic-input" type="file" />
+<body class="background-map">
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <!------------------------------>
+  <header>
+    <nav id="header"></nav>
+  </header>
+
+  <!-- body of content -->
+  <main id="main" class="center-content">
+    <div id="profileContainer" class="container centering-container bg-BCIT bg-gradient">
+      <h1>User Profile</h1>
+      <form>
+        <fieldset class="mb-3" id="personalInfoFields" disabled>
+          <div class="form-group py-5">
+            <div id="profile-container">
+              <img id="mypic-goes-here" src="images/defaultpfp.jpg" width="200px" height="200px" />
             </div>
-            <div class="form-group">
-              <label>Name</label>
-              <input
-                type="text"
-                id="username"
-                class="form-control"
-                placeholder="Enter your name"
-              />
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input
-                type="text"
-                id="email"
-                class="form-control"
-                placeholder="Enter your email"
-              />
-            </div>
-          </fieldset>
-
-          <div id="clickables">
-            <div class="d-flex mt-5" id="logout">
-              <button type="button" class="btn btn-danger">Logout</button>
-            </div>
-            <div class="d-flex justify-content-end mt-5">
-              <button type="button" class="btn btn-secondary" onclick="edit()">
-                Edit
-              </button>
-              <span style="width: 10px"></span>
-              <button type="button" class="btn btn-info" onclick="save()">
-                Save
-              </button>
-            </div>
+            <input id="mypic-input" type="file" />
           </div>
-        </form>
-      </div>
-    </main>
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="username" class="form-control" placeholder="Enter your name" />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" id="email" class="form-control" placeholder="Enter your email" />
+          </div>
+        </fieldset>
 
-    <footer>
-      <nav id="navBar"></nav>
-    </footer>
+        <div id="clickables">
+          <div class="d-flex mt-5" id="logout">
+            <button type="button" class="btn btn-danger">Logout</button>
+          </div>
+          <div class="d-flex justify-content-end mt-5">
+            <button type="button" class="btn btn-secondary" onclick="edit()">
+              Edit
+            </button>
+            <span style="width: 10px"></span>
+            <button type="button" class="btn btn-info" onclick="save()">
+              Save
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-    <script src="./scripts/firebaseAPI_TEAM26.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <!-- <script src="./scripts/authentication.js"></script> -->
-    <script src="./scripts/exitButton.js"></script>
-    <script src="./scripts/toMap.js"></script>
+  <footer>
+    <nav id="navBar"></nav>
+  </footer>
 
-    <!-- Link to scripts of your own -->
-    <script src="./scripts/profile.js"></script>
-  </body>
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
+  <script src="./scripts/firebaseAPI_TEAM26.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <!-- <script src="./scripts/authentication.js"></script> -->
+  <script src="./scripts/exitButton.js"></script>
+  <script src="./scripts/toMap.js"></script>
+
+  <!-- Link to scripts of your own -->
+  <script src="./scripts/profile.js"></script>
+</body>
+
 </html>

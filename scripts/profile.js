@@ -8,7 +8,7 @@ function displayProfile() {
         //get the data fields of the user
         var userName = userDoc.data().name;
         var userEmail = userDoc.data().email;
-        let picUrl = userDoc.data().profilePic; 
+        let picUrl = userDoc.data().profilePic;
 
         //if the data fields are not empty, then write them in to the form.
         if (userName != null) {

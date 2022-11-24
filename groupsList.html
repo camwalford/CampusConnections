@@ -4,7 +4,7 @@
 <head>
     <title>Campus Connections</title>
     <meta name="comp1800 template" content="My 1800 App">
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico"/> 
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,15 +17,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-    
+
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
     <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
 
@@ -42,7 +42,7 @@
 
 </head>
 
-<body id = "body" class="background-map">
+<body id="body" class="background-map">
     <!-- Templates for general use, not displayed -->
     <template id="groupTemplate">
         <li class="accordion">
@@ -59,7 +59,7 @@
             <span class="accordion-description">Description of said group</span>
             <a class="btn btn-primary card-href" id="join-now">Join Now!</a>
         </div>
-        
+
     </template>
 
 
@@ -67,31 +67,32 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <div class="clickbox">
-    <header>
-      <nav id="header"></nav>
-    </header>
+        <header>
+            <nav id="header"></nav>
+        </header>
 
-    <main id = "main" class="center-content" >
-    <!-- main page content here -->
-        <div id="groups-container" class="container centering-container bg-BCIT bg-gradient">
-            <div id="exitButton" class=" newButton">
-                <span class="material-symbols-outlined">
-                  close
-                  </span>
-              </div>
-            <h1>Current Groups: </h1>
-            <!-- Autocomplete search -->
-            <input type="text" id="group-search-input" onkeyup="groupSearch()" placeholder="Search by title, building, or type of group...">
-            
-            <!--Container for list of groups-->
-            <ul id="groups-go-here"></ul>
-        </div>
-    </main>
+        <main id="main" class="center-content">
+            <!-- main page content here -->
+            <div id="groups-container" class="container centering-container bg-BCIT bg-gradient">
+                <div id="exitButton" class=" newButton">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </div>
+                <div id="currentGroup">Current Groups</div>
+                <!-- Autocomplete search -->
+                <input type="text" id="group-search-input" onkeyup="groupSearch()"
+                    placeholder="Search by title, building, or type of group...">
 
-    <footer>
-      <nav id="navBar"></nav>
-    </footer> 
-    </div>  
+                <!--Container for list of groups-->
+                <ul id="groups-go-here"></ul>
+            </div>
+        </main>
+
+        <footer>
+            <nav id="navBar"></nav>
+        </footer>
+    </div>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
@@ -99,7 +100,7 @@
     <script src="./scripts/firebaseAPI_TEAM26.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <!-- <script src="./scripts/authentication.js"></script> -->
-    
+
     <script src="./scripts/groupsList.js"></script>
     <script src="./scripts/clearGroups.js"></script>
     <script src="./scripts/toMap.js"></script>

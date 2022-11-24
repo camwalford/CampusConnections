@@ -101,9 +101,9 @@ function displayCurrentMessages() {
                   if (str1 === str2) {
                     console.log(
                       "New message from: " +
-                        change.doc.data().username +
-                        " " +
-                        change.doc.data().message
+                      change.doc.data().username +
+                      " " +
+                      change.doc.data().message
                     );
                     console.log("pfp: " + change.doc.data().userpfp);
                     let li = document.createElement("li");
@@ -121,9 +121,9 @@ function displayCurrentMessages() {
                   } else {
                     console.log(
                       "New message from: " +
-                        change.doc.data().username +
-                        " " +
-                        change.doc.data().message
+                      change.doc.data().username +
+                      " " +
+                      change.doc.data().message
                     );
                     let li = document.createElement("li");
                     li.innerHTML =
