@@ -22,6 +22,7 @@ function displayProfile() {
           // use this line if "mypicdiv" is a "div"
           //$("#mypicdiv").append("<img src='" + picUrl + "'>")
           $("#mypic-goes-here").attr("src", picUrl);
+          $("#main-pfp").attr("src", picUrl);
         } else console.log("picURL is null");
       });
     } else {
