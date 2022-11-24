@@ -67,30 +67,33 @@ document
           });
           console.log("Message was sent");
         } else {
-          alert("🤡🤡🤡 no empty messages 🤡🤡🤡");
+          // alert("🤡🤡🤡 no empty messages 🤡🤡🤡");
+          messageInput.classList.add("empty-chat");
+          
         }
       }
     });
   });
+
 
 function displayCurrentMessages() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       let messageList = document.getElementById("messages");
       let currentUserID = user.uid;
-      console.log("displaymessages " + currentUserID);
+      //console.log("displaymessages " + currentUserID);
 
       //Accessing the firestore chats
       db.collection("users")
         .doc(currentUserID)
         .get()
         .then((doc) => {
-          console.log(doc.data().currentGroup);
+          //console.log(doc.data().currentGroup);
           db.collection("groups")
             .doc(doc.data().currentGroup)
             .collection("chats")
             .onSnapshot(function (snapshot) {
-              console.log(snapshot);
+              //console.log(snapshot);
 
               //Each new message in the database is added as a list item.
               snapshot.docChanges().forEach(function (change) {
@@ -99,13 +102,13 @@ function displayCurrentMessages() {
                   let str2 = currentUserID;
                   //checking if the user is sending or receiving the message
                   if (str1 === str2) {
-                    console.log(
-                      "New message from: " +
-                      change.doc.data().username +
-                      " " +
-                      change.doc.data().message
-                    );
-                    console.log("pfp: " + change.doc.data().userpfp);
+                    // console.log(
+                    //   "New message from: " +
+                    //   change.doc.data().username +
+                    //   " " +
+                    //   change.doc.data().message
+                    // );
+                    //console.log("pfp: " + change.doc.data().userpfp);
                     let li = document.createElement("li");
                     li.innerHTML =
                       '<span class="sender">' +
@@ -165,6 +168,7 @@ function displayCurrentMessages() {
 document
   .getElementById("message-input")
   .addEventListener("keypress", function (event) {
+    this.classList.remove("empty-chat");
     if (event.key === "Enter") {
       // Cancel the default action, if needed
       event.preventDefault();

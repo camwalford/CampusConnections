@@ -254,6 +254,12 @@ li:has(span[class="reciever"]) {
     color: grey;
 }
 
+.empty-chat{
+    border-color: rgb(255, 53, 53);
+    background-color: rgb(248, 203, 203);
+
+}
+
 .modal,
 .modal * {
     box-sizing: border-box

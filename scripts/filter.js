@@ -21,7 +21,7 @@ function groupSearch() {
 
 function accordion() {
   setTimeout(() => {
-    console.log("activities loaded");
+    //console.log("activities loaded");
     var acc = document.getElementsByClassName("accordion");
     var i;
 

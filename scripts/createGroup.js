@@ -40,7 +40,7 @@ function ValidationEvent() {
     if (error) {
       // The write failed...
     } else {
-      console.log("this was executed");
+      //console.log("this was executed");
       window.open("group.html", "_self");
     }
   }).then((docRef) => {
