@@ -4,77 +4,88 @@ function displayCards(collection) {
   db.collection(collection)
     .get()
     .then((snap) => {
-      snap.forEach((doc) => {
-        //iterate thru each doc
+      //If no groups available to display, displays message and link to createGroup.
+      if(snap.empty){
+        document.getElementById("groups-go-here").innerHTML =
+              '<div onclick="backToMap()" id="exitButton" class=" newButton">' +
+              
+              '</div><div id="noGroup" style="text-align: center;"><p>Sorry, there are no groups to join right now.</p>' +
+              '<a id="noGroupLink" href="./createGroup.html">Create a new group here!</a></div>';
 
-        var title = doc.data().title; // get value of the "name" key
-        var groupType = doc.data().groupType; // get value of the "details" key
-        var groupID = doc.id; //gets the unique id for the group
-        var building = doc.data().building;
-        var startTime = doc.data().starttime;
-        var endTime = doc.data().endtime;
-        var participants = doc.data().participants;
-        var CurrentParticipants = doc.data().currentParticipants;
-        var description = doc.data().description;
+      }else{
+        snap.forEach((doc) => {
+          
+          //iterate thru each doc
 
-        var currentTime = new Date();
+          var title = doc.data().title; // get value of the "name" key
+          var groupType = doc.data().groupType; // get value of the "details" key
+          var groupID = doc.id; //gets the unique id for the group
+          var building = doc.data().building;
+          var startTime = doc.data().starttime;
+          var endTime = doc.data().endtime;
+          var participants = doc.data().participants;
+          var CurrentParticipants = doc.data().currentParticipants;
+          var description = doc.data().description;
 
-        var groupID = doc.id; //get unique ID to each hike to be used for fetching right image
-        let newAccordion = accordionTemplate.content.cloneNode(true);
+          var currentTime = new Date();
 
-        //this code fixes an error where if the time should say 5:02 it would say 5:2
-        let startMinutes;
-        if (startTime.toDate().getMinutes() < 10) {
-          startMinutes = "0" + startTime.toDate().getMinutes();
-        } else {
-          startMinutes = startTime.toDate().getMinutes();
-        }
-        let endMinutes;
-        if (endTime.toDate().getMinutes() < 10) {
-          endMinutes = "0" + endTime.toDate().getMinutes();
-        } else {
-          endMinutes = endTime.toDate().getMinutes();
-        }
+          var groupID = doc.id; //get unique ID to each hike to be used for fetching right image
+          let newAccordion = accordionTemplate.content.cloneNode(true);
 
-
-
-        //converts the date to a 12 hour clock
-        if (startTime.toDate().getHours() > 12) {
-          startTime = startTime.toDate().getHours() - 12 + ":" + startMinutes + "pm";
-        } else {
-          startTime = startTime.toDate().getHours() + ":" + startMinutes + "am";
-        }
-
-        if (endTime.toDate().getHours() > 12) {
-          end = endTime.toDate().getHours() - 12 + ":" + endMinutes + "pm";
-        } else {
-          end = endTime.toDate().getHours() + ":" + endMinutes + "am";
-        }
-
-        //update title and text and image
-        newAccordion.querySelector(".accordion-title").innerHTML = title;
-        newAccordion.querySelector(".accordion-type").innerHTML = groupType;
-        newAccordion.querySelector(".accordion-time").innerHTML = startTime + " - " + end;
-        newAccordion.querySelector(".accordion-building").innerHTML = building;
-        newAccordion.querySelector(".accordion-participants").innerHTML =
-          CurrentParticipants + "/" + participants;
-        newAccordion.querySelector(".accordion-description").innerHTML =
-          description;
-
-        newAccordion.querySelector("a").onclick = () => joinGroup(groupID);
+          //this code fixes an error where if the time should say 5:02 it would say 5:2
+          let startMinutes;
+          if (startTime.toDate().getMinutes() < 10) {
+            startMinutes = "0" + startTime.toDate().getMinutes();
+          } else {
+            startMinutes = startTime.toDate().getMinutes();
+          }
+          let endMinutes;
+          if (endTime.toDate().getMinutes() < 10) {
+            endMinutes = "0" + endTime.toDate().getMinutes();
+          } else {
+            endMinutes = endTime.toDate().getMinutes();
+          }
 
 
-        //delete the file if the time is up or if there are no participants
-        console.log(endTime.toDate() + " : " + currentTime);
-        if (endTime.toDate() < currentTime || CurrentParticipants < 1) {
-          db.collection(collection).doc(groupID).delete();
-        } else {
-          //attach to gallery
-          document
-            .getElementById(collection + "-go-here")
-            .appendChild(newAccordion);
-        }
-      });
+
+          //converts the date to a 12 hour clock
+          if (startTime.toDate().getHours() > 12) {
+            startTime = startTime.toDate().getHours() - 12 + ":" + startMinutes + "pm";
+          } else {
+            startTime = startTime.toDate().getHours() + ":" + startMinutes + "am";
+          }
+
+          if (endTime.toDate().getHours() > 12) {
+            end = endTime.toDate().getHours() - 12 + ":" + endMinutes + "pm";
+          } else {
+            end = endTime.toDate().getHours() + ":" + endMinutes + "am";
+          }
+
+          //update title and text and image
+          newAccordion.querySelector(".accordion-title").innerHTML = title;
+          newAccordion.querySelector(".accordion-type").innerHTML = groupType;
+          newAccordion.querySelector(".accordion-time").innerHTML = startTime + " - " + end;
+          newAccordion.querySelector(".accordion-building").innerHTML = building;
+          newAccordion.querySelector(".accordion-participants").innerHTML =
+            CurrentParticipants + "/" + participants;
+          newAccordion.querySelector(".accordion-description").innerHTML =
+            description;
+
+          newAccordion.querySelector("a").onclick = () => joinGroup(groupID);
+
+
+          //delete the file if the time is up or if there are no participants
+          console.log(endTime.toDate() + " : " + currentTime);
+          if (endTime.toDate() < currentTime || CurrentParticipants < 1) {
+            db.collection(collection).doc(groupID).delete();
+          } else {
+            //attach to gallery
+            document
+              .getElementById(collection + "-go-here")
+              .appendChild(newAccordion);
+          }
+        });
+      }
     });
 }
 
