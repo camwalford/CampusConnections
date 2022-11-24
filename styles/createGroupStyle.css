@@ -46,13 +46,13 @@ main {
 
 #createButton {
   margin: 0 auto;
-  border: 1px solid black;
-  border: 1px solid grey;
+  background-color: rgb(42, 113, 195);
+  border: 2px solid black;
   box-shadow: 1px 1px 4px black;
 }
 
 #createButton:hover {
-  background-color: rgb(187, 187, 187);
+  background-color: rgb(45, 62, 187);
   box-shadow: 1px 1px 0px black;
 }
 
