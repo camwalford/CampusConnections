@@ -20,95 +20,105 @@ function displayGroup() {
               .doc(doc.data().currentGroup)
               .get()
               .then((snap) => {
+                
                 console.log(snap.data());
+                if (typeof snap.data() !== 'undefined'){
 
-                var title = snap.data().title;
-                var groupType = snap.data().groupType;
-                var groupID = snap.id; //gets the unique id for the group
-                var building = snap.data().building;
-                var currentParticipants = snap.data().currentParticipants;
-                var maxParticipants = snap.data().participants;
-                var startTime = snap.data().starttime;
-                var endTime = snap.data().endtime;
-                var description = snap.data().description;
-                var startTime;
-                var endTime = snap.data().endtime;
-                console.log("id is " + groupID);
+                  var title = snap.data().title;
+                  var groupType = snap.data().groupType;
+                  var groupID = snap.id; //gets the unique id for the group
+                  var building = snap.data().building;
+                  var currentParticipants = snap.data().currentParticipants;
+                  var maxParticipants = snap.data().participants;
+                  var startTime = snap.data().starttime;
+                  var endTime = snap.data().endtime;
+                  var description = snap.data().description;
+                  var startTime;
+                  var endTime = snap.data().endtime;
+                  console.log("id is " + groupID);
 
-                //this code fixes an error where if the time should say 5:02 it would say 5:2
-                let startMinutes;
-                if (startTime.toDate().getMinutes() < 10) {
-                  startMinutes = "0" + startTime.toDate().getMinutes();
-                } else {
-                  startMinutes = startTime.toDate().getMinutes();
+                  //this code fixes an error where if the time should say 5:02 it would say 5:2
+                  let startMinutes;
+                  if (startTime.toDate().getMinutes() < 10) {
+                    startMinutes = "0" + startTime.toDate().getMinutes();
+                  } else {
+                    startMinutes = startTime.toDate().getMinutes();
+                  }
+                  let endMinutes;
+                  if (endTime.toDate().getMinutes() < 10) {
+                    endMinutes = "0" + endTime.toDate().getMinutes();
+                  } else {
+                    endMinutes = endTime.toDate().getMinutes();
+                  }
+
+                  if (startTime.toDate().getHours() > 12) {
+                    startTime =
+                      startTime.toDate().getHours() -
+                      12 +
+                      ":" +
+                      startMinutes +
+                      "pm";
+                  } else {
+                    startTime =
+                      startTime.toDate().getHours() +
+                      ":" +
+                      startMinutes +
+                      "am";
+                  }
+
+                  if (endTime.toDate().getHours() > 12) {
+                    endTime =
+                      endTime.toDate().getHours() -
+                      12 +
+                      ":" +
+                      endMinutes +
+                      "pm";
+                  } else {
+                    endTime =
+                      endTime.toDate().getHours() +
+                      ":" +
+                      endMinutes +
+                      "am";
+                  }
+
+                  //endTime = endTime.toDate().getHours() + ":" + endTime.toDate().getMinutes();
+
+                  let newGroup = groupTemplate.content.cloneNode(true);
+
+                  //update title and text and image
+                  newGroup.getElementById("group-title").innerHTML = title;
+                  newGroup.getElementById("group-type").innerHTML = groupType;
+                  newGroup.getElementById("group-building").innerHTML =
+                    '<span id="pin" class="material-symbols-outlined">location_on</span>' +
+                    building;
+                  newGroup.getElementById("group-time").innerHTML =
+                    '<span id="clock" class="material-symbols-outlined">schedule</span>' +
+                    startTime +
+                    " - " +
+                    endTime;
+                  newGroup.getElementById("group-participants").innerHTML =
+                    '<span id="person" class="material-icons">person</span>' +
+                    currentParticipants +
+                    "/" +
+                    maxParticipants;
+                  newGroup.getElementById("group-description").innerHTML =
+                    "Description: " + description;
+
+                  document.querySelector("#leave").onclick = () =>
+                    leaveGroup(groupID);
+
+                  document.getElementById("groups-go-here").appendChild(newGroup);
+
+                  var chat = document.getElementById("chat");
+                  chat.style.display = "block";
                 }
-                let endMinutes;
-                if (endTime.toDate().getMinutes() < 10) {
-                  endMinutes = "0" + endTime.toDate().getMinutes();
-                } else {
-                  endMinutes = endTime.toDate().getMinutes();
+                else {
+                  document.getElementById("currentGroupContainer").innerHTML =
+                    '<div onclick="backToMap()" id="exitButton" class=" newButton">' +
+                    '<span id="exitButton" class="material-symbols-outlined">close</span>' +
+                    '</div><div id="noGroup"><p>You are not currently in a group.</p>' +
+                    '<a id="noGroupLink" href="./groupsList.html">Find a new group here!</a></div>';
                 }
-
-                if (startTime.toDate().getHours() > 12) {
-                  startTime =
-                    startTime.toDate().getHours() -
-                    12 +
-                    ":" +
-                    startMinutes +
-                    "pm";
-                } else {
-                  startTime =
-                    startTime.toDate().getHours() +
-                    ":" +
-                    startMinutes +
-                    "am";
-                }
-
-                if (endTime.toDate().getHours() > 12) {
-                  endTime =
-                    endTime.toDate().getHours() -
-                    12 +
-                    ":" +
-                    endMinutes +
-                    "pm";
-                } else {
-                  endTime =
-                    endTime.toDate().getHours() +
-                    ":" +
-                    endMinutes +
-                    "am";
-                }
-
-                //endTime = endTime.toDate().getHours() + ":" + endTime.toDate().getMinutes();
-
-                let newGroup = groupTemplate.content.cloneNode(true);
-
-                //update title and text and image
-                newGroup.getElementById("group-title").innerHTML = title;
-                newGroup.getElementById("group-type").innerHTML = groupType;
-                newGroup.getElementById("group-building").innerHTML =
-                  '<span id="pin" class="material-symbols-outlined">location_on</span>' +
-                  building;
-                newGroup.getElementById("group-time").innerHTML =
-                  '<span id="clock" class="material-symbols-outlined">schedule</span>' +
-                  startTime +
-                  " - " +
-                  endTime;
-                newGroup.getElementById("group-participants").innerHTML =
-                  '<span id="person" class="material-icons">person</span>' +
-                  currentParticipants +
-                  "/" +
-                  maxParticipants;
-                newGroup.getElementById("group-description").innerHTML =
-                  "Description: " + description;
-
-                document.querySelector("#leave").onclick = () =>
-                  leaveGroup(groupID);
-
-                document.getElementById("groups-go-here").appendChild(newGroup);
-
-                var chat = document.getElementById("chat");
-                chat.style.display = "block";
               });
             //If user is not in a group, displays message and link to groupList page
           } else {
