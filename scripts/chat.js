@@ -67,11 +67,14 @@ document
           });
           console.log("Message was sent");
         } else {
-          alert("🤡🤡🤡 no empty messages 🤡🤡🤡");
+          // alert("🤡🤡🤡 no empty messages 🤡🤡🤡");
+          messageInput.classList.add("empty-chat");
+          
         }
       }
     });
   });
+
 
 function displayCurrentMessages() {
   firebase.auth().onAuthStateChanged((user) => {
@@ -165,6 +168,7 @@ function displayCurrentMessages() {
 document
   .getElementById("message-input")
   .addEventListener("keypress", function (event) {
+    this.classList.remove("empty-chat");
     if (event.key === "Enter") {
       // Cancel the default action, if needed
       event.preventDefault();
