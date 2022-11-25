@@ -80,8 +80,8 @@
         <div id="title-section" class="form-group row ">
           <label for="groupTitle" class="col-sm-2 col-form-label">Title:</label>
           <div class="col-sm-9">
-            <input type="text" name="groupTitle" class="form-control" id="groupTitle" placeholder="Enter a title"
-              required minlength="4" maxlength="35" />
+            <input type="text" name="groupTitle" class="form-control" id="groupTitle" placeholder="Enter a concise title (40 characters max)"
+              required minlength="4" maxlength="40" />
           </div>
         </div>
         <!-- TODO BRAINSTORM MORE OPTIONS OF GROUPS, ADD group ICONS-->
@@ -99,7 +99,7 @@
         </div>
         <!-- TODO ADD ALL ACTUAL BUILDINGS AND MAYBE PARKING LOTS/FIELDS -->
         <div id="location-section" class="form-group-row mt-3">
-          <label for="building" class="col-sm-2 col-form-label">Building: </label>
+          <label for="building" class="col-sm-2 col-form-label">Location: </label>
           <select class="custom-select mr-2" id="building" name="building" required>
             <option value="" disabled selected>-- Choose --</option>
             <option value="SE1">SE1</option>
