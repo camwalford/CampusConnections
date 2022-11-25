@@ -75,7 +75,7 @@
         </span>
       </div>
       <h5 id="header" class="text-center">CREATE YOUR NEW GROUP</h5>
-      <form class="centered">
+      <form id="create-group-form"class="centered">
 
         <div id="title-section" class="form-group row ">
           <label for="groupTitle" class="col-sm-2 col-form-label">Title:</label>
@@ -88,18 +88,20 @@
         <div id="groupType-section" class="form-group-row mt-3">
           <label for="groupType" class="col-sm-2 col-form-label">Group Type: </label>
           <select class="custom-select mr-2" id="groupType" name="groupType" required>
-            <option selected>Choose...</option>
+            <option value="" disabled selected>-- Choose --</option>
             <option value="🤣 Socialize">Socialize</option>
             <option value="📖 Study">Study</option>
             <option value="🍔 Food">Food</option>
             <option value="🎮 Games">Games</option>
             <option value="🏈 Exercise">Exercise</option>
+            <option value="🙂 Other">Other</option>
           </select>
         </div>
         <!-- TODO ADD ALL ACTUAL BUILDINGS AND MAYBE PARKING LOTS/FIELDS -->
         <div id="location-section" class="form-group-row mt-3">
           <label for="building" class="col-sm-2 col-form-label">Building: </label>
           <select class="custom-select mr-2" id="building" name="building" required>
+            <option value="" disabled selected>-- Choose --</option>
             <option value="SE1">SE1</option>
             <option value="SE2">SE2</option>
             <option value="SE4">SE4</option>
@@ -159,21 +161,21 @@
 
         <div id="participant-section" class="form-group-row mt-3">
           <label for="participants" class="col-sm-2 col-form-label">Participants:</label>
-          <input class="col-sm-1" type="number" id="participants" value="2" pattern="[2-100]" name="participants"
+          <input class="col-sm-1" type="number" id="participants" value="2" min="2" max="500" pattern="[2-100]" name="participants"
             required></input>
         </div>
 
         <div id="description-section" class="form-group-row mt-3">
           <label for="description">Description:</label>
           <textarea class="form-control" id="description" rows="1" name="description"
-            placeholder="Enter a detailed description"></textarea>
+            placeholder="Enter a detailed description" required></textarea>
         </div>
 
         <!--TODO creates new group in firestore server and sends you to new group page-->
 
         <div id="createButton-section" class="form-group row mt-3">
           <button type="button" id="createButton" class="btn text-light mb-0 d-inline-block w-50"
-            value="Submit" name="Submit" onclick="document.getElementById('id01').style.display='block'">
+            value="Submit" name="Submit">
             CREATE GROUP
           </button>
         </div>
