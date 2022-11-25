@@ -88,8 +88,6 @@ main {
     margin: 0;
   }
 
-  #title-section #groupTitle {}
-
   #location-section {
     margin-top: 10px;
   }
@@ -230,3 +228,35 @@ hr {
     width: 100%;
   }
 }
+
+input, select {
+  border-color:#e0e0e0;
+  border-radius: 6px;
+  border-width: 2px;
+  color: #000000;
+  border-style: solid;
+}
+
+
+/* Hour */
+input[type=time]::-webkit-datetime-edit-hour-field {
+  /* background-color: #e5e5e5; 
+  border-radius: 15%;  */
+  padding: 2px;
+  
+}
+
+/* Minute */
+input[type=time]::-webkit-datetime-edit-minute-field {
+  /* background-color: #e5e5e5; 
+  border-radius: 15%;  */
+  padding: 1px;
+  
+}
+
+/* AM/PM */
+input[type=time]::-webkit-datetime-edit-ampm-field {
+  /* background-color: #b6d7fd; 
+  border-radius: 15%;  */
+ 
+} 
