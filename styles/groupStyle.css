@@ -168,9 +168,14 @@ h5 {
     text-decoration: underline;
     font-size: 10pt;
     position: relative;
-    left: 60%;
+    top: 55%;
+    left: 90%;
+    cursor: pointer;
 }
 
+#group-leave:hover {
+    color: red;
+}
 
 .group-info-small {
     font-size: 11pt;
@@ -210,8 +215,11 @@ li span {
     overflow-y: scroll;
     background-color: white;
     border: 1px solid rgb(37, 78, 120);
-    border-radius: 5px
+    border-radius: 5px;
+    resize: vertical;
+    position: relative;
 }
+
 
 #message-form {
     text-align: center;
@@ -260,6 +268,8 @@ li:has(span[class="reciever"]) {
 
 }
 
+
+/* Beginning of modal styling */
 .modal,
 .modal * {
     box-sizing: border-box
