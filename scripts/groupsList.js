@@ -1,7 +1,9 @@
-function displayCards(collection) {
+const params = new URL(window.location.href);
+
+async function displayCards(collection) {
   let accordionTemplate = document.getElementById("groupTemplate");
 
-  db.collection(collection)
+  await db.collection(collection)
     .get()
     .then((snap) => {
       //If no groups available to display, displays message and link to createGroup.
@@ -87,7 +89,11 @@ function displayCards(collection) {
         });
       }
     });
+  checkParams();
+  accordion(); 
 }
+
+displayCards("groups");
 
 function joinGroup(id) {
   var currentUserRef = db.collection("users").doc(currentUserID);
@@ -152,4 +158,51 @@ function joinGroup(id) {
   // })
 }
 
-displayCards("groups");
+//Displays extra group information in accordion dropdown on click.
+function accordion() {
+  //console.log("activities loaded");
+  let acc = document.getElementsByClassName("accordion");
+
+  //Loops over all activities and adds an on-click listener for the dropdown.
+  for (let i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      let panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  }
+}
+
+// Auto-filter groups based on parameters currently in searchbar.
+function groupSearch() {
+  let input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('group-search-input');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("groups-go-here");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByClassName("search-queries")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+// Sets search to parameter in searchbar if present
+function checkParams(){
+  let buildingParam = params.searchParams.get("buildingId");
+  if (buildingParam !== null) {
+    input = document.getElementById('group-search-input');
+    input.value = buildingParam;
+    groupSearch();
+  }
+}
