@@ -54,7 +54,7 @@ function ValidationEvent() {
   });
 }
 
-var modal = document.getElementById('id01');
+var modal = document.getElementById('create-modal');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
@@ -63,11 +63,9 @@ window.onclick = function (event) {
   }
 }
 
-//The validity of user input
+//Confirms validity of user input and displays confirmation modal if 
 document.querySelector("#createButton").addEventListener("click", function (e){
-
   e.preventDefault();
-
   // let title1 = document.getElementById("groupTitle");
   // let type1 = document.getElementById("groupType");
   // let building1 = document.getElementById("building");
@@ -88,14 +86,6 @@ document.querySelector("#createButton").addEventListener("click", function (e){
   let isValid = document.querySelector("#create-group-form").reportValidity();
 
   if(isValid){
-    
-    document.getElementById('id01').style.display='block';
-    return false;
-  }else{
-    return false;
+    document.getElementById('create-modal').style.display='block';
   }
-  
-
-
-
 });
