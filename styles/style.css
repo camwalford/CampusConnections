@@ -27,11 +27,11 @@ html {
     width: 100vw;
 }
 
-footer {
+#bottomNav {
     max-width: 100vw;
     color: rgb(0, 0, 0);
-    border-top: 2px solid rgb(75, 128, 170);
-}
+    border-top: 3px solid rgb(75, 128, 170);
+} 
 
 #topNav {
     border-radius: 50px;
