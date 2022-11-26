@@ -46,6 +46,11 @@ html {
     color: rgb(43, 42, 42);
 }
 
+@media screen and (max-width: 500px) {
+    #brandName {
+        display: none;
+    }
+}
 .clickbox {
     height: 100%;
     width: 100%;
