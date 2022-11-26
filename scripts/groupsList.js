@@ -25,7 +25,7 @@ async function displayCards(collection) {
           var building = doc.data().building;
           var startTime = doc.data().starttime;
           var endTime = doc.data().endtime;
-          var participants = doc.data().participants;
+          var maxParticipants = doc.data().participants;
           var CurrentParticipants = doc.data().currentParticipants;
           var description = doc.data().description;
 
@@ -66,12 +66,19 @@ async function displayCards(collection) {
           //update title and text and image
           newAccordion.querySelector(".accordion-title").innerHTML = title;
           newAccordion.querySelector(".accordion-type").innerHTML = groupType;
-          newAccordion.querySelector(".accordion-time").innerHTML = startTime + " - " + end;
-          newAccordion.querySelector(".accordion-building").innerHTML = building;
-          newAccordion.querySelector(".accordion-participants").innerHTML =
-            CurrentParticipants + "/" + participants;
+          newAccordion.querySelector(".accordion-time").innerHTML = 
+              '<span id="clock" class="material-symbols-outlined">schedule</span>' +
+              startTime +
+              " - " +
+              end;
+          newAccordion.querySelector(".accordion-building").innerHTML = 
+              '<span id="pin" class="material-symbols-outlined">location_on</span>' 
+              + building;
+          newAccordion.querySelector(".accordion-participants").innerHTML = 
+              '<span id="person" class="material-icons">person</span>' 
+              + CurrentParticipants + "/" + maxParticipants;
           newAccordion.querySelector(".accordion-description").innerHTML =
-            description;
+          "Description: " + description;
 
           newAccordion.querySelector("a").onclick = () => joinGroup(groupID);
 
@@ -171,7 +178,8 @@ function accordion() {
       if (panel.style.maxHeight) {
         panel.style.maxHeight = null;
       } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
+        panel.style.maxHeight = 180 + "px";
+  
       }
     });
   }
@@ -197,7 +205,7 @@ function groupSearch() {
   }
 }
 
-// Sets search to parameter in searchbar if present
+// Sets search to parameter in searchbar if present.
 function checkParams(){
   let buildingParam = params.searchParams.get("buildingId");
   if (buildingParam !== null) {

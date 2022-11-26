@@ -33,6 +33,7 @@ html {
 
 }
 
+
 body {
     height: calc(100% - 150px);
     margin: 75px 0px;
@@ -110,7 +111,8 @@ main {
     margin: 0px;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+/* Add a background color to the button if it is clicked on (add the .active class with JS),
+ and when you move the mouse over it (hover) */
 .active,
 .accordion:hover {
     background-color: #ccc;
@@ -120,23 +122,76 @@ main {
 }
 
 .panel {
+    color: black;
     padding: 0px 20px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: white;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
+    transition: max-height 0.3s ease-out;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 15% 60% 25%;
+    grid-template-areas:
+        "time time time time"
+        "description description description description  "
+        "extra extra extra join";
 }
 
-.panel span {
-    padding: 0px 18px;
+.accordion-time{
+    padding: 5px 5px;
     margin: 0px;
+    width:100%;
+    color: black;
     background-color: white;
-    max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
+    transition: max-height 0.3s ease-out;  
+    grid-area: time;
 }
+
+.accordion-description{
+    padding: 5px 5px;
+    margin: 0px;
+    width:100%;
+    color: black;
+    background-color: white;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;  
+    grid-area: description;
+}
+
+#join-now{
+    margin: 0px;
+    width:100%;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;  
+    grid-area: join;
+
+}
+
+#person {
+    position: relative;
+    top: 5px;
+    left: 2px;
+    font-size: 16pt;
+}
+
+#clock {
+    position: relative;
+    top: 9%;
+    right: 1%;
+    font-size: 16pt;
+}
+
+#pin {
+    position: relative;
+    top: 9%;
+    right: 1%;
+    font-size: 16pt;
+}
+
 
 
 .search-queries {
@@ -154,13 +209,13 @@ main {
 
 .search-queries {
     display: grid;
-    grid-template-columns: 50% 25% 25%;
+    grid-template-columns: 55% 30% 15%;
     grid-template-rows: auto;
     grid-template-areas:
         "title group-type building"
 }
 
-.accordion>span {
+.accordion >span {
 
     display: flex;
     justify-content: flex-end;
