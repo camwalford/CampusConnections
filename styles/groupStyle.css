@@ -87,13 +87,14 @@ h5 {
     min-height: 240px;
     display: grid;
     width: 100%;
-    grid-template-columns: 10% 10% 10% 30% 27% 15%;
+    padding-right: 1em;
+    grid-template-columns: 5% 5% 5% 5% 5% 5% 15% 15% 13% 7% 7% 7% 8%;
     grid-template-rows: 25% 20% 40% 10%;
     grid-template-areas:
-        "exit title title title title participants"
-        "type type type building time time"
-        "description description description description description description"
-        "extra extra extra extra leave extra2"
+        "exit exit title title title title title title title title title participants participants"
+        "type type type type type building building building time time time time time"
+        "description description description description description description description description description description description description description"
+        "extra extra extra extra extra extra extra extra extra extra leave leave leave"
 }
 
 #exitButton {
@@ -134,8 +135,8 @@ h5 {
 
 #person {
     position: relative;
-    top: 8%;
-    left: 3%;
+    top: 5px;
+    left: 2px;
     font-size: 16pt;
 }
 
@@ -160,6 +161,8 @@ h5 {
     max-width: 100%;
     word-wrap: break-word;
     word-break: break-all;
+    overflow-y:scroll;
+    
 
 }
 
@@ -167,10 +170,15 @@ h5 {
     grid-area: leave;
     text-decoration: underline;
     font-size: 10pt;
-    position: relative;
-    left: 60%;
+    
+    text-align: center;
+    
+    cursor: pointer;
 }
 
+#group-leave:hover {
+    color: red;
+}
 
 .group-info-small {
     font-size: 11pt;
@@ -209,9 +217,12 @@ li span {
     margin: 0;
     overflow-y: scroll;
     background-color: white;
-    border: 1px solid rgb(75, 128, 170);
-    border-radius: 5px
+    border: 1px solid rgb(37, 78, 120);
+    border-radius: 5px;
+    resize: vertical;
+    position: relative;
 }
+
 
 #message-form {
     text-align: center;
@@ -260,6 +271,8 @@ li:has(span[class="reciever"]) {
 
 }
 
+
+/* Beginning of modal styling */
 .modal,
 .modal * {
     box-sizing: border-box

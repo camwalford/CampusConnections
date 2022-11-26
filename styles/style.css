@@ -134,6 +134,8 @@ button[class*="bg-BCIT"]:hover {
     border: 3px solid rgb(75, 128, 170);
 }
 
-
+#exitButton{
+    cursor: pointer;
+}
 
 /*Styling for chat*/

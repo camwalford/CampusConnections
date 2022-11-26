@@ -63,12 +63,12 @@
       <span id="group-time"></span>
       <span id="group-participants"></span>
       <span id="group-description"></span>
-      <span id="group-leave" onclick="document.getElementById('id01').style.display='block'">Leave Group</span>
+      <span id="group-leave" onclick="document.getElementById('leave-modal').style.display='block'">Leave Group</span>
     </div>
 
   </template>
 
-  <div id="id01" class="modal">
+  <div id="leave-modal" class="modal">
 
     <form class="modal-content" action="/action_page.php">
       <div class="modalcontainer">
@@ -76,9 +76,9 @@
         <p>Are you sure you want to leave this group?</p>
 
         <div class="clearfix">
-          <button onclick="document.getElementById('id01').style.display='none'" title="Close Modal" type="button"
+          <button onclick="document.getElementById('leave-modal').style.display='none'" title="Close Modal" type="button"
             class="cancelbtn">Cancel</button>
-          <button id="leave" type="button" class="leavebtn">Leave</button>
+          <button id="leave" type="button" class="leavebtn">Leave Group</button>
         </div>
       </div>
     </form>
@@ -100,6 +100,9 @@
       <div id="chat">
         <div id="chat-window">
           <ul id="messages"></ul>
+        </div>
+        <div class="wrap">
+          <div class="pull-tab"></div>
         </div>
         <form id="message-form">
           <input id="message-input" type="text" />

@@ -161,7 +161,7 @@ function leaveGroup(id) {
 
 displayGroup();
 
-var modal = document.getElementById("id01");
+var modal = document.getElementById("leave-modal");
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
@@ -169,3 +169,6 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+
+

@@ -54,7 +54,7 @@ function ValidationEvent() {
   });
 }
 
-var modal = document.getElementById('id01');
+var modal = document.getElementById('create-modal');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
@@ -62,3 +62,30 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 }
+
+//Confirms validity of user input and displays confirmation modal if 
+document.querySelector("#createButton").addEventListener("click", function (e){
+  e.preventDefault();
+  // let title1 = document.getElementById("groupTitle");
+  // let type1 = document.getElementById("groupType");
+  // let building1 = document.getElementById("building");
+  // let startTime = document.getElementById("startTime");
+  // let endTime = document.getElementById("endTime");
+  // //let length = document.getElementById("length");
+  // let participants1 = document.getElementById("participants");
+  // let description1 = document.getElementById("description");
+
+  // let titleValid = title1.checkValidity();
+  // let typeValid = type1.checkValidity();
+  // let buildingValid = building1.checkValidity();
+  // let startTimeValid = startTime.checkValidity();
+  // let endTimeValid = endTime.checkValidity();
+  // let participants1Valid = participants1.checkValidity();
+  // let description1Valid = description1.checkValidity();
+
+  let isValid = document.querySelector("#create-group-form").reportValidity();
+
+  if(isValid){
+    document.getElementById('create-modal').style.display='block';
+  }
+});
