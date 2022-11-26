@@ -38,6 +38,11 @@ html {
     border: 3px solid rgb(75, 128, 170);
 }
 
+#profile-btn {
+    border-radius: 50%;
+    padding: 0%;
+}
+
 #brandName {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
