@@ -58,7 +58,7 @@ main {
 
 .centering-container {
     border-radius: 15px;
-    border: 2px solid black;
+    border: 2px solid rgb(75, 128, 170);
     box-shadow: 0px 0px 3px black;
 }
 
@@ -76,7 +76,7 @@ main {
     width: 100%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;
-    border: px solid #ddd;
+    border: 1px solid rgb(75, 128, 170);
     margin-bottom: 12px;
 }
 
