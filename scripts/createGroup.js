@@ -13,9 +13,12 @@ function ValidationEvent() {
   var description1 = document.getElementById("description").value;
 
   let today = new Date();
-  let start = new Date(today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getUTCDate() + "T" + startTime + ":00.000");
+  let start = new Date(today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + (today.getDate()) + "T" + startTime + ":00.000");
   //console.log(start);
-  let end = new Date(today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getUTCDate() + "T" + endTime + ":00.000");
+  let end = new Date(today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + (today.getDate()) + "T" + endTime + ":00.000");
+  if (end < today) {
+    alert("your group is ending in the past");
+  }
 
   //new Date('2022-05-14T07:06:05.123')
 

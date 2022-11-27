@@ -35,33 +35,41 @@ async function displayCards(collection) {
           let newAccordion = accordionTemplate.content.cloneNode(true);
 
           //this code fixes an error where if the time should say 5:02 it would say 5:2
-          let startMinutes;
-          if (startTime.toDate().getMinutes() < 10) {
-            startMinutes = "0" + startTime.toDate().getMinutes();
-          } else {
-            startMinutes = startTime.toDate().getMinutes();
-          }
-          let endMinutes;
-          if (endTime.toDate().getMinutes() < 10) {
-            endMinutes = "0" + endTime.toDate().getMinutes();
-          } else {
-            endMinutes = endTime.toDate().getMinutes();
-          }
+          // let startMinutes;
+          // if (startTime.toDate().getMinutes() < 10) {
+          //   startMinutes = "0" + startTime.toDate().getMinutes();
+          // } else {
+          //   startMinutes = startTime.toDate().getMinutes();
+          // }
+          // let endMinutes;
+          // if (endTime.toDate().getMinutes() < 10) {
+          //   endMinutes = "0" + endTime.toDate().getMinutes();
+          // } else {
+          //   endMinutes = endTime.toDate().getMinutes();
+          // }
 
 
 
           //converts the date to a 12 hour clock
-          if (startTime.toDate().getHours() > 12) {
-            startTime = startTime.toDate().getHours() - 12 + ":" + startMinutes + "pm";
-          } else {
-            startTime = startTime.toDate().getHours() + ":" + startMinutes + "am";
-          }
+          // if (startTime.toDate().getHours() > 12) {
+          //   startTime = startTime.toDate().getHours() - 12 + ":" + startMinutes + "pm";
+          // } else {
+          //   startTime = startTime.toDate().getHours() + ":" + startMinutes + "am";
+          // }
+          startTime = startTime.toDate().toLocaleTimeString('en-US',
+            {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
+          );
 
-          if (endTime.toDate().getHours() > 12) {
-            end = endTime.toDate().getHours() - 12 + ":" + endMinutes + "pm";
-          } else {
-            end = endTime.toDate().getHours() + ":" + endMinutes + "am";
-          }
+          // if (endTime.toDate().getHours() > 12) {
+          //   end = endTime.toDate().getHours() - 12 + ":" + endMinutes + "pm";
+          // } else {
+          //   end = endTime.toDate().getHours() + ":" + endMinutes + "am";
+          // }
+          end = endTime.toDate().toLocaleTimeString('en-US',
+            {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
+          );
+
+          
 
           //update title and text and image
           newAccordion.querySelector(".accordion-title").innerHTML = title;
