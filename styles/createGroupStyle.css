@@ -172,7 +172,7 @@ main {
   /* Full width */
   height: 100vh;
   /* Full height */
-  overflow: auto;
+  overflow: hidden;
   /* Enable scroll if needed */
   background-color: rgb(0, 0, 0);
   /* Fallback color */
@@ -260,3 +260,4 @@ input[type=time]::-webkit-datetime-edit-ampm-field {
   border-radius: 15%;  */
  
 } 
+
