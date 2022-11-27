@@ -47,6 +47,7 @@ main {
     font-family: 'Merriweather', 'Montserrat', sans-serif;
     font-size: 40px;
     text-align: center;
+    color: black;
 }
 
 .center-content {
@@ -91,7 +92,7 @@ main {
 
 .accordion {
     background-color: #eee;
-    color: #444;
+    color: black;
     cursor: pointer;
     padding: 18px;
     margin-top: 10px;
@@ -224,6 +225,7 @@ main {
     top: 2px;
     left: 2px;
     font-size: 16pt;
+    color: #2d71c3;
 }
 
 #clock {
