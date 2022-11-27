@@ -177,8 +177,10 @@ function accordion() {
       let panel = this.nextElementSibling;
       if (panel.style.maxHeight) {
         panel.style.maxHeight = null;
+        panel.style.border = "none";
       } else {
         panel.style.maxHeight = 180 + "px";
+        panel.style.border = "1px solid #ccc";
   
       }
     });
