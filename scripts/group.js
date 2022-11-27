@@ -14,7 +14,7 @@ function displayGroup() {
           console.log(doc.data().currentGroup);
 
           //Checks if user is in a group and displays the group information and chat if it's true.
-          if (doc.data().currentGroup !== "none") {
+          if (doc.data().currentGroup !== "none" && doc.data().currentGroup !== null) {
             var currentGroup = db
               .collection("groups")
               .doc(doc.data().currentGroup)
