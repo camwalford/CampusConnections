@@ -102,6 +102,13 @@ async function displayCards(collection) {
 
 displayCards("groups");
 
+async function groupIsFull(joinid) {
+  await joinid.get().then((snip) => {
+    //console.log("returning " + snip.data().currentParticipants + " >= " + parseInt(snip.data().participants));
+    return snip.data().currentParticipants >= parseInt(snip.data().participants);
+  });
+}
+
 function joinGroup(id) {
   var currentUserRef = db.collection("users").doc(currentUserID);
   var joiningGroupRef = db.collection("groups").doc(id);
@@ -116,13 +123,15 @@ function joinGroup(id) {
         .doc(doc.data().currentGroup)
         .get()
         .then((snap) => {
-          //implement something to check if you try to join the group you're already in, it currently breaks it
-          console.log("snap.data() " + snap.id);
-          console.log("joiningActivitiyRef " + id);
+          //console.log(joiningGroupRef);
+          //joiningGroupRef.get().then((snip) => {
+            //console.log("returning " + snip.data().currentParticipants + " >= " + parseInt(snip.data().participants));});
           if (snap.id == id) {
             alert("no joining the group you're already in");
-          } else if (snap.id = "undefined") {
-            console.log("snap.id is undefined");
+          } else if (groupIsFull(joiningGroupRef)) { //checking if the group is full
+            alert("that group full");
+          } else if (snap.id == "undefined") {
+            console.log("snap.id is " + snap.id);
             joiningGroupRef.update({
               currentParticipants: firebase.firestore.FieldValue.increment(1),
             });
@@ -138,7 +147,7 @@ function joinGroup(id) {
             db.collection("groups")
               .doc(doc.data().currentGroup)
               .update({
-                currentParticipants: snap.data().currentParticipants - 1,
+                currentParticipants: firebase.firestore.FieldValue.increment(-1),
               });
 
             joiningGroupRef.update({
