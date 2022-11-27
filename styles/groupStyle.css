@@ -348,15 +348,9 @@ li:has(span[class="reciever"]) {
     background-color: #fefefe;
     margin: 50% auto 50% auto;
     /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
+    border: 1px solid rgb(75, 128, 170);
     width: 80%;
     /* Could be more or less, depending on screen size */
-}
-
-/* Style the horizontal ruler */
-hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
 }
 
 /* The Modal Close Button (x) */
