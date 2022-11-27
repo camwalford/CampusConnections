@@ -37,49 +37,15 @@ function displayGroup() {
                   var endTime = snap.data().endtime;
                   console.log("id is " + groupID);
 
-                  //this code fixes an error where if the time should say 5:02 it would say 5:2
-                  let startMinutes;
-                  if (startTime.toDate().getMinutes() < 10) {
-                    startMinutes = "0" + startTime.toDate().getMinutes();
-                  } else {
-                    startMinutes = startTime.toDate().getMinutes();
-                  }
-                  let endMinutes;
-                  if (endTime.toDate().getMinutes() < 10) {
-                    endMinutes = "0" + endTime.toDate().getMinutes();
-                  } else {
-                    endMinutes = endTime.toDate().getMinutes();
-                  }
 
-                  if (startTime.toDate().getHours() > 12) {
-                    startTime =
-                      startTime.toDate().getHours() -
-                      12 +
-                      ":" +
-                      startMinutes +
-                      "pm";
-                  } else {
-                    startTime =
-                      startTime.toDate().getHours() +
-                      ":" +
-                      startMinutes +
-                      "am";
-                  }
+                startTime = startTime.toDate().toLocaleTimeString('en-US',
+                  {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
+                );
 
-                  if (endTime.toDate().getHours() > 12) {
-                    endTime =
-                      endTime.toDate().getHours() -
-                      12 +
-                      ":" +
-                      endMinutes +
-                      "pm";
-                  } else {
-                    endTime =
-                      endTime.toDate().getHours() +
-                      ":" +
-                      endMinutes +
-                      "am";
-                  }
+                endTime = endTime.toDate().toLocaleTimeString('en-US',
+                  {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
+                );
+
 
                   //endTime = endTime.toDate().getHours() + ":" + endTime.toDate().getMinutes();
 
