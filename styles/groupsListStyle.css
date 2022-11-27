@@ -47,6 +47,7 @@ main {
     font-family: 'Merriweather', 'Montserrat', sans-serif;
     font-size: 40px;
     text-align: center;
+    color: black;
 }
 
 .center-content {
@@ -75,6 +76,7 @@ main {
     width: 100%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;
+    border-radius: 8px;
     border: 1px solid rgb(75, 128, 170);
     margin-bottom: 12px;
 }
@@ -90,13 +92,14 @@ main {
 
 .accordion {
     background-color: #eee;
-    color: #444;
+    color: black;
     cursor: pointer;
     padding: 18px;
     margin-top: 10px;
     width: 100%;
     /* text-align: left; */
     border: none;
+    border-bottom: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
     transition: 0.4s;
@@ -162,7 +165,8 @@ main {
     padding-left: 8px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    border:  1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     background-color: white;
     max-height: 0;
     overflow: hidden;
@@ -222,6 +226,7 @@ main {
     top: 2px;
     left: 2px;
     font-size: 16pt;
+    color: #2d71c3;
 }
 
 #clock {

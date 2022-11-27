@@ -184,8 +184,12 @@ function accordion() {
       let panel = this.nextElementSibling;
       if (panel.style.maxHeight) {
         panel.style.maxHeight = null;
+        panel.style.borderTop = "none";
+        panel.style.borderBottom="none"
       } else {
         panel.style.maxHeight = 180 + "px";
+        panel.style.borderTop = "1px solid #ccc";
+        panel.style.borderBottom = "1px solid #ccc";
   
       }
     });
