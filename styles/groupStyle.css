@@ -360,17 +360,20 @@ li:has(span[class="reciever"]) {
     background-color: rgba(0, 0, 0, 0.4);
     /* Black w/ opacity */
     padding-top: 0px;
-}
-
-/* Modal Content/Box */
-.modal-content {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
     background-color: #fefefe;
     margin: 50% auto 50% auto;
     /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid rgb(75, 128, 170);
+    border: 1px solid #888;
     width: 80%;
+    height: fit-content;
     /* Could be more or less, depending on screen size */
-}
+  }
 
 /* The Modal Close Button (x) */
 .close {

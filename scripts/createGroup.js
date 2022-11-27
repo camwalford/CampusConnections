@@ -89,6 +89,6 @@ document.querySelector("#createButton").addEventListener("click", function (e){
   let isValid = document.querySelector("#create-group-form").reportValidity();
 
   if(isValid){
-    document.getElementById('create-modal').style.display='block';
+    document.getElementById('create-modal').style.display='flex';
   }
 });
