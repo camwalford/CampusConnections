@@ -22,6 +22,7 @@ var uiConfig = {
             email: user.email,
             currentGroup: null, //with authenticated user's ID (user.uid)                         //optional default profile info
             tutorialOn: true,
+            profilePic: "https://firebasestorage.googleapis.com/v0/b/campus-connections-cd94f.appspot.com/o/images%2Fdefaultpfp.jpg?alt=media&token=600ef498-3fdc-4eba-8455-9cc9e5d6f4c4"
           }).then(function () {
             console.log("New user added to firestore");
             window.location.assign("map.html"); //re-direct to map.html after signup

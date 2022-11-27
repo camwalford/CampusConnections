@@ -83,7 +83,7 @@ async function displayCards(collection) {
 
 displayCards("groups");
 
-function groupIsFull(joinid) { //this always returns false, even if the group is true, which is not ideal
+function groupIsFull(joinid) { //this always returns false, even if the group is full, which is not ideal
   joinid.get().then((snip) => {
     console.log("returning " + snip.data().currentParticipants >= parseInt(snip.data().participants));
     return parseInt(snip.data().currentParticipants) >= parseInt(snip.data().participants);

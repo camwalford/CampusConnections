@@ -69,8 +69,8 @@ function ValidationEvent() {
   });
 }
 
-async function inGroup(userRef) {
-  await userRef.get().then((snap) => {
+function inGroup(userRef) {
+  userRef.get().then((snap) => {
     return snap.data().currentGroup != null;
   });
 }
