@@ -17,7 +17,10 @@ function ValidationEvent() {
   //console.log(start);
   let end = new Date(today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + (today.getDate()) + "T" + endTime + ":00.000");
   if (end < today) {
-    alert("your group is ending in the past");
+    end.setDate(end.getDate() + 1);
+  }
+  if (start < today) {
+    start.setDate(end.getDate() + 1);
   }
 
   //new Date('2022-05-14T07:06:05.123')
@@ -47,14 +50,44 @@ function ValidationEvent() {
       window.open("group.html", "_self");
     }
   }).then((docRef) => {
-    if (currentUserRef.currentGroup != null) { //if the currentGroup is not null
-      console.log("leaving current group"); //leave the current group
-    }
+    if (inGroup(currentUserRef)) { //if the currentGroup is not null
+      leaveGroup(currentUserRef) //leave the current group
+      .then((idk) => {
+        currentUserRef.update({
+          currentGroup: docRef.id //join the newly created group
+        }).then((kdi) => {
+          window.open("group.html", "_self");
+        });
+      });
+    } else {
     currentUserRef.update({
       currentGroup: docRef.id //join the newly created group
+    }).then((idk) => {
+      window.open("group.html", "_self");
     });
-    window.open("group.html", "_self");
+  }
   });
+}
+
+async function inGroup(userRef) {
+  await userRef.get().then((snap) => {
+    return snap.data().currentGroup != null;
+  });
+}
+
+function leaveGroup(currentUserRef) {
+  console.log("this never gets printed");
+  var groupsRef;
+  currentUserRef.get().then((snap) => {
+    groupsRef = snap.data().currentGroup;
+  }).then((idk)=>{
+    console.log(groupsRef);
+    var GroupRef = db.collection("groups").doc(groupsRef);
+  
+    GroupRef.update({
+      currentParticipants: firebase.firestore.FieldValue.increment(-1),
+    });
+  })
 }
 
 var modal = document.getElementById('create-modal');

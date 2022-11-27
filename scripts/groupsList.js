@@ -34,37 +34,10 @@ async function displayCards(collection) {
           var groupID = doc.id; //get unique ID to each hike to be used for fetching right image
           let newAccordion = accordionTemplate.content.cloneNode(true);
 
-          //this code fixes an error where if the time should say 5:02 it would say 5:2
-          // let startMinutes;
-          // if (startTime.toDate().getMinutes() < 10) {
-          //   startMinutes = "0" + startTime.toDate().getMinutes();
-          // } else {
-          //   startMinutes = startTime.toDate().getMinutes();
-          // }
-          // let endMinutes;
-          // if (endTime.toDate().getMinutes() < 10) {
-          //   endMinutes = "0" + endTime.toDate().getMinutes();
-          // } else {
-          //   endMinutes = endTime.toDate().getMinutes();
-          // }
-
-
-
-          //converts the date to a 12 hour clock
-          // if (startTime.toDate().getHours() > 12) {
-          //   startTime = startTime.toDate().getHours() - 12 + ":" + startMinutes + "pm";
-          // } else {
-          //   startTime = startTime.toDate().getHours() + ":" + startMinutes + "am";
-          // }
+          //converts to 12 hour clock
           startTime = startTime.toDate().toLocaleTimeString('en-US',
             {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
           );
-
-          // if (endTime.toDate().getHours() > 12) {
-          //   end = endTime.toDate().getHours() - 12 + ":" + endMinutes + "pm";
-          // } else {
-          //   end = endTime.toDate().getHours() + ":" + endMinutes + "am";
-          // }
           end = endTime.toDate().toLocaleTimeString('en-US',
             {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
           );
@@ -110,10 +83,10 @@ async function displayCards(collection) {
 
 displayCards("groups");
 
-async function groupIsFull(joinid) {
-  await joinid.get().then((snip) => {
-    //console.log("returning " + snip.data().currentParticipants + " >= " + parseInt(snip.data().participants));
-    return snip.data().currentParticipants >= parseInt(snip.data().participants);
+function groupIsFull(joinid) { //this always returns false, even if the group is true, which is not ideal
+  joinid.get().then((snip) => {
+    console.log("returning " + snip.data().currentParticipants >= parseInt(snip.data().participants));
+    return parseInt(snip.data().currentParticipants) >= parseInt(snip.data().participants);
   });
 }
 
@@ -121,12 +94,13 @@ function joinGroup(id) {
   var currentUserRef = db.collection("users").doc(currentUserID);
   var joiningGroupRef = db.collection("groups").doc(id);
 
-  var currentGroupRef = db
+    db
     .collection("users")
     .doc(currentUserID)
     .get()
     .then((doc) => {
-      var currentGroup = db
+      if(doc.data().currentGroup != null) {
+      db
         .collection("groups")
         .doc(doc.data().currentGroup)
         .get()
@@ -137,7 +111,7 @@ function joinGroup(id) {
           if (snap.id == id) {
             alert("no joining the group you're already in");
           } else if (groupIsFull(joiningGroupRef)) { //checking if the group is full
-            alert("that group full");
+            alert("that group is full");
           } else if (snap.id == "undefined") {
             console.log("snap.id is " + snap.id);
             joiningGroupRef.update({
@@ -170,6 +144,23 @@ function joinGroup(id) {
               });
           }
         });
+      } else {
+        if (groupIsFull(joiningGroupRef)) { //checking if the group is full
+          alert("that group is full");
+        } else {
+          joiningGroupRef.update({
+            currentParticipants: firebase.firestore.FieldValue.increment(1),
+          });
+          currentUserRef
+            .update({
+              currentGroup: id,
+            })
+            .then(() => {
+              window.open("group.html", "_self");
+            });
+        }
+      }
+
     });
 
   // console.log("uid of current user is" + currentUserID);

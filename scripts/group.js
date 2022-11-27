@@ -35,7 +35,7 @@ function displayGroup() {
                   var description = snap.data().description;
                   var startTime;
                   var endTime = snap.data().endtime;
-                  console.log("id is " + groupID);
+                  console.log("group id is " + groupID);
 
 
                 startTime = startTime.toDate().toLocaleTimeString('en-US',
@@ -115,7 +115,7 @@ function leaveGroup(id) {
   //     currentParticipants: firebase.firestore.FieldValue.increment(-1),
   // })
   currentUserRef.update({
-    currentGroup: "none",
+    currentGroup: null,
   });
 
   GroupRef.update({
