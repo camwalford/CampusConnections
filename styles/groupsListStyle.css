@@ -158,7 +158,8 @@ main {
 /* Styling for the panel that appears when you click each activity */
 .panel {
     color: black;
-    padding: 0px 16px;
+    padding-right: 8px;
+    padding-left: 8px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     border:  1px solid #ccc;
@@ -182,7 +183,7 @@ main {
 }
 
 .accordion-time{
-    padding: 5px 5px;
+    
     margin: 0px;
     width:100%;
     color: black;
@@ -225,7 +226,7 @@ main {
 
 #clock {
     position: relative;
-    top: 5px;
+    top: 4px;
     font-size: 15pt;
 }
 
