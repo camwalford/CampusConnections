@@ -21,7 +21,6 @@
     font-size: 56px;
 }
 
-
 #groupsNav span {
     color: rgb(40, 40, 40);
 }
@@ -32,7 +31,6 @@ html {
     font-family: 'lato', 'Merriweather', 'Montserrat', sans-serif;
 
 }
-
 
 body {
     height: calc(100% - 150px);
@@ -51,17 +49,6 @@ main {
     text-align: center;
 }
 
-.center-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.centering-container {
-    border-radius: 15px;
-    border: 2px solid black;
-    box-shadow: 0px 0px 3px black;
-}
 
 /*Styling for groups*/
 #groups-container {
@@ -77,10 +64,12 @@ main {
     width: 100%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;
-    border: px solid #ddd;
+    border-radius: 8px;
+    border: 2px solid #ddd;
     margin-bottom: 12px;
 }
 
+/* Styling for each group in the list */
 #groups-go-here {
     list-style-type: none;
     padding: 10px;
@@ -89,8 +78,6 @@ main {
     overflow-y: scroll;
 }
 
-
-/* Style the buttons that are used to open and close the accordion panel */
 .accordion {
     background-color: #eee;
     color: #444;
@@ -98,11 +85,46 @@ main {
     padding: 18px;
     margin-top: 10px;
     width: 100%;
-    text-align: left;
+    /* text-align: left; */
     border: none;
     border-radius: 5px;
     outline: none;
     transition: 0.4s;
+    display: grid;
+    grid-template-columns: 75% 15% 10%;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "search-queries participant-number arrow"
+}
+
+.search-queries {
+    display: grid;
+    grid-template-columns: 55% 30% 15%;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "title group-type building"
+}
+
+.accordion-title{
+    grid-area: title;
+    font-size: 13pt
+}
+
+.accordion-type{
+    grid-area: group-type;
+    font-size: 11pt;
+    position: relative;
+    top: 2px;
+}
+
+.accordion-building{
+    grid-area: building;
+    font-size: 11pt;
+}
+
+.accordion > span {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .groupTemplate li {
@@ -111,25 +133,34 @@ main {
     margin: 0px;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS),
- and when you move the mouse over it (hover) */
+/* Add a background color to the button if it is clicked on,
+ and when you move the mouse over it*/
 .active,
 .accordion:hover {
-    background-color: #ccc;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-
+    background-color: #ccc; 
 }
 
+.active{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+/* Styling for the panel that appears when you click each activity */
 .panel {
     color: black;
-    padding: 0px 20px;
+    padding: 0px 16px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    border:  1px solid #ccc;
     background-color: white;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    transition: max-height 0.3s ease-out;   
+}
+
+.panel-content{
+    height: 180px;
+    overflow: hidden;
     display: grid;
     width: 100%;
     grid-template-columns: 25% 25% 25% 25%;
@@ -163,60 +194,35 @@ main {
 }
 
 #join-now{
-    margin: 0px;
+    margin-bottom: 8px;
     width:100%;
+    display: grid;
     overflow: hidden;
     transition: max-height 0.3s ease-out;  
     grid-area: join;
+    align-self: center;
+
 
 }
 
+/*Styling and positioning for participant, location, and clock icons*/
 #person {
     position: relative;
-    top: 5px;
+    top: 2px;
     left: 2px;
     font-size: 16pt;
 }
 
 #clock {
     position: relative;
-    top: 9%;
-    right: 1%;
-    font-size: 16pt;
+    top: 5px;
+    font-size: 15pt;
 }
 
 #pin {
     position: relative;
-    top: 9%;
-    right: 1%;
+    top: 4px;
     font-size: 16pt;
 }
 
 
-
-.search-queries {
-    display: inline-block;
-}
-
-.accordion {
-    display: grid;
-    grid-template-columns: 75% 15% 10%;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "search-queries participant-number arrow"
-
-}
-
-.search-queries {
-    display: grid;
-    grid-template-columns: 55% 30% 15%;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "title group-type building"
-}
-
-.accordion >span {
-
-    display: flex;
-    justify-content: flex-end;
-}
