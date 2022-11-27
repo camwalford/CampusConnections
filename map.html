@@ -53,12 +53,84 @@
         <nav id="header"></nav>
     </header>
 
+    
+    <div id="tutorial-modal" class="modal center-content">
+
+        <form class="modal-content">
+          <div class="modalcontainer">
+            
+            
+            <div id="modal-slideshow">
+                <div class="slide">
+                    <h1 id="welcome">Welcome!</h1>
+                    <div class="text">We're so excited to get you connected with others!</div>
+                    <div class="text">Let's get you oriented with a short walk-through!</div>
+                </div>
+                <div class="slide">
+                    <h1 id="welcome">Map</h1>
+                    <div class="text">Click on areas of the map to see which groups are there!</div>
+                    <img class="tut" id="maptut" src="./images/maptut.png"/>
+                </div>
+                <div class="slide">
+                    <h1 id="welcome">Find Groups</h1>
+                    <div class="text">Search through all current groups and join in on the fun!</div>
+                    <img class="tut" id="listtut" src="./images/listtut.png"/>
+                </div>
+                <div class="slide">
+                    <h1 id="welcome">Create Groups</h1>
+                    <div class="text">Create your very own group for studying, socializing, and more!</div>
+                    <img class="tut" id="createtut" src="./images/createtut.png"/>
+                </div>
+                <div class="slide">
+                    <h1 id="welcome">Your Group</h1>
+                    <div class="text">Check out your current group and chat with new friends!</div>
+                    <img class="tut" id="grouptut" src="./images/grouptut.png"/>
+                </div>
+                
+                <div class="slide">
+                    <h1 id="welcome">Profile</h1>
+                    <div class="text">Customize your Profile!</div>
+                    <img class="tut" id="profiletut" src="./images/profiletut.png"/>
+                </div>
+                <div class="slide">
+                    <h1 id="welcome">That's all!</h1>
+                    <div class="text">Now let's go make some connections!</div>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+              
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                    <span class="dot" onclick="currentSlide(7)"></span>
+                </div>
+                <!-- Image text -->
+                <div class="clearfix">
+                    <button onclick="document.getElementById('tutorial-modal').style.display='none'" title="Close Modal" type="button"
+                      class="skipbtn">Close</button>
+                </div>
+            </div>
+    
+            
+          </div>
+        </form>
+      </div>
+
     <main id="main-container">
+        
+        <!-- Transparent black backdrop (for hover effect) -->
         <div id="wrapper" class="wrapper"></div>
+
+        <!--Individual images for each building (for hover effect)-->
         <img class="buildings" id="se161" src="./images/SE16.png" usemap="#BCITmap">
         <img class="buildings" id="dorm1" src="./images/dorms.png" usemap="#BCITmap">
         <img class="buildings" id="sw91" src="./images/SW9.png" usemap="#BCITmap">
-        <img class="buildings" id="library1" src="./images/SE14.png" usemap="#BCITmap">
+        <img class="buildings" title="Library "id="library1" src="./images/SE14.png" usemap="#BCITmap">
         <img class="buildings" id="se121" src="./images/SE12.png" usemap="#BCITmap">
         <img class="buildings" id="se11" src="./images/SE1.png" usemap="#BCITmap">
         <img class="buildings" id="sw1" src="./images/SW.png" usemap="#BCITmap">
@@ -68,34 +140,28 @@
         <img class="buildings" id="ne9121" src="./images/NE912.png" usemap="#BCITmap">
         <img class="buildings" id="ne11" src="./images/NE1.png" usemap="#BCITmap">
         <img class="buildings" id="track1" src="./images/Track.png" usemap="#BCITmap">
-
         <img class="buildings" id="se81" src="./images/SE8.png" usemap="#BCITmap">
         <img class="buildings" id="se21" src="./images/se2.png" usemap="#BCITmap">
         <img class="buildings" id="se101" src="./images/se10.png" usemap="#BCITmap">
         <img class="buildings" id="se61" src="./images/se6.png" usemap="#BCITmap">
         <img class="buildings" id="se41" src="./images/se4.png" usemap="#BCITmap">
 
-
+        <!-- Main map image and clickable coordinates -->
         <img class="map" id="map" src="./images/BCIT_Map2.jpg" alt="BCIT Map" usemap="#BCITmap">
         <map name="BCITmap">
-            <area id="se16" shape="rect" coords="1100, 240, 1280, 470" alt="Rec Center"
-                 href="groupsList.html?buildingId=SE16">
-            <area id="dorm" shape="rect" coords="1350, 400, 1750, 580" alt="Dorms"
-                href="groupsList.html?buildingId=Dorms">
+            <area id="se16" shape="rect" title="Rec Center" coords="1100, 240, 1280, 470" alt="Rec Center" href="groupsList.html?buildingId=SE16">
+            <area id="dorm" shape="rect" coords="1350, 400, 1750, 580" alt="Dorms" href="groupsList.html?buildingId=Dorms">
             <area id="sw9" shape="rect" coords="1140, 480, 1270, 700" alt="SW9" href="groupsList.html?buildingId=SW9">
-            <area id="library" coords="1065,272,1069,425,983,427,983,379,1007,377,1005,272" shape="poly" alt="Library"
-                href="groupsList.html?buildingId=Library">
+            <area id="library" title="Library" coords="1065,272,1069,425,983,427,983,379,1007,377,1005,272" shape="poly" alt="Library" href="groupsList.html?buildingId=Library">
             <area id="se12" alt="se12" title="se12" href="groupsList.html?buildingId=SE12" coords="1046,424,892,420,870,401,842,397,837,478,1051,478,1048,445" shape="poly">
             <area id="se8" alt="se8" title="se8" href="groupsList.html?buildingId=SE8" coords="729,470,728,394,838,394,835,473,781,472" shape="poly">
-            <area id="se2" alt="se2" title="se2" href="groupsList.html?buildingId=SE2" coords="620,320,604,489,716,486,731,315" shape="poly">
+            <area id="se2" alt="se2" title="Student Association" href="groupsList.html?buildingId=SE2" coords="620,320,604,489,716,486,731,315" shape="poly">
             <area id="se10" alt="se10" title="se10" href="groupsList.html?buildingId=SE10" coords="927,272,987,273,1003,389,935,397,927,370" shape="poly">
             <area id="se6" alt="se6" title="se6" href="groupsList.html?buildingId=SE6" coords="731,232,734,388,797,390,794,227" shape="poly">
             <area id="se4" alt="se4" title="se4" href="groupsList.html?buildingId=SE4" coords="629,229,633,305,721,305,724,232" shape="poly">
-            <area id="se1" shape="rect" coords="600, 100, 850, 200" alt="SE1" href="groupsList.html?buildingId=SE1">
+            <area id="se1" shape="rect" title="se1" coords="600, 100, 850, 200" alt="SE1" href="groupsList.html?buildingId=SE1">
             <area id="sw" shape="rect" coords="640, 500, 1010, 710" alt="SW" href="groupsList.html?buildingId=SW">
-            <area id="nw" shape="rect" coords="270, 510, 590, 710" alt="NW" href="groupsList.html?buildingId=NW">
-            <area id="ne2820" shape="rect" coords="430, 160, 590, 500" alt="NE28"
-                href="groupsList.html?buildingId=NE2820">
+            <area id="nw" shape="rect" coords="270, 510, 590, 710" alt="NW" href="groupsList.html?buildingId=NW"> href="groupsList.html?buildingId=NE2820">
             <area id="ne821" shape="rect" coords="250, 130, 400, 500" alt="NE8" href="groupsList.html?buildingId=NE821">
             <area id="ne912" shape="rect" coords="90, 20, 470, 120" alt="NE9" href="groupsList.html?buildingId=NE912">
             <area id="ne1" shape="rect" coords="90, 210, 230, 480" alt="NE1" href="groupsList.html?buildingId=NE1">

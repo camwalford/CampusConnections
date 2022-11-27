@@ -73,6 +73,7 @@ main::-webkit-scrollbar-track {
     margin: 0 auto;
 }
 
+
 .wrapper{
     background-color: black;
     width:100%;
@@ -287,3 +288,169 @@ main::-webkit-scrollbar-track {
     z-index: -4;
 }
 
+/* Beginning of modal styling */
+.modal,
+.modal * {
+    box-sizing: border-box
+}
+
+/* Set a style for all buttons */
+.modal button {
+    color: rgb(0, 0, 0);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.modal button:hover {
+    opacity: 1;
+}
+
+/* Add a color to the delete button */
+.skipbtn {
+    background-color: #b3b2b2;
+}
+
+/* Add padding and center-align text to the container */
+.modalcontainer {
+    padding: 16px;
+    text-align: center;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: flex;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 5;
+    /* Sit on top */
+    color: black;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100vh;
+    /* Full height */
+    overflow: hidden;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 50% auto 50% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    height: fit-content;
+    /* Could be more or less, depending on screen size */
+}
+
+#modal-slideshow{
+    position: relative;
+}
+
+/* Tutorial images */
+.tut{
+    height: 50vh;
+
+}
+
+/*Tutorial text*/
+.text{
+    font-size: clamp(1.0rem, 2.5vw, 4rem); 
+}
+
+#welcome{
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 1px black;
+}
+
+.slide {
+display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+cursor: pointer;
+position: absolute;
+top: 45%;
+width: auto;
+padding: 16px;
+margin-top: -50px;
+color: rgb(129, 129, 129);
+font-weight: bold;
+font-size: 20px;
+border-radius: 0 3px 3px 0;
+user-select: none;
+-webkit-user-select: none;
+transition: background-color 0.4s ease;
+}
+
+/* Position the "next button" to the right */
+.next {
+right: 0;
+border-radius: 3px 0 0 3px;
+}
+.prev{
+left: 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+background-color: #818080;
+color: rgb(94, 107, 111);
+}
+
+  /* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.4s ease;
+  }
+  
+.active, .dot:hover {
+background-color: #717171;
+}
+
+  
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+
+    .cancelbtn,
+    .deletebtn {
+        width: 100%;
+    }
+}
