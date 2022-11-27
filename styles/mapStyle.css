@@ -323,7 +323,7 @@ main::-webkit-scrollbar-track {
 
 /* The Modal (background) */
 .modal {
-    display: flex;
+    display: none;
     /* Hidden by default */
     position: fixed;
     /* Stay in place */

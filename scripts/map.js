@@ -59,12 +59,53 @@ function showSlides(n) {
 }
 
 
-var modal = document.getElementById("tutorial-modal");
+//Defining variables for various tutorial functions
+let modal = document.getElementById("tutorial-modal");
+let callback = tutorial;
+let currentUserID;
 
-// When the user clicks anywhere outside of the modal, close it
+// When the user clicks anywhere outside of the modal, close it and disable tutorial
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    tutorialOff();
   }
 };
 
+/** disables tutorial after closing it for each user */
+function tutorialOff(){
+    db.collection("users").doc(currentUserID).update(
+        {tutorialOn: false}
+    ); 
+    console.log("tutorial should now be off");
+}
+
+let tutorialModal = document.getElementById('tutorial-modal');
+let tutorialClose = document.getElementById('tut-close');
+
+//Checks if the close button is clicked, disables tutorial
+tutorialClose.addEventListener("click", tutorialOff);
+
+//If user is logging on for the first time, display tutorial
+function tutorial(id){
+   db.collection("users").doc(id).get().then((snap) => {
+        console.log(snap.data());
+        if(snap.data().tutorialOn){
+            tutorialModal.style.display = "flex";
+        }
+   }
+   )
+}
+
+//Passes the users ID into the tutorial function to check if tutorial is enabled
+function getUserID(callback){
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            console.log(user.uid, " is logged in");
+            currentUserID = user.uid;
+            callback(currentUserID);
+        }
+    });
+}
+
+getUserID(callback);
