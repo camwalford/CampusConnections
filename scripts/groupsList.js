@@ -124,7 +124,7 @@ function joinGroup(id) {
         .get()
         .then((snap) => {
           //console.log(joiningGroupRef);
-          joiningGroupRef.get().then((snip) => {
+          //joiningGroupRef.get().then((snip) => {
             //console.log("returning " + snip.data().currentParticipants + " >= " + parseInt(snip.data().participants));});
           if (snap.id == id) {
             alert("no joining the group you're already in");
@@ -140,7 +140,7 @@ function joinGroup(id) {
                 currentGroup: id,
               })
               .then(() => {
-                //window.open("group.html", "_self");
+                window.open("group.html", "_self");
               });
           } else {
             //snap.data().currentParticipants = 1;
@@ -158,7 +158,7 @@ function joinGroup(id) {
                 currentGroup: id,
               })
               .then(() => {
-                //window.open("group.html", "_self");
+                window.open("group.html", "_self");
               });
           }
         });
