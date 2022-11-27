@@ -102,11 +102,11 @@ async function displayCards(collection) {
 
 displayCards("groups");
 
-function groupIsFull(joinid) {
-  joinid.get().then((snip) => {
-    console.log("returning " + snip.data().currentParticipants + " >= " + parseInt(snip.data().participants));
-    return snip.data().currentParticipants >= snip.data.participants;
-  })
+async function groupIsFull(joinid) {
+  await joinid.get().then((snip) => {
+    //console.log("returning " + snip.data().currentParticipants + " >= " + parseInt(snip.data().participants));
+    return snip.data().currentParticipants >= parseInt(snip.data().participants);
+  });
 }
 
 function joinGroup(id) {
@@ -124,10 +124,12 @@ function joinGroup(id) {
         .get()
         .then((snap) => {
           //console.log(joiningGroupRef);
+          joiningGroupRef.get().then((snip) => {
+            //console.log("returning " + snip.data().currentParticipants + " >= " + parseInt(snip.data().participants));});
           if (snap.id == id) {
             alert("no joining the group you're already in");
           } else if (groupIsFull(joiningGroupRef)) { //checking if the group is full
-            alert("that group is already full");
+            alert("that group full");
           } else if (snap.id == "undefined") {
             console.log("snap.id is " + snap.id);
             joiningGroupRef.update({
