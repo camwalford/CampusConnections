@@ -163,6 +163,7 @@ h5 {
 
 #group-description {
     grid-area: description;
+    padding: 5px;
     color: black;
     overflow-wrap: normal;
     max-width: 100%;
