@@ -109,3 +109,11 @@ function getUserID(callback){
 }
 
 getUserID(callback);
+
+// testing function to allow re-enabling of tutorial
+function tutorialOn(){
+    db.collection("users").doc(currentUserID).update(
+        {tutorialOn: true}
+    ); 
+    console.log("tutorial should now be on");
+}
