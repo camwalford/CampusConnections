@@ -221,6 +221,60 @@ main::-webkit-scrollbar-track {
     grid-row: 1;   
 }
 
+#se81{
+    min-width: 1793px;
+    min-height: 779px; 
+    max-width: 1793px;
+    max-height: 779px; 
+    grid-column: 1;
+    grid-row: 1;   
+}
+
+#sw1{
+    min-width: 1793px;
+    min-height: 779px; 
+    max-width: 1793px;
+    max-height: 779px; 
+    grid-column: 1;
+    grid-row: 1;   
+}
+
+#se21{
+    min-width: 1793px;
+    min-height: 779px; 
+    max-width: 1793px;
+    max-height: 779px; 
+    grid-column: 1;
+    grid-row: 1;   
+}
+
+#se101{
+    min-width: 1793px;
+    min-height: 779px; 
+    max-width: 1793px;
+    max-height: 779px; 
+    grid-column: 1;
+    grid-row: 1;   
+}
+
+#se61{
+    min-width: 1793px;
+    min-height: 779px; 
+    max-width: 1793px;
+    max-height: 779px; 
+    grid-column: 1;
+    grid-row: 1;   
+}
+
+#se41{
+    min-width: 1793px;
+    min-height: 779px; 
+    max-width: 1793px;
+    max-height: 779px; 
+    grid-column: 1;
+    grid-row: 1;   
+}
+
 .zhigh{
     z-index: 4;
 }

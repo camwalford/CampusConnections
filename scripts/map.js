@@ -3,6 +3,7 @@ let buildings = document.querySelectorAll(".buildings");
 let map = document.getElementById("map");
 let wrapper = document.getElementById("wrapper");
 
+//Function for highlighting areas of map on hover
 function mouseAreas(){
     for(let i = 0; i < areas.length; i++){
         let id = areas[i].id;
