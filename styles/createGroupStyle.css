@@ -191,6 +191,8 @@ main {
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
   padding-top: 0px;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Modal Content/Box */
@@ -200,6 +202,7 @@ main {
   /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 80%;
+  height: fit-content;
   /* Could be more or less, depending on screen size */
 }
 
