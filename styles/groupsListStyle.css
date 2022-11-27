@@ -44,10 +44,11 @@ main {
 }
 
 #currentGroup {
-    font-family: 'Merriweather', 'Montserrat', sans-serif;
-    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 27px;
     text-align: center;
-    color: black;
+    color: rgb(43, 42, 42);
 }
 
 .center-content {
@@ -216,7 +217,7 @@ main {
     transition: max-height 0.3s ease-out;  
     grid-area: join;
     align-self: center;
-
+    border: 1px;
 
 }
 
