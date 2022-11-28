@@ -71,7 +71,7 @@ window.onclick = function (event) {
   }
 };
 
-/** disables tutorial after closing it for each user */
+/* Disables tutorial after closing it for each user */
 function tutorialOff(){
     db.collection("users").doc(currentUserID).update(
         {tutorialOn: false}
@@ -109,7 +109,7 @@ function getUserID(callback){
 
 getUserID(callback);
 
-// testing function to allow re-enabling of tutorial
+// Testing function to allow re-enabling of tutorial
 function tutorialOn(){
     db.collection("users").doc(currentUserID).update(
         {tutorialOn: true}

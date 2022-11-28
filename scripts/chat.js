@@ -1,6 +1,7 @@
+/**Functions related to the chat on the group.html page */
+
 displayCurrentMessages();
 var currentPfpRef
-
 //Invokes a click event listener for the message-submit button
 document
   .getElementById("message-submit")
