@@ -57,14 +57,14 @@ function ValidationEvent() {
         currentUserRef.update({
           currentGroup: docRef.id //join the newly created group
         }).then((kdi) => {
-          //window.open("group.html", "_self");
+          window.open("group.html", "_self");
         });
       });
     } else {
     currentUserRef.update({
       currentGroup: docRef.id //join the newly created group
     }).then((idk) => {
-      //window.open("group.html", "_self");
+      window.open("group.html", "_self");
     });
   }
   });
