@@ -40,7 +40,10 @@
   <link rel="stylesheet" href="./styles/style.css">
 </head>
 
+
 <body id="body" class="background-map">
+
+  <!-- modal popup to confirm when user tries to create a group -->
   <div id="create-modal" class="modal">
 
     <form class="modal-content" action="/action_page.php">
@@ -62,13 +65,15 @@
   <header>
     <nav id="header"></nav>
   </header>
+
+  <!-- clickbox for sending user back to map when they click on background  -->
   <div id="clickbox" style="width:100%; height: 100%; display: none;">
   </div>
 
   <main id="main" class="center-content">
     <div id="createGroup-container" class="container centering-container bg-BCIT bg-gradient">
 
-      <!--TODO have exitButton link back to map-->
+      <!--Exit button that links back to map-->
       <div id="exitButton" class="newButton">
         <span class="material-symbols-outlined">
           close
@@ -84,7 +89,8 @@
               required minlength="4" maxlength="40" />
           </div>
         </div>
-        <!-- TODO BRAINSTORM MORE OPTIONS OF GROUPS, ADD group ICONS-->
+
+        <!-- Selection input for type of group -->
         <div id="groupType-section" class="form-group-row mt-3">
           <label for="groupType" class="col-sm-2 col-form-label">Group Type: </label>
           <select class="custom-select mr-2" id="groupType" name="groupType" required>
@@ -97,7 +103,8 @@
             <option value="🙂 Other">Other</option>
           </select>
         </div>
-        <!-- TODO ADD ALL ACTUAL BUILDINGS AND MAYBE PARKING LOTS/FIELDS -->
+
+        <!-- Selection input for location -->
         <div id="location-section" class="form-group-row mt-3">
           <label for="building" class="col-sm-2 col-form-label">Location: </label>
           <select class="custom-select mr-2" id="building" name="building" required>
@@ -152,29 +159,29 @@
           </select>
         </div>
 
+        <!-- Time input -->
         <div id="time-section" class="form-group-row mt-3">
           <label for="startTime" class="col-sm-2 col-form-label">Time: </label>
           <input id="startTime" type="time" name="startTime" required />
           <label for="endTime">—</label>
           <input id="endTime" type="time" name="endTime" required />
-          <!-- <label for="Length" class="col-sm-2 col-form-label">Length: </label> -->
-          <!-- <input class="col-sm-1" id="length" type="number" value="1" pattern="[0-24]" name="length" required/> -->
         </div>
 
+        <!-- Number of participants input -->
         <div id="participant-section" class="form-group-row mt-3">
           <label for="participants" class="col-sm-2 col-form-label">Participants:</label>
           <input class="col-sm-1" type="number" id="participants" value="2" min="2" max="500" pattern="[2-100]" name="participants"
             required></input>
         </div>
 
+        <!-- Description input -->
         <div id="description-section" class="form-group-row mt-3">
           <label for="description">Description:</label>
           <textarea class="form-control" id="description" rows="1" name="description"
             placeholder="Enter a detailed description" required></textarea>
         </div>
 
-        <!--TODO creates new group in firestore server and sends you to new group page-->
-
+        <!--Submit Button that triggers confirmation modal-->
         <div id="createButton-section" class="form-group row mt-3">
           <button type="button" id="createButton" class="btn text-light mb-0 d-inline-block w-50"
             value="Submit" name="Submit">
@@ -184,25 +191,23 @@
       </form>
     </div>
   </main>
-  </div>
+
+  <!-- Bottom Nav -->
   <footer>
     <nav id="navBar"></nav>
   </footer>
 
   <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
+  <!-- Your own JavaScript scripts go here      -->
   <!---------------------------------------------->
   <script src="./scripts/firebaseAPI_TEAM26.js"></script>
   <script src="./scripts/skeleton.js"></script>
-  <!-- <script src="./scripts/authentication.js"></script> -->
   <script src="./scripts/createGroup.js"></script>
   <script src="./scripts/exitbutton.js"></script>
   <script src="./scripts/clearGroups.js"></script>
   <script src="./scripts/toMap.js"></script>
-  <!-- <script src="./scripts/modal.js"></script> -->
-
-  <!-- Link to scripts of your own -->
   <script src="./scripts/script.js"></script>
+  
 </body>
 
 </html>

@@ -38,14 +38,13 @@ function displayGroup() {
                   console.log("group id is " + groupID);
 
 
-                startTime = startTime.toDate().toLocaleTimeString('en-US',
-                  {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
-                );
+                  startTime = startTime.toDate().toLocaleTimeString('en-US',
+                    {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
+                  );
 
-                endTime = endTime.toDate().toLocaleTimeString('en-US',
-                  {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
-                );
-
+                  endTime = endTime.toDate().toLocaleTimeString('en-US',
+                    {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
+                  );
 
                   //endTime = endTime.toDate().getHours() + ":" + endTime.toDate().getMinutes();
 
@@ -78,6 +77,7 @@ function displayGroup() {
                   var chat = document.getElementById("chat");
                   chat.style.display = "block";
                 }
+                //If user is not in a group, displays message and link to groupList page
                 else {
                   document.getElementById("currentGroupContainer").innerHTML =
                     '<div onclick="backToMap()" id="exitButton" class=" newButton">' +
@@ -127,9 +127,9 @@ function leaveGroup(id) {
 
 displayGroup();
 
-var modal = document.getElementById("leave-modal");
 
-// When the user clicks anywhere outside of the modal, close it
+// When the user clicks anywhere outside of the modal popup, close it
+let modal = document.getElementById("leave-modal");
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";

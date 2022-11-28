@@ -22,11 +22,10 @@ function mouseAreas(){
 
     }
 }
-
 mouseAreas();
 
 
-/* Function for tutorial slideshow */
+/* Functions for tutorial slideshow */
 
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -36,7 +35,7 @@ function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-// Thumbnail image controls
+// dot image controls
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }

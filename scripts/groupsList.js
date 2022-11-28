@@ -1,6 +1,6 @@
-const params = new URL(window.location.href);
+const params = new URL(window.location.href); //retrieve parameters passed in URL
 
-async function displayCards(collection) {
+async function displayGroups(collection) {
   let accordionTemplate = document.getElementById("groupTemplate");
 
   await db.collection(collection)
@@ -81,7 +81,7 @@ async function displayCards(collection) {
   accordion(); 
 }
 
-displayCards("groups");
+displayGroups("groups");
 
 function groupIsFull(joinid) { //this always returns false, even if the group is full, which is not ideal
   joinid.get().then((snip) => {
