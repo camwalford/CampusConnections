@@ -111,8 +111,8 @@ function joinGroup(id) {
           //let test = groupIsFull(joiningGroupRef);
           if (snap.id == id) {
             alert("no joining the group you're already in");
-          } else if (groupIsFull(joiningGroupRef) == true) { //checking if the group is full
-            alert("that group is full");
+          //} else if (groupIsFull(joiningGroupRef) == true) { //checking if the group is full
+            //alert("that group is full"); //this doesn't work and just always returns true :((
           } else if (snap.id == "undefined") {
             console.log("snap.id is " + snap.id);
             joiningGroupRef.update({
