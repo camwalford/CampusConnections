@@ -59,6 +59,7 @@ document
           });
         //Makes chatbox red when user tries to send an empty message.
         } else {
+          messageInput.setCustomValidity("You can't send an empty message 🙃")
           messageInput.reportValidity();
           messageInput.classList.add("empty-chat");
         }
