@@ -43,22 +43,22 @@ It has the following subfolders and files:
     /locations               # Subfolder for location images displayed on map hover
         /dorms.png           # dorms
         /NE1.png             # NE1
-        /NE821.png           # NE821.png
-        /NE912.png           # NE912.png
-        /NE2820.png          # NE2820.png
-        /NW.png              # 
-        /SE1.png             # 
-        /se2.png             # 
-        /se4.png             # 
-        /se6.png             # 
-        /SE8.png             # 
-        /se10.png            # 
-        /SE12.png            # 
-        /SE14.png            # 
-        /SE16.png            # 
-        /SW.png              # 
-        /SW9.png             # 
-        /Track.png           # 
+        /NE821.png           # NE821
+        /NE912.png           # NE912
+        /NE2820.png          # NE2820
+        /NW.png              # NW
+        /SE1.png             # SE1
+        /se2.png             # SE2
+        /se4.png             # SE4
+        /se6.png             # SE6
+        /SE8.png             # SE8
+        /se10.png            # SE10
+        /SE12.png            # SE12
+        /SE14.png            # SE14
+        /SE16.png            # SE16
+        /SW.png              # SW
+        /SW9.png             # SW9
+        /Track.png           # Track
     /tutorial                # Subfolder for tutorial images
     /BCIT-Map2-LowOp.png     # Low opacity map for background
     /BCIT_Map2.jpg           # Main Map image
