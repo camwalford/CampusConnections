@@ -1,24 +1,35 @@
 
 body {
-    height: calc(100% - 150px);
-    margin: 75px 0px;
+    height: calc(100% - 165px);
+    margin: 90px 0px 75px 0px;
     color: white;
+    min-height: 500px
 }
 
 main {
     height: 100%;
     width: 100%;
+    min-height: 500px;
+    overflow-y: scroll;
+}
+
+main::-webkit-scrollbar{
+    width: 0px;
 }
 
 #profileContainer {
     padding: 15px;
+    height: fit-content;
+    min-height: 480px
 }
 
 #clickables {
     display: flex;
     flex-direction: row;
+    height: 40px;
 }
 
 #logout {
     flex-grow: 1;
 }
+
