@@ -1,5 +1,3 @@
-
-
 html {
     height: 100vh;
     width: 100vw;
@@ -27,18 +25,6 @@ main::-webkit-scrollbar {
     color: rgb(40, 40, 40);
 }
 
-#leaveGroupButton {
-    margin: 0 auto;
-    border: 1px solid black;
-    border: 1px solid grey;
-    box-shadow: 1px 1px 4px black;
-}
-
-#leaveGroupButton:hover {
-    background-color: rgb(187, 187, 187);
-    box-shadow: 1px 1px 0px black;
-}
-
 /*Styling for group container*/
 h5 {
     margin: 0;
@@ -49,12 +35,7 @@ h5 {
     padding-top: 12px;
     padding-bottom: 12px;
     min-height: 418px;
-    /* margin-bottom: 60px; */
-    /* margin-top: 60px; */
-    /* min-height: max(70%, 425px); */
-    /* max-height: min(100%, 425px) */
 }
-
 
 #groups-go-here {
     list-style-type: none;
@@ -117,7 +98,7 @@ h5 {
     color: black;
 }
 
-
+/* Styling and positioning for icons next to location, time, and participants */
 #person {
     position: relative;
     top: 5px;
@@ -213,7 +194,6 @@ li span {
     position: relative;
 }
 
-
 #message-form {
     text-align: center;
     width: 100%;
@@ -226,6 +206,7 @@ li span {
     border-color: rgb(45, 113, 195);
 }
 
+/* Send button styling */
 #message-submit {
     width: max(15%, 52px);
     border-radius: 5px;
@@ -240,6 +221,7 @@ li span {
     box-shadow: 1px 1px 0px black;
 }
 
+/*Positioning for messages*/
 li:has(span[class="sender"]) {
     margin-left: 50%;
 }
@@ -268,7 +250,6 @@ li:has(span[class="reciever"]) {
 .empty-chat{
     border-color: rgb(255, 53, 53);
     background-color: rgb(248, 203, 203);
-
 }
 
 
@@ -278,9 +259,8 @@ li:has(span[class="reciever"]) {
     box-sizing: border-box
 }
 
-/* Set a style for all buttons */
+/* Set a style for all modal buttons */
 .modal button {
-
     color: rgb(0, 0, 0);
     padding: 14px 20px;
     margin: 8px 0;
@@ -292,13 +272,6 @@ li:has(span[class="reciever"]) {
 
 .modal button:hover {
     opacity: 1;
-}
-
-/* Float cancel and delete buttons and add an equal width */
-.cancelbtn,
-.deletebtn {
-    float: left;
-    width: 50%;
 }
 
 /* Add a color to the cancel button */
@@ -321,54 +294,28 @@ li:has(span[class="reciever"]) {
 /* The Modal (background) */
 .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 5;
-    /* Sit on top */
     color: black;
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100vh;
-    /* Full height */
     overflow: hidden;
-    /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
-    /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
     padding-top: 0px;
     justify-content: center;
     align-items: center;
   }
   
-  /* Modal Content/Box */
-  .modal-content {
+/* Modal Content/Box */
+.modal-content {
     background-color: #fefefe;
     margin: 50% auto 50% auto;
-    /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 80%;
     height: fit-content;
-    /* Could be more or less, depending on screen size */
-  }
-
-/* The Modal Close Button (x) */
-.close {
-    position: absolute;
-    right: 35px;
-    top: 15px;
-    font-size: 40px;
-    font-weight: bold;
-    color: #f1f1f1;
-}
-
-.close:hover,
-.close:focus {
-    color: #f44336;
-    cursor: pointer;
 }
 
 /* Clear floats */
@@ -378,15 +325,7 @@ li:has(span[class="reciever"]) {
     display: table;
 }
 
-/* Change styles for cancel button and delete button on extra small screens */
-@media screen and (max-width: 300px) {
-
-    .cancelbtn,
-    .deletebtn {
-        width: 100%;
-    }
-}
-
+/*Styling for the message displayed when user is not in a group*/
 #noGroup {
     text-align: center;
     position: relative;
