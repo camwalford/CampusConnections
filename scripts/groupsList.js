@@ -83,10 +83,10 @@ async function displayGroups(collection) {
 
 displayGroups("groups");
 
-function groupIsFull(joinid) { //this always returns false, even if the group is full, which is not ideal
-  joinid.get().then((snip) => {
-    console.log("returning " + snip.data().currentParticipants >= parseInt(snip.data().participants));
-    return parseInt(snip.data().currentParticipants) >= parseInt(snip.data().participants);
+async function groupIsFull(joinid) { //this always returns true, even if the group is not full, which is not ideal
+  await joinid.get().then((snip) => {
+    console.log("returning: " + snip.data().currentParticipants + ">=" + parseInt(snip.data().participants));
+    return (parseInt(snip.data().currentParticipants) >= parseInt(snip.data().participants));
   });
 }
 
@@ -108,10 +108,11 @@ function joinGroup(id) {
           //console.log(joiningGroupRef);
           //joiningGroupRef.get().then((snip) => {
             //console.log("returning " + snip.data().currentParticipants + " >= " + parseInt(snip.data().participants));});
+          //let test = groupIsFull(joiningGroupRef);
           if (snap.id == id) {
             alert("no joining the group you're already in");
-          } else if (groupIsFull(joiningGroupRef)) { //checking if the group is full
-            alert("that group is full");
+          //} else if (groupIsFull(joiningGroupRef) == true) { //checking if the group is full
+            //alert("that group is full"); //this doesn't work and just always returns true :((
           } else if (snap.id == "undefined") {
             console.log("snap.id is " + snap.id);
             joiningGroupRef.update({

@@ -50,7 +50,8 @@ function ValidationEvent() {
       window.open("group.html", "_self");
     }
   }).then((docRef) => {
-    if (inGroup(currentUserRef)) { //if the currentGroup is not null
+    if (inGroup(currentUserRef) == true) { //if the currentGroup is not null
+      console.log("was currently in a group thats CRAAZY");
       leaveGroup(currentUserRef) //leave the current group
       .then((idk) => {
         currentUserRef.update({
@@ -69,14 +70,15 @@ function ValidationEvent() {
   });
 }
 
-function inGroup(userRef) {
-  userRef.get().then((snap) => {
+async function inGroup(userRef) {
+  await userRef.get().then((snap) => {
+    console.log("returning: " + (snap.data().currentGroup != null));
     return snap.data().currentGroup != null;
   });
 }
 
 function leaveGroup(currentUserRef) {
-  console.log("this never gets printed");
+  console.log("this has never been printed");
   var groupsRef;
   currentUserRef.get().then((snap) => {
     groupsRef = snap.data().currentGroup;
