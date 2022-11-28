@@ -62,6 +62,7 @@ document
           messageInput.setCustomValidity("You can't send an empty message 🙃")
           messageInput.reportValidity();
           messageInput.classList.add("empty-chat");
+          setTimeout(() => messageInput.classList.remove("empty-chat"), 6000);
         }
       }
     });
