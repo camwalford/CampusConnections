@@ -26,19 +26,63 @@ Content of the project folder:
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
+├── login.html               # landing HTML file, this is what users see when you come to url
+├── map.html                 # landing HTML file, this is what users see when you come to url
+├── group.html               # landing HTML file, this is what users see when you come to url
+├── groupList.html           # landing HTML file, this is what users see when you come to url
+├── profile.html             # landing HTML file, this is what users see when you come to url
+├── createGroup.html         # landing HTML file, this is what users see when you come to url
+├── index.html               # landing HTML file, this is what users see when you come to url
+├── 404.html                 # Firebase hosting 404 page
+
 └── README.md
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /blah.jpg                # 
+    /locations               # Subfolder for location images displayed on map hover
+        /dorms.png           # dorms
+        /NE1.png             # NE1
+        /NE821.png           # NE821.png
+        /NE912.png           # NE912.png
+        /NE2820.png          # NE2820.png
+        /NW.png              # 
+        /SE1.png             # 
+        /se2.png             # 
+        /se4.png             # 
+        /se6.png             # 
+        /SE8.png             # 
+        /se10.png            # 
+        /SE12.png            # 
+        /SE14.png            # 
+        /SE16.png            # 
+        /SW.png              # 
+        /SW9.png             # 
+        /Track.png           # 
+    /tutorial                # Subfolder for tutorial images
+    /BCIT-Map2-LowOp.png     # Low opacity map for background
+    /BCIT_Map2.jpg           # Main Map image
+    /CCLogo.png              # Logo
+    /defaultpfp.jpg          # default profile picture
+    /favicon.ico             # favicon
+    /searchicon.png          # Search icon for searchbar in groupList.html
+    /students-wallpaper.png  # Background image for index.html blurred
+    /students-wallpaper.jpg  # Background image for index.html
 ├── scripts                  # Folder for scripts
     /blah.js                 # 
 ├── styles                   # Folder for styles
     /blah.css                # 
+├── /text                     # Folder for styles
+/blah.css                # 
 
 Firebase hosting files: 
-├── .firebaserc...
+├── .firebaserc              # Firebase hosting files
+├── .firebase.json           # Firebase hosting files
+├── firestore.indexes.json   # Firebase hosting files
+├── firestore.rules          # Firebase hosting files
+├── package-lock.json        # Firebase hosting files
+├── package.json             # Firebase hosting files
+├── storage.rules            # Firebase hosting files
 
 
 ```

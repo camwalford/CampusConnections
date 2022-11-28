@@ -120,7 +120,7 @@ button[class*="bg-BCIT"]:hover {
 
 /* Semi-transparent background map for most pages*/
 .background-map {
-    background-image: url("../images/BCIT_Map2_Low_Opacity.png");
+    background-image: url("../images/BCIT-Map2-LowOp.png");
 }
 
 /*Styling for scrollbar*/
