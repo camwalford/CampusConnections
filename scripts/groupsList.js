@@ -146,9 +146,9 @@ function joinGroup(id) {
           }
         });
       } else {
-        if (groupIsFull(joiningGroupRef)) { //checking if the group is full
-          alert("that group is full");
-        } else {
+        //if (groupIsFull(joiningGroupRef)) { //checking if the group is full
+          //alert("that group is full");
+        //} else {
           joiningGroupRef.update({
             currentParticipants: firebase.firestore.FieldValue.increment(1),
           });
@@ -159,7 +159,7 @@ function joinGroup(id) {
             .then(() => {
               window.open("group.html", "_self");
             });
-        }
+        //}
       }
 
     });
