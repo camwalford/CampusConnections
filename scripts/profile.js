@@ -82,11 +82,11 @@ function save() {
             console.log("Added Profile Pic URL to Firestore.");
             console.log("Saved use profile info");
             document.getElementById("personalInfoFields").disabled = true;
+            location.reload();
           });
       });
     });
   });
-  location.reload();
 }
 
 function logout() {

@@ -13,11 +13,11 @@ main {
     overflow-y: scroll;
 }
 
-#save{
+#savebutton{
  background-color: rgb(75, 128, 170);
  color: white;
 }
-#save:hover{
+#savebutton:hover{
     background-color: rgb(45, 62, 187);
 }
 main::-webkit-scrollbar{
