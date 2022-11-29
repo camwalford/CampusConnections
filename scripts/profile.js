@@ -86,6 +86,7 @@ function save() {
       });
     });
   });
+  location.reload();
 }
 
 function logout() {
