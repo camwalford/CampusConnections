@@ -1,8 +1,11 @@
 /**Functions related to the chat on the group.html page */
 
 displayCurrentMessages();
-var currentPfpRef
-//Invokes a click event listener for the message-submit button
+var currentPfpRef;
+
+/**
+ * Adds event listener to the chat submit button, validates whether user is signed in, and sends the message.
+ */
 document
   .getElementById("message-submit")
   .addEventListener("click", function (e) {
@@ -29,15 +32,17 @@ document
         console.log("The current user is not logged in :/");
       }
 
+      /**
+       * Writes user's input into the firestore database as a new document.
+       * @param {Reference to user's current group} groupRef 
+       */
       function sendMessage(groupRef) {
         //Retrieves the message and timestamp
         var messageInput = document.getElementById("message-input");
         var message = messageInput.value;
         var timestamp = Date.now();
-
         // clears the message input box
         messageInput.value = "";
-
         // scrolls message into view
         document
           .getElementById("messages")
@@ -46,7 +51,6 @@ document
             block: "end",
             inline: "nearest",
           });
-        
         //Checks that the user isn't sending a blank message
         if (typeof message === "string" && message.trim() !== "") {
           //Adds message document to group's chat collection with data.
@@ -68,7 +72,10 @@ document
     });
 });
 
-//Displays the messages currently stored in that group's chat collection
+/**
+  * Reads and displays the messages currently stored in 
+  * that group's chat subcollection in firestore.
+  */
 function displayCurrentMessages() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -133,7 +140,9 @@ function displayCurrentMessages() {
   });
 }
 
-// Send chat when the user presses enter
+/**
+ * Sends chat when the user presses enter. Prevents the default enter function.
+ */ 
 document
   .getElementById("message-input")
   .addEventListener("keypress", function (event) {

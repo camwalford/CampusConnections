@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 function displayGroup() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
