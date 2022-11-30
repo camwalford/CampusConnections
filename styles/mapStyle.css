@@ -13,6 +13,7 @@ body {
     color: white;
   }
 
+
 main {
     margin-top: 60px;
     height: 100%;
@@ -53,14 +54,26 @@ main::-webkit-scrollbar-track {
 
 .wrapper{
     background-color: black;
-    width:100%;
-    height: 100%; 
+    position:absolute;
+    top: -100px;
+    width:100vw;
+    height: 110vh; 
     opacity: 0%;
-    z-index: -4;
+    z-index: -1;
     grid-column: 1;
     grid-row: 1;
 }
 
+
+.zhigh{
+    z-index: 4;
+}
+
+.zmiddle{
+    z-index: 3;
+    opacity: 50%;
+    transition: opacity 0.6s ease-in-out;
+}
 
 
 #se161{
@@ -68,7 +81,6 @@ main::-webkit-scrollbar-track {
     min-height: 779px; 
     max-width: 1793px;
     max-height: 779px; 
-
     grid-column: 1;
     grid-row: 1;   
 }
@@ -78,7 +90,6 @@ main::-webkit-scrollbar-track {
     min-height: 779px; 
     max-width: 1793px;
     max-height: 779px; 
-
     grid-column: 1;
     grid-row: 1;   
 }
@@ -88,7 +99,6 @@ main::-webkit-scrollbar-track {
     min-height: 779px; 
     max-width: 1793px;
     max-height: 779px; 
-
     grid-column: 1;
     grid-row: 1;   
 }
@@ -98,7 +108,6 @@ main::-webkit-scrollbar-track {
     min-height: 779px; 
     max-width: 1793px;
     max-height: 779px; 
-
     grid-column: 1;
     grid-row: 1;   
 }
@@ -108,7 +117,6 @@ main::-webkit-scrollbar-track {
     min-height: 779px; 
     max-width: 1793px;
     max-height: 779px; 
-
     grid-column: 1;
     grid-row: 1;   
 }
@@ -118,7 +126,6 @@ main::-webkit-scrollbar-track {
     min-height: 779px; 
     max-width: 1793px;
     max-height: 779px; 
-
     grid-column: 1;
     grid-row: 1;   
 }
@@ -128,7 +135,6 @@ main::-webkit-scrollbar-track {
     min-height: 779px; 
     max-width: 1793px;
     max-height: 779px; 
-
     grid-column: 1;
     grid-row: 1;   
 }
@@ -138,7 +144,6 @@ main::-webkit-scrollbar-track {
     min-height: 779px; 
     max-width: 1793px;
     max-height: 779px; 
-
     grid-column: 1;
     grid-row: 1;   
 }
@@ -148,7 +153,6 @@ main::-webkit-scrollbar-track {
     min-height: 779px; 
     max-width: 1793px;
     max-height: 779px; 
-
     grid-column: 1;
     grid-row: 1;   
 }
@@ -158,7 +162,6 @@ main::-webkit-scrollbar-track {
     min-height: 779px; 
     max-width: 1793px;
     max-height: 779px; 
-
     grid-column: 1;
     grid-row: 1;   
 }
@@ -168,7 +171,6 @@ main::-webkit-scrollbar-track {
     min-height: 779px; 
     max-width: 1793px;
     max-height: 779px; 
-
     grid-column: 1;
     grid-row: 1;   
 }
@@ -178,7 +180,6 @@ main::-webkit-scrollbar-track {
     min-height: 779px; 
     max-width: 1793px;
     max-height: 779px; 
-
     grid-column: 1;
     grid-row: 1;
 }
@@ -187,8 +188,7 @@ main::-webkit-scrollbar-track {
     min-width: 1793px;
     min-height: 779px; 
     max-width: 1793px;
-    max-height: 779px; 
-    
+    max-height: 779px;     
     grid-column: 1;
     grid-row: 1;   
 }
@@ -256,15 +256,6 @@ main::-webkit-scrollbar-track {
     grid-row: 1;   
 }
 
-.zhigh{
-    z-index: 4;
-}
-
-.zmiddle{
-    z-index: 3;
-    opacity: 50%;
-    transition: opacity 0.4s ease-in;
-}
 
 /* Beginning of modal styling */
 .modal,
