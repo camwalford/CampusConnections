@@ -30,15 +30,14 @@ Content of the project folder:
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
-├── login.html               # landing HTML file, this is what users see when you come to url
-├── map.html                 # landing HTML file, this is what users see when you come to url
-├── group.html               # landing HTML file, this is what users see when you come to url
-├── groupList.html           # landing HTML file, this is what users see when you come to url
-├── profile.html             # landing HTML file, this is what users see when you come to url
-├── createGroup.html         # landing HTML file, this is what users see when you come to url
-├── index.html               # landing HTML file, this is what users see when you come to url
+├── login.html               # Login HTML file, what users are directed to after the landing page.
+├── map.html                 # Map HTML file, after users login they are placed.
+├── group.html               # Group HTML file, shows users current group.
+├── groupList.html           # Group List HTML file, shows all current groups.
+├── profile.html             # Profile HTML file, displays editable user profile.
+├── createGroup.html         # Create Group HTML file, displays group creation form.
 ├── 404.html                 # Firebase hosting 404 page
-└── README.md
+└── README.md                
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
