@@ -1,3 +1,7 @@
+/**
+ * READS users data from user collection in firestore, and displays the
+ * information. For profile.html.
+ */
 function displayProfile() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -33,6 +37,9 @@ function displayProfile() {
 
 var ImageFile; //global variable to store the File Object reference
 
+/**
+ * Listener for when a user changes their profile picture.
+ */
 function chooseFileListener() {
   const fileInput = document.getElementById("mypic-input"); // pointer #1
   const image = document.getElementById("mypic-goes-here"); // pointer #2
@@ -49,10 +56,16 @@ function chooseFileListener() {
   });
 }
 
+/**
+ * Enables changing of users name, email, and profile picture.
+ */
 function edit() {
   document.getElementById("personalInfoFields").disabled = false;
 }
 
+/**
+ * Writes users changed info to firestore.
+ */
 function save() {
   document.getElementById("personalInfoFields").disabled = true;
   firebase.auth().onAuthStateChanged(function (user) {
@@ -70,7 +83,7 @@ function save() {
         userName = document.getElementById("username").value; //get the value of the field with id="nameInput"
         userEmail = document.getElementById("email").value; //get the value of the field with id="schoolInput"
 
-        //Asynch call to save the form fields into Firestore.
+        //Async call to save the form fields into Firestore.
         db.collection("users")
           .doc(user.uid)
           .update({
@@ -89,6 +102,9 @@ function save() {
   });
 }
 
+/**
+ * Logs user out and redirects to the landing page for the site.
+ */
 function logout() {
   console.log("logging out user");
   firebase
