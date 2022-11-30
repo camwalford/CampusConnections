@@ -1,32 +1,30 @@
 /**
- * 
+ * READS user's currentGroup field from firestore and displays the group's information.
+ * Displays a redirect message to groupList page if the user is not in a group.
  */
 function displayGroup() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      console.log(user.uid, " is logged in");
       currentUserID = user.uid;
 
       let groupTemplate = document.getElementById("group-template");
-      console.log(currentUserID);
       var currentGroupRef = db
         .collection("users")
         .doc(currentUserID)
         .get()
         .then((doc) => {
-          console.log(doc.data().currentGroup);
-
           //Checks if user is in a group and displays the group information and chat if it's true.
           if (doc.data().currentGroup !== "none" && doc.data().currentGroup !== null) {
+
+            //READS current groups data from firestore
             var currentGroup = db
               .collection("groups")
               .doc(doc.data().currentGroup)
               .get()
               .then((snap) => {
                 
-                console.log(snap.data());
+                //If data isn't undefined sets each field to a variable
                 if (typeof snap.data() !== 'undefined'){
-
                   var title = snap.data().title;
                   var groupType = snap.data().groupType;
                   var groupID = snap.id; //gets the unique id for the group
@@ -38,22 +36,21 @@ function displayGroup() {
                   var description = snap.data().description;
                   var startTime;
                   var endTime = snap.data().endtime;
-                  console.log("group id is " + groupID);
 
-
+                  //Formats start time
                   startTime = startTime.toDate().toLocaleTimeString('en-US',
                     {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
                   );
 
+                  //Formats end time
                   endTime = endTime.toDate().toLocaleTimeString('en-US',
                     {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
                   );
 
-                  //endTime = endTime.toDate().getHours() + ":" + endTime.toDate().getMinutes();
-
+                  //Makes a clone of the template from groupList.html
                   let newGroup = groupTemplate.content.cloneNode(true);
 
-                  //update title and text and image
+                  //Inserts each field into its corresponding html div
                   newGroup.getElementById("group-title").innerHTML = title;
                   newGroup.getElementById("group-type").innerHTML = groupType;
                   newGroup.getElementById("group-building").innerHTML =
@@ -71,10 +68,8 @@ function displayGroup() {
                     maxParticipants;
                   newGroup.getElementById("group-description").innerHTML =
                     "Description: " + description;
-
                   document.querySelector("#leave").onclick = () =>
                     leaveGroup(groupID);
-
                   document.getElementById("groups-go-here").appendChild(newGroup);
 
                   var chat = document.getElementById("chat");
@@ -89,7 +84,7 @@ function displayGroup() {
                     '<a id="noGroupLink" href="./groupsList.html">Find a new group here!</a></div>';
                 }
               });
-            //If user is not in a group, displays message and link to groupList page
+          //If user is not in a group, displays message and link to groupList page
           } else {
             document.getElementById("currentGroupContainer").innerHTML =
               '<div onclick="backToMap()" id="exitButton" class=" newButton">' +
@@ -98,20 +93,19 @@ function displayGroup() {
               '<a id="noGroupLink" href="./groupsList.html">Find a new group here!</a></div>';
           }
         });
-
-      //return user.uid;
     } else {
       console.log("no one is logged in");
     }
   });
 }
 
+/**
+ * Updates current user's currentGroup field to null on firestore.
+ * @param {The current user's ID} id 
+ */
 function leaveGroup(id) {
   var currentUserRef = db.collection("users").doc(currentUserID);
   var GroupRef = db.collection("groups").doc(id);
-
-  console.log("uid of current user is" + currentUserID);
-  console.log("uid of group is " + id);
 
   //TODO currently joining a group succesfully increases the participants, leaving a group does not decrease
   // currentGroupRef.update({
@@ -131,7 +125,9 @@ function leaveGroup(id) {
 displayGroup();
 
 
-// When the user clicks anywhere outside of the modal popup, close it
+/**
+ *  When the user clicks anywhere outside of the leave group modal popup, close it.
+ */ 
 let modal = document.getElementById("leave-modal");
 window.onclick = function (event) {
   if (event.target == modal) {
