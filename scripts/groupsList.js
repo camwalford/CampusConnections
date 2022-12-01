@@ -42,6 +42,8 @@ async function displayCards(collection) {
             {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
           );
 
+
+
           
 
           //update title and text and image
@@ -60,9 +62,11 @@ async function displayCards(collection) {
               + CurrentParticipants + "/" + maxParticipants;
           newAccordion.querySelector(".accordion-description").innerHTML =
           "Description: " + description;
-
-          newAccordion.querySelector("a").onclick = () => joinGroup(groupID);
-
+          if (maxParticipants <= CurrentParticipants) {
+            newAccordion.querySelector("#join-now").innerHTML = "";
+          } else {
+            newAccordion.querySelector("a").onclick = () => joinGroup(groupID);
+          }
 
           //delete the file if the time is up or if there are no participants
           console.log(endTime.toDate() + " : " + currentTime);
