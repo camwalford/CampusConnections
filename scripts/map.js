@@ -3,7 +3,11 @@ let buildings = document.querySelectorAll(".buildings");
 let map = document.getElementById("map");
 let wrapper = document.getElementById("wrapper");
 
-//Function for highlighting areas of map on hover
+/**
+ * Adds mouseover and mouseout listener for each map area. Changes z-index of
+ * building image for building you hover over to be at the top. Changes
+ * wrapper to be in between main map and currently hovered building.
+ */
 function mouseAreas(){
     for(let i = 0; i < areas.length; i++){
         let id = areas[i].id;
@@ -22,11 +26,9 @@ function mouseAreas(){
 
     }
 }
-
 mouseAreas();
 
-
-/* Function for tutorial slideshow */
+/*---Functions for tutorial slideshow (Much of slideshow function taken from W3schools.)---*/
 
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -36,11 +38,15 @@ function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-// Thumbnail image controls
+// dot image controls
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
+/**
+ * Displays slides in tutorial slideshow, based on index.
+ * @param {The index of the slide to be shown} n 
+ */
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("slide");
@@ -72,7 +78,7 @@ window.onclick = function (event) {
   }
 };
 
-/** disables tutorial after closing it for each user */
+/* Disables tutorial after closing it for each user */
 function tutorialOff(){
     db.collection("users").doc(currentUserID).update(
         {tutorialOn: false}
@@ -83,7 +89,7 @@ function tutorialOff(){
 let tutorialModal = document.getElementById('tutorial-modal');
 let tutorialClose = document.getElementById('tut-close');
 
-//Checks if the close button is clicked, disables tutorial
+//Listener for disabling the tutorial once the close button is clicked.
 tutorialClose.addEventListener("click", tutorialOff);
 
 //If user is logging on for the first time, display tutorial
@@ -110,7 +116,7 @@ function getUserID(callback){
 
 getUserID(callback);
 
-// testing function to allow re-enabling of tutorial
+// Function to re-enable tutorial
 function tutorialOn(){
     db.collection("users").doc(currentUserID).update(
         {tutorialOn: true}

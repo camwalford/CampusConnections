@@ -54,9 +54,9 @@
       <h1>User Profile</h1>
       <form>
         <fieldset class="mb-3" id="personalInfoFields" disabled>
-          <div class="form-group py-5">
+          <div class="form-group py-2">
             <div id="profile-container" class="center-content">
-              <img id="main-pfp" src="images/defaultpfp.jpg" width="200px" height="200px" />
+              <img id="main-pfp" src="images/defaultpfp.jpg" width="190px" height="190px" />
             </div>
             <input id="mypic-input" type="file" style="display: block; margin: 0 auto;"/>
           </div>
@@ -71,17 +71,17 @@
         </fieldset>
 
         <div id="clickables">
-          <div class="d-flex mt-5" id="logout">
+          <div class="d-flex" id="logout">
             <button type="button" class="btn btn-danger" onclick="logout()">
               Logout
             </button>
           </div>
-          <div class="d-flex justify-content-end mt-5">
+          <div class="d-flex justify-content-end">
             <button type="button" class="btn btn-secondary" onclick="edit()">
               Edit
             </button>
             <span style="width: 10px"></span>
-            <button type="button" class="btn btn-info" onclick="save()">
+            <button type="button" id="savebutton" class="btn" onclick="save()">
               Save
             </button>
           </div>
@@ -95,16 +95,14 @@
   </footer>
 
   <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
+  <!--   Your own JavaScript scripts go here    -->
   <!---------------------------------------------->
   <script src="./scripts/firebaseAPI_TEAM26.js"></script>
   <script src="./scripts/skeleton.js"></script>
-  <!-- <script src="./scripts/authentication.js"></script> -->
   <script src="./scripts/exitButton.js"></script>
   <script src="./scripts/toMap.js"></script>
-
-  <!-- Link to scripts of your own -->
   <script src="./scripts/profile.js"></script>
+  
 </body>
 
 </html>

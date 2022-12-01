@@ -1,5 +1,8 @@
 var currentUserID;
 
+/**
+ * READS id of current user and stores into global variable.
+ */
 function getCurrentUserID() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {

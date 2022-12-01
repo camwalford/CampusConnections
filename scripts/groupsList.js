@@ -1,6 +1,11 @@
-const params = new URL(window.location.href);
+const params = new URL(window.location.href); //retrieve parameters passed in URL
 
-async function displayCards(collection) {
+/**
+ * READS all current groups from firestore and displays each in a template retrieved from the groupList.html page.
+ * If there are no current groups, it displays a redirect message/link for user to create a group of their own.
+ * @param {The "groups" collection} collection 
+ */
+async function displayGroups(collection) {
   let accordionTemplate = document.getElementById("groupTemplate");
 
   await db.collection(collection)
@@ -9,15 +14,12 @@ async function displayCards(collection) {
       //If no groups available to display, displays message and link to createGroup.
       if(snap.empty){
         document.getElementById("groups-go-here").innerHTML =
-              '<div onclick="backToMap()" id="exitButton" class=" newButton">' +
-              
+              '<div onclick="backToMap()" id="exitButton" class=" newButton">' +             
               '</div><div id="noGroup" style="text-align: center;"><p>Sorry, there are no groups to join right now.</p>' +
               '<a id="noGroupLink" href="./createGroup.html">Create a new group here!</a></div>';
 
       }else{
         snap.forEach((doc) => {
-          
-          //iterate thru each doc
 
           var title = doc.data().title; // get value of the "name" key
           var groupType = doc.data().groupType; // get value of the "details" key
@@ -31,7 +33,7 @@ async function displayCards(collection) {
 
           var currentTime = new Date();
 
-          var groupID = doc.id; //get unique ID to each hike to be used for fetching right image
+          var groupID = doc.id; //get unique ID for each group to be used for fetching right image
           let newAccordion = accordionTemplate.content.cloneNode(true);
 
           //converts to 12 hour clock
@@ -42,11 +44,7 @@ async function displayCards(collection) {
             {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
           );
 
-
-
-          
-
-          //update title and text and image
+          //Updates title,, group type, time, building, participants, and description. 
           newAccordion.querySelector(".accordion-title").innerHTML = title;
           newAccordion.querySelector(".accordion-type").innerHTML = groupType;
           newAccordion.querySelector(".accordion-time").innerHTML = 
@@ -69,11 +67,10 @@ async function displayCards(collection) {
           }
 
           //delete the file if the time is up or if there are no participants
-          console.log(endTime.toDate() + " : " + currentTime);
           if (endTime.toDate() < currentTime || CurrentParticipants < 1) {
             db.collection(collection).doc(groupID).delete();
           } else {
-            //attach to gallery
+            //appends group to the groups-go-here element in groupList.html
             document
               .getElementById(collection + "-go-here")
               .appendChild(newAccordion);
@@ -85,7 +82,7 @@ async function displayCards(collection) {
   accordion(); 
 }
 
-displayCards("groups");
+displayGroups("groups");
 
 async function groupIsFull(joinid) { //this always returns true, even if the group is not full, which is not ideal
   await joinid.get().then((snip) => {
@@ -94,6 +91,11 @@ async function groupIsFull(joinid) { //this always returns true, even if the gro
   });
 }
 
+/**
+ * UPDATES users currentGroup field in firestore to the group id passed in.
+ * Also updates currentParticipant number in the group document.
+ * @param {the group id} id 
+ */
 function joinGroup(id) {
   var currentUserRef = db.collection("users").doc(currentUserID);
   var joiningGroupRef = db.collection("groups").doc(id);
@@ -150,9 +152,9 @@ function joinGroup(id) {
           }
         });
       } else {
-        if (groupIsFull(joiningGroupRef)) { //checking if the group is full
-          alert("that group is full");
-        } else {
+        //if (groupIsFull(joiningGroupRef)) { //checking if the group is full
+          //alert("that group is full");
+        //} else {
           joiningGroupRef.update({
             currentParticipants: firebase.firestore.FieldValue.increment(1),
           });
@@ -163,14 +165,10 @@ function joinGroup(id) {
             .then(() => {
               window.open("group.html", "_self");
             });
-        }
+        //}
       }
 
     });
-
-  // console.log("uid of current user is" + currentUserID);
-  // console.log("uid of group is " + id);
-  // console.log("uid of previous group is " + currentUserRef.currentGroup);
 
   //TODO currently joining a group succesfully increases the participants, leaving a group does not decrease
   // currentGroupRef.update({
@@ -222,7 +220,7 @@ function groupSearch() {
   }
 }
 
-// Sets search to parameter in searchbar if present.
+// Sets search to parameter in URL if present.
 function checkParams(){
   let buildingParam = params.searchParams.get("buildingId");
   if (buildingParam !== null) {

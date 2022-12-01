@@ -43,7 +43,7 @@
 </head>
 
 <body id="body" class="background-map">
-    <!-- Templates for general use, not displayed -->
+    <!-- Template for list of expanding activities -->
     <template id="groupTemplate">
         <li class="accordion">
             <div class="search-queries">
@@ -68,33 +68,33 @@
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
-    <div class="clickbox">
-        <header>
-            <nav id="header"></nav>
-        </header>
+    
+    <header>
+        <nav id="header"></nav>
+    </header>
 
-        <main id="main" class="center-content">
-            <!-- main page content here -->
-            <div id="groups-container" class="container centering-container bg-BCIT bg-gradient">
-                <div id="exitButton" class=" newButton">
-                    <span class="material-symbols-outlined">
-                        close
-                    </span>
-                </div>
-                <div id="currentGroup">Current Groups</div>
-                <!-- Autocomplete search -->
-                <input type="text" id="group-search-input" onkeyup="groupSearch()"
-                    placeholder="Search by title, building, or type of group...">
-
-                <!--Container for list of groups-->
-                <ul id="groups-go-here"></ul>
+    <main id="main" class="center-content">
+        <!-- main page content here -->
+        <div id="groups-container" class="container centering-container bg-BCIT bg-gradient">
+            <div id="exitButton" class=" newButton">
+                <span class="material-symbols-outlined">
+                    close
+                </span>
             </div>
-        </main>
+            <div id="currentGroup">Current Groups</div>
+            <!-- Autocomplete search -->
+            <input type="text" id="group-search-input" onkeyup="groupSearch()"
+                placeholder="Search by title, building, or type of group...">
 
-        <footer>
-            <nav id="navBar"></nav>
-        </footer>
-    </div>
+            <!--Container for list of groups-->
+            <ul id="groups-go-here"></ul>
+        </div>
+    </main>
+
+    <footer>
+        <nav id="navBar"></nav>
+    </footer>
+    
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->

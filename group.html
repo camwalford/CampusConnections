@@ -47,12 +47,11 @@
 </head>
 
 <body id="body" class="background-map">
-  <!-- Templates for general use, not displayed -->
-  <template id="group-template">
 
-    <!-- <img class="card-image card-img-top" src=" ..." alt="..."> -->
+  <!-- Template for each group -->
+  <template id="group-template">
     <div id="group-grid-container">
-      <div id="exitButton" class=" newButton" onclick="backToMap()">
+      <div id="exitButton" class="newButton" onclick="backToMap()">
         <span id="exitButton" class="material-symbols-outlined">
           close
         </span>
@@ -65,16 +64,14 @@
       <span id="group-description"></span>
       <span id="group-leave" onclick="document.getElementById('leave-modal').style.display='flex'">Leave Group</span>
     </div>
-
   </template>
 
+  <!-- Popup modal to confirm whether a user wants to leave the group or not -->
   <div id="leave-modal" class="modal center-content">
-
     <form class="modal-content" action="/action_page.php">
       <div class="modalcontainer">
         <h1>Leave Group</h1>
         <p>Are you sure you want to leave this group?</p>
-
         <div class="clearfix">
           <button onclick="document.getElementById('leave-modal').style.display='none'" title="Close Modal" type="button"
             class="cancelbtn">Cancel</button>
@@ -90,27 +87,22 @@
   <nav id="header"></nav>
 
   <main id="main" class="center-content">
-
     <div id="currentGroupContainer" class="container centering-container bg-BCIT bg-gradient">
 
-
-
+      <!-- Where template group or not-in-a-group message will go -->
       <div id="groups-go-here"></div>
 
+      <!-- Chat -->
       <div id="chat">
         <div id="chat-window">
           <ul id="messages"></ul>
         </div>
-        <div class="wrap">
-          <div class="pull-tab"></div>
-        </div>
         <form id="message-form">
-          <input id="message-input" type="text" />
+          <input id="message-input" type="text" min-length="1" autocomplete="off"/>
           <button id="message-submit" name="message-submit" type="button">Send</button>
           </input>
         </form>
       </div>
-
     </div>
   </main>
 
@@ -118,19 +110,15 @@
   <nav id="navBar"></nav>
 
   <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
+  <!--   Your own JavaScript scripts go here    -->
   <!---------------------------------------------->
   <script src="./scripts/firebaseAPI_TEAM26.js"></script>
   <script src="./scripts/script.js"></script>
   <script src="./scripts/group.js"></script>
   <script src="./scripts/skeleton.js"></script>
-
   <script src="./scripts/toMap.js"></script>
   <script src="./scripts/chat.js"></script>
   <script src="./scripts/exitButton.js"></script>
-  <!-- <script src="./scripts/modal.js"></script> -->
-
-
 
 </body>
 

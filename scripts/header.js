@@ -1,3 +1,6 @@
+/**
+ * READS profile pic url from firestore and displays it in header.
+ */
 function displayProfile() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
