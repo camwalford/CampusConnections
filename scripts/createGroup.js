@@ -13,9 +13,12 @@ function ValidationEvent() {
   var description1 = document.getElementById("description").value;
 
   let today = new Date();
-  let start = new Date(today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + (today.getDate()) + "T" + startTime + ":00.000");
+  let start = new Date(today.getFullYear() + "-" + (today.getMonth() + 1) + "-0" + (today.getDate()) + "T" + startTime + ":00.000");
   //console.log(start);
-  let end = new Date(today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + (today.getDate()) + "T" + endTime + ":00.000");
+  let end = new Date(today.getFullYear() + "-" + (today.getMonth() + 1) + "-0" + (today.getDate()) + "T" + endTime + ":00.000");
+  console.log(today.getFullYear() + "-" + (today.getMonth() + 1) + "-0" + (today.getDate()) + "T" + endTime + ":00.000");
+  //console.log(end);
+  
   if (end < today) {
     end.setDate(end.getDate() + 1);
   }
