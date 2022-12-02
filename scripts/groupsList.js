@@ -84,6 +84,7 @@ async function displayGroups(collection) {
 
 displayGroups("groups");
 
+//this function does not work
 async function groupIsFull(joinid) { //this always returns true, even if the group is not full, which is not ideal
   await joinid.get().then((snip) => {
     console.log("returning: " + snip.data().currentParticipants + ">=" + parseInt(snip.data().participants));
@@ -94,6 +95,7 @@ async function groupIsFull(joinid) { //this always returns true, even if the gro
 /**
  * UPDATES users currentGroup field in firestore to the group id passed in.
  * Also updates currentParticipant number in the group document.
+ * also decreases the members of the group they just left
  * @param {the group id} id 
  */
 function joinGroup(id) {
@@ -169,11 +171,6 @@ function joinGroup(id) {
       }
 
     });
-
-  //TODO currently joining a group succesfully increases the participants, leaving a group does not decrease
-  // currentGroupRef.update({
-  //     currentParticipants: firebase.firestore.FieldValue.increment(-1),
-  // })
 }
 
 //Displays extra group information in accordion dropdown on click.

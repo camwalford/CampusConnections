@@ -1,27 +1,23 @@
 //import { getDatabase, ref, set } from "firebase/database";
 
 function ValidationEvent() {
-  console.log("uid of current user is" + currentUserID);
-
+  //pulls all the information from the html and stores it
   var title1 = document.getElementById("groupTitle").value;
   var type1 = document.getElementById("groupType").value;
   var building1 = document.getElementById("building").value;
   var startTime = document.getElementById("startTime").value;
   var endTime = document.getElementById("endTime").value;
-  //var length = document.getElementById("length").value;
   var participants1 = document.getElementById("participants").value;
   var description1 = document.getElementById("description").value;
 
+  //creates a date based off of the html time starting at the next time that time occurs
   let today = new Date();
   let string = "-";
   if (today.getDate() < 10) {
     string += "0";
   }
   let start = new Date(today.getFullYear() + "-" + (today.getMonth() + 1) + string + (today.getDate()) + "T" + startTime + ":00.000");
-  //console.log(start);
   let end = new Date(today.getFullYear() + "-" + (today.getMonth() + 1) + string + (today.getDate()) + "T" + endTime + ":00.000");
-  console.log(today.getFullYear() + "-" + (today.getMonth() + 1) + string + (today.getDate()) + "T" + endTime + ":00.000");
-  //console.log(end);
   
   if (end < today) {
     end.setDate(end.getDate() + 1);
@@ -30,13 +26,7 @@ function ValidationEvent() {
     start.setDate(end.getDate() + 1);
   }
 
-  //new Date('2022-05-14T07:06:05.123')
-
-  //end.setDate(end.getDate() + 1); //adds one day
-
-  //gotta figure out how to use the inputted endTime but for now this is fine
-  //end.setHours(end.getHours() + parseInt(length)); //adds 5 hours
-
+  //updates the firestore with the modified information so it can be accurately converted to epoch time
   var groupsRef = db.collection("groups");
   var currentUserRef = db.collection("users").doc(currentUserID);
   groupsRef.add({
@@ -53,12 +43,10 @@ function ValidationEvent() {
     if (error) {
       // The write failed...
     } else {
-      //console.log("this was executed");
       window.open("group.html", "_self");
     }
   }).then((docRef) => {
     if (inGroup(currentUserRef) == true) { //if the currentGroup is not null
-      console.log("was currently in a group thats CRAAZY");
       leaveGroup(currentUserRef) //leave the current group
       .then((idk) => {
         currentUserRef.update({
@@ -77,20 +65,18 @@ function ValidationEvent() {
   });
 }
 
-async function inGroup(userRef) {
+async function inGroup(userRef) { //this function doesn't really work
   await userRef.get().then((snap) => {
-    console.log("returning: " + (snap.data().currentGroup != null));
     return snap.data().currentGroup != null;
   });
 }
 
+//leaves the current group
 function leaveGroup(currentUserRef) {
-  console.log("this has never been printed");
   var groupsRef;
   currentUserRef.get().then((snap) => {
     groupsRef = snap.data().currentGroup;
   }).then((idk)=>{
-    console.log(groupsRef);
     var GroupRef = db.collection("groups").doc(groupsRef);
   
     GroupRef.update({

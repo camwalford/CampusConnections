@@ -1,3 +1,5 @@
+//this file has optional code for testing, not a part of any release
+
 function clearGroups() {
     var activitiesRef = db.collection("activities");
     activitiesRef.get().then((querySnapshot) => {

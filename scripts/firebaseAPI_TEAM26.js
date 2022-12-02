@@ -1,3 +1,5 @@
+//firebase API
+
 const firebaseConfig = {
   apiKey: "AIzaSyDXvFv2OgN_2Z05cUrZe_iN8dNFEPKGpc8",
   authDomain: "campus-connections-cd94f.firebaseapp.com",
