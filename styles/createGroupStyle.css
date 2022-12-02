@@ -82,24 +82,10 @@ main {
     margin-top: 10px;
   }
 
-  #time-section {
-  }
-
-  #participant-section {
-  }
-
   #participant-section #participants {
     width: 3em;
     /* border-radius: 5px; */
   }
-
-  #description-section {
-  }
-
-  #createButton-section {
-  }
-
-
 }
 
 .modal,
