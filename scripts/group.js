@@ -107,10 +107,6 @@ function leaveGroup(id) {
   var currentUserRef = db.collection("users").doc(currentUserID);
   var GroupRef = db.collection("groups").doc(id);
 
-  //TODO currently joining a group succesfully increases the participants, leaving a group does not decrease
-  // currentGroupRef.update({
-  //     currentParticipants: firebase.firestore.FieldValue.increment(-1),
-  // })
   currentUserRef.update({
     currentGroup: null,
   });

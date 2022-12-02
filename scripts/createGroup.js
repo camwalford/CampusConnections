@@ -1,6 +1,8 @@
-//import { getDatabase, ref, set } from "firebase/database";
-
-function ValidationEvent() {
+/**
+ * Retrieves fields from form and updates the firestore, creating a new
+ * group with an auto-generated ID in the "groups" collection.
+ */
+function createGroup() {
   //pulls all the information from the html and stores it
   var title1 = document.getElementById("groupTitle").value;
   var type1 = document.getElementById("groupType").value;
@@ -43,8 +45,9 @@ function ValidationEvent() {
     if (error) {
       // The write failed...
     } else {
-      window.open("group.html", "_self");
+      window.open("group.html", "_self"); //redirects user to the group page once group is created.
     }
+  //Updates users current group.
   }).then((docRef) => {
     if (inGroup(currentUserRef) == true) { //if the currentGroup is not null
       leaveGroup(currentUserRef) //leave the current group
@@ -65,13 +68,20 @@ function ValidationEvent() {
   });
 }
 
-async function inGroup(userRef) { //this function doesn't really work
+/**
+ * Returns true if given user is in a group.
+ * @param {the user's id} userRef 
+ */
+async function inGroup(userRef) { 
   await userRef.get().then((snap) => {
     return snap.data().currentGroup != null;
   });
 }
 
-//leaves the current group
+/**
+ * Removes group from users currentGroup field on firestore.
+ * @param {the current user's ID} currentUserRef 
+ */
 function leaveGroup(currentUserRef) {
   var groupsRef;
   currentUserRef.get().then((snap) => {
@@ -85,37 +95,22 @@ function leaveGroup(currentUserRef) {
   })
 }
 
+/**
+ * When the user clicks anywhere outside of the create-modal, close it.
+ */ 
 var modal = document.getElementById('create-modal');
-
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
 
-//Confirms validity of user input and displays confirmation modal if 
+/**
+ * Confirms validity of user input and displays confirmation modal if true.
+ */
 document.querySelector("#createButton").addEventListener("click", function (e){
   e.preventDefault();
-  // let title1 = document.getElementById("groupTitle");
-  // let type1 = document.getElementById("groupType");
-  // let building1 = document.getElementById("building");
-  // let startTime = document.getElementById("startTime");
-  // let endTime = document.getElementById("endTime");
-  // //let length = document.getElementById("length");
-  // let participants1 = document.getElementById("participants");
-  // let description1 = document.getElementById("description");
-
-  // let titleValid = title1.checkValidity();
-  // let typeValid = type1.checkValidity();
-  // let buildingValid = building1.checkValidity();
-  // let startTimeValid = startTime.checkValidity();
-  // let endTimeValid = endTime.checkValidity();
-  // let participants1Valid = participants1.checkValidity();
-  // let description1Valid = description1.checkValidity();
-
   let isValid = document.querySelector("#create-group-form").reportValidity();
-
   if(isValid){
     document.getElementById('create-modal').style.display='flex';
   }
