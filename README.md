@@ -108,6 +108,7 @@ It has the following subfolders and files:
 
 Firebase hosting files: 
 ├── .firebaserc              # Firebase hosting files
+├── .firebase                # subfolder with hosting cache
 ├── firebase.json            # Firebase hosting files
 ├── firestore.indexes.json   # Firebase hosting files
 ├── firestore.rules          # Firebase firestore rules
