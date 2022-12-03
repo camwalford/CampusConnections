@@ -92,14 +92,14 @@ It has the following subfolders and files:
     /toMap.js                # function for going back to map on background click.
 
 ├── styles                   # Folder for styles
-    /style.css               # Main stylesheet
-    /createGroupStyle        # create group stylesheet
-    /groupStyle.css          # group stylesheet
-    /indexStyle              # index stylesheet
-    /loginStyle              # login stylesheet
-    /mapStyle.css            # map stylesheet
-    /profileStyle            # profile stylesheet
-    /groupListStyle          # group list stylesheet
+    /style.css               # Main stylesheet for every page.
+    /createGroupStyle        # createGroup.html specific stylesheet
+    /groupStyle.css          # group.html stylesheet
+    /indexStyle              # index.html stylesheet
+    /loginStyle              # login.html stylesheet
+    /mapStyle.css            # map.html stylesheet
+    /profileStyle            # profile.html stylesheet
+    /groupListStyle          # groupsList.html stylesheet
     /font                    # Subfolder for fonts
                     
 ├── text                     # Folder for html loaded on each page.
