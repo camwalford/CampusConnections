@@ -21,7 +21,6 @@ Technologies used for this project:
 * HTML, CSS
 * JavaScript
 * Bootstrap 
-* ...
 	
 ## Content
 Content of the project folder:
@@ -33,7 +32,7 @@ Content of the project folder:
 ├── login.html               # Login HTML file, what users are directed to after the landing page.
 ├── map.html                 # Map HTML file, after users login they are placed.
 ├── group.html               # Group HTML file, shows users current group.
-├── groupList.html           # Group List HTML file, shows all current groups.
+├── groupsList.html          # Group List HTML file, shows all current groups.
 ├── profile.html             # Profile HTML file, displays editable user profile.
 ├── createGroup.html         # Create Group HTML file, displays group creation form.
 ├── 404.html                 # Firebase hosting 404 page
@@ -43,30 +42,30 @@ It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
     /locations               # Subfolder for location images displayed on map hover
-        /dorms.png           # dorms
-        /NE1.png             # NE1
-        /NE821.png           # NE821
-        /NE912.png           # NE912
-        /NE2820.png          # NE2820
-        /NW.png              # NW
-        /SE1.png             # SE1
-        /se2.png             # SE2
-        /se4.png             # SE4
-        /se6.png             # SE6
-        /SE8.png             # SE8
-        /se10.png            # SE10
-        /SE12.png            # SE12
-        /SE14.png            # SE14
-        /SE16.png            # SE16
-        /SW.png              # SW
-        /SW9.png             # SW9
-        /Track.png           # Track
-    tutorial                 # Subfolder for tutorial images
-        /createtut.png       # Create group tutorial image
-        /grouptut.png        # Current group tutorial image
-        /listtut.png         # Group List tutorial image
-        /maptut.png          # Map tutorial image
-        /profiletut.png      # Profile tutorial image
+        /dorms.png              # dorms
+        /NE1.png                # NE1
+        /NE821.png              # NE8 to 21
+        /NE912.png              # NE9 to 12
+        /NE2820.png             # NE28 to 20
+        /NW.png                 # Multiple NW buildings
+        /SE1.png                # SE1
+        /se2.png                # SE2
+        /se4.png                # SE4
+        /se6.png                # SE6
+        /SE8.png                # SE8
+        /se10.png               # SE10
+        /SE12.png               # SE12
+        /SE14.png               # SE14
+        /SE16.png               # SE16
+        /SW.png                 # Multiple SW buildings
+        /SW9.png                # SW9
+        /Track.png              # Track
+    /tutorial                # Subfolder for tutorial images
+        /createtut.png          # Create group tutorial image
+        /grouptut.png           # Current group tutorial image
+        /listtut.png            # Group List tutorial image
+        /maptut.png             # Map tutorial image
+        /profiletut.png         # Profile tutorial image
     /BCIT-Map2-LowOp.png     # Low opacity map for background
     /BCIT-Map2.jpg           # Main Map image
     /CCLogo.png              # Logo
@@ -103,23 +102,20 @@ It has the following subfolders and files:
     /groupListStyle          # group list stylesheet
     /font                    # Subfolder for fonts
                     
-├── text                     # Folder for styles
+├── text                     # Folder for html loaded on each page.
     /header.html             # html loaded in for header on each page
     /nav.html                # html loaded in for bottom navbar on each page
 
 Firebase hosting files: 
 ├── .firebaserc              # Firebase hosting files
-├── .firebase.json           # Firebase hosting files
+├── firebase.json            # Firebase hosting files
 ├── firestore.indexes.json   # Firebase hosting files
-├── firestore.rules          # Firebase hosting files
+├── firestore.rules          # Firebase firestore rules
 ├── package-lock.json        # Firebase hosting files
 ├── package.json             # Firebase hosting files
-├── storage.rules            # Firebase hosting files
+├── storage.rules            # Firebase storage rules
 
 
 ```
 
-Tips for file naming files and folders:
-* use lowercase with no spaces
-* use dashes (not underscore) for word separation
 

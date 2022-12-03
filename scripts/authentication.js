@@ -13,17 +13,23 @@ var uiConfig = {
       // If the user is a "brand new" user, then create a new "user" in your own database.
       // Assign this user with the name and email provided.
       // Before this works, you must enable "Firestore" from the firebase console.
-      // The Firestore rules must allow the user to write. 
+      // The Firestore rules must allow the user to write.
       //------------------------------------------------------------------------------------------
       var user = authResult.user; // get the user object from the Firebase authentication database
-      if (authResult.additionalUserInfo.isNewUser) { //if new user
-        db.collection("users").doc(user.uid).set({ //write to firestore. We are using the UID for the ID in users collection
+      if (authResult.additionalUserInfo.isNewUser) {
+        //if new user
+        db.collection("users")
+          .doc(user.uid)
+          .set({
+            //write to firestore. We are using the UID for the ID in users collection
             name: user.displayName, //"users" collection
             email: user.email,
-            currentGroup: null, //with authenticated user's ID (user.uid)                         //optional default profile info
-            tutorialOn: true,
-            profilePic: "https://firebasestorage.googleapis.com/v0/b/campus-connections-cd94f.appspot.com/o/images%2Fdefaultpfp.jpg?alt=media&token=6d09e2c9-20f2-4007-87b6-15d355c22690"
-          }).then(function () {
+            currentGroup: null, //with authenticated user's ID (user.uid)
+            tutorialOn: true, //enables the tutorial for first time users
+            profilePic:
+              "https://firebasestorage.googleapis.com/v0/b/campus-connections-cd94f.appspot.com/o/images%2Fdefaultpfp.jpg?alt=media&token=6d09e2c9-20f2-4007-87b6-15d355c22690",
+          })
+          .then(function () {
             window.location.assign("map.html"); //re-direct to map.html after signup
           })
           .catch(function (error) {
@@ -37,25 +43,17 @@ var uiConfig = {
     uiShown: function () {
       // The widget is rendered.
       // Hide the loader.
-      document.getElementById('loader').style.display = 'none';
-    }
+      document.getElementById("loader").style.display = "none";
+    },
   },
   // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-  signInFlow: 'popup',
+  signInFlow: "popup",
   signInSuccessUrl: "map.html",
-  signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
-    //   firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    //   firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    //   firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    //   firebase.auth.GithubAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    //   firebase.auth.PhoneAuthProvider.PROVIDER_ID
-  ],
+  signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID],
   // Terms of service url.
-  tosUrl: '<your-tos-url>',
+  tosUrl: "<your-tos-url>",
   // Privacy policy url.
-  privacyPolicyUrl: '<your-privacy-policy-url>'
+  privacyPolicyUrl: "<your-privacy-policy-url>",
 };
 
-ui.start('#firebaseui-auth-container', uiConfig);
+ui.start("#firebaseui-auth-container", uiConfig);

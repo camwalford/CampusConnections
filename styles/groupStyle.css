@@ -1,334 +1,332 @@
 html {
-    height: 100vh;
-    width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 body {
-    height: calc(100% - 150px);
-    margin: 75px 0px;
-    color: white;
+  height: calc(100% - 150px);
+  margin: 75px 0px;
+  color: white;
 }
 
 main {
-    height: 100%;
-    width: 100%;
-    min-height: 444px;
-    overflow-y: scroll;
-    padding: 0;
+  height: 100%;
+  width: 100%;
+  min-height: 444px;
+  overflow-y: scroll;
+  padding: 0;
 }
 
 main::-webkit-scrollbar {
-    width: 0px;
+  width: 0px;
 }
 
 #groupNav span {
-    color: rgb(40, 40, 40);
+  color: rgb(40, 40, 40);
 }
 
 /*Styling for group container*/
 h5 {
-    margin: 0;
-    color: black;
+  margin: 0;
+  color: black;
 }
 
 #currentGroupContainer {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    min-height: 418px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  min-height: 418px;
 }
 
 #groups-go-here {
-    list-style-type: none;
-    margin: 0px;
-    height: 20%;
+  list-style-type: none;
+  margin: 0px;
+  height: 20%;
 }
 
 #group-grid-container {
-    min-height: 240px;
-    display: grid;
-    width: 100%;
-    padding-right: 1em;
-    grid-template-columns: 5% 5% 5% 5% 5% 5% 15% 15% 13% 7% 7% 7% 8%;
-    grid-template-rows: 25% 20% 40% 10%;
-    grid-template-areas:
-        "exit exit title title title title title title title title title participants participants"
-        "type type type type type building building building time time time time time"
-        "description description description description description description description description description description description description description"
-        "extra extra extra extra extra extra extra extra extra extra leave leave leave"
+  min-height: 240px;
+  display: grid;
+  width: 100%;
+  padding-right: 1em;
+  grid-template-columns: 5% 5% 5% 5% 5% 5% 15% 15% 13% 7% 7% 7% 8%;
+  grid-template-rows: 25% 20% 40% 10%;
+  grid-template-areas:
+    "exit exit title title title title title title title title title participants participants"
+    "type type type type type building building building time time time time time"
+    "description description description description description description description description description description description description description"
+    "extra extra extra extra extra extra extra extra extra extra leave leave leave";
 }
 
 #exitButton {
-    grid-area: exit;
+  grid-area: exit;
 }
 
 #group-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 15pt;
-    color: rgb(43, 42, 42);
-    grid-area: title;
-    position: relative;
-    top: 10%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 15pt;
+  color: rgb(43, 42, 42);
+  grid-area: title;
+  position: relative;
+  top: 10%;
 }
 
 #group-type {
-    position: relative;
-    top: 8%;
-    grid-area: type;
-    text-align: left;
-    color: black;
+  position: relative;
+  top: 8%;
+  grid-area: type;
+  text-align: left;
+  color: black;
 }
 
 #group-building {
-    grid-area: building;
-    text-align: center;
-    color: black;
+  grid-area: building;
+  text-align: center;
+  color: black;
 }
 
 #group-time {
-    grid-area: time;
-    text-align: center;
-    color: black;
+  grid-area: time;
+  text-align: center;
+  color: black;
 }
 
 #group-participants {
-    grid-area: participants;
-    font-size: 10pt;
-    text-align: center;
-    color: black;
+  grid-area: participants;
+  font-size: 10pt;
+  text-align: center;
+  color: black;
 }
 
 /* Styling and positioning for icons next to location, time, and participants */
 #person {
-    position: relative;
-    top: 5px;
-    left: 2px;
-    font-size: 16pt;
-    color: rgb(45, 113, 195);
+  position: relative;
+  top: 5px;
+  left: 2px;
+  font-size: 16pt;
+  color: rgb(45, 113, 195);
 }
 
 #clock {
-    position: relative;
-    top: 9%;
-    right: 1%;
-    font-size: 16pt;
+  position: relative;
+  top: 9%;
+  right: 1%;
+  font-size: 16pt;
 }
 
 #pin {
-    position: relative;
-    top: 9%;
-    right: 1%;
-    font-size: 16pt;
+  position: relative;
+  top: 9%;
+  right: 1%;
+  font-size: 16pt;
 }
 
 #group-description {
-    grid-area: description;
-    padding: 5px;
-    color: black;
-    overflow-wrap: normal;
-    max-width: 100%;
-    word-wrap: break-word;
-    word-break: break-all;
-    overflow-y:scroll;
-    border: 1px solid rgb(37, 78, 120);
-    border-radius: 5px;
-
+  grid-area: description;
+  padding: 5px;
+  color: black;
+  overflow-wrap: normal;
+  max-width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow-y: scroll;
+  border: 1px solid rgb(37, 78, 120);
+  border-radius: 5px;
 }
 
 #group-leave {
-    grid-area: leave;
-    /* text-decoration: underline; */
-    font-size: 10pt;
-    color: white;
-    
-    text-align: center;
-    cursor: pointer;
-    background-color: #717171;
-    border: 1px solid rgb(53, 52, 52);
-    border-radius: 2px;
+  grid-area: leave;
+  /* text-decoration: underline; */
+  font-size: 10pt;
+  color: white;
+
+  text-align: center;
+  cursor: pointer;
+  background-color: #717171;
+  border: 1px solid rgb(53, 52, 52);
+  border-radius: 2px;
 }
 
 #group-leave:hover {
-    background-color: rgb(228, 34, 34);
+  background-color: rgb(228, 34, 34);
 }
 
 .group-info-small {
-    font-size: 11pt;
+  font-size: 11pt;
 }
 
 /*Styling for chat*/
 #messages {
-    margin: 10px 5px;
+  margin: 10px 5px;
 }
 
 #messages li {
-    list-style-type: none;
-    margin-bottom: 10px;
-    background-color: #e8e8e8;
-    padding: 5px;
-    border-radius: 10px;
-    color: black;
-    width: 50%;
-    font-size: min(4vw, 14pt);
+  list-style-type: none;
+  margin-bottom: 10px;
+  background-color: #e8e8e8;
+  padding: 5px;
+  border-radius: 10px;
+  color: black;
+  width: 50%;
+  font-size: min(4vw, 14pt);
 }
 
 li span {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 #chat {
-    height: 20%;
-    overflow: hidden;
-    display: none;
+  height: 20%;
+  overflow: hidden;
+  display: none;
 }
 
 #chat-window {
-    width: 100%;
-    height: min(150px, 20vh);
-    padding: 0;
-    margin: 0;
-    overflow-y: scroll;
-    background-color: white;
-    border: 1px solid rgb(37, 78, 120);
-    border-radius: 5px;
-    resize: vertical;
-    position: relative;
+  width: 100%;
+  height: min(150px, 20vh);
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
+  background-color: white;
+  border: 1px solid rgb(37, 78, 120);
+  border-radius: 5px;
+  resize: vertical;
+  position: relative;
 }
 
 #message-form {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 
 #message-input {
-    width: 80%;
-    margin-top: 15px;
-    border-radius: 5px;
-    border-color: rgb(45, 113, 195);
+  width: 80%;
+  margin-top: 15px;
+  border-radius: 5px;
+  border-color: rgb(45, 113, 195);
 }
 
 /* Send button styling */
 #message-submit {
-    width: max(15%, 52px);
-    border-radius: 5px;
-    border: 1px solid black;
-    background-color: rgb(45, 113, 195);
-    box-shadow: 1px 1px 2px black;
-    color: white;
+  width: max(15%, 52px);
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: rgb(45, 113, 195);
+  box-shadow: 1px 1px 2px black;
+  color: white;
 }
 
 #message-submit:hover {
-    background-color: rgb(45, 62, 187);
-    box-shadow: 1px 1px 0px black;
+  background-color: rgb(45, 62, 187);
+  box-shadow: 1px 1px 0px black;
 }
 
 /*Positioning for messages*/
 li:has(span[class="sender"]) {
-    margin-left: 50%;
+  margin-left: 50%;
 }
 
 li:has(span[class="reciever"]) {
-    margin-right: 50%;
+  margin-right: 50%;
 }
 
 .sender:after,
 .receiver:after {
-    content: ":  "
+  content: ":  ";
 }
 
 .sender {
-    display: block;
-    font-size: smaller;
-    color: grey;
+  display: block;
+  font-size: smaller;
+  color: grey;
 }
 
 .receiver {
-    display: block;
-    font-size: smaller;
-    color: grey;
+  display: block;
+  font-size: smaller;
+  color: grey;
 }
 
-.empty-chat{
-    border-color: rgb(255, 53, 53);
-    background-color: rgb(248, 203, 203);
+.empty-chat {
+  border-color: rgb(255, 53, 53);
+  background-color: rgb(248, 203, 203);
 }
-
 
 /* Beginning of modal styling */
 .modal,
 .modal * {
-    box-sizing: border-box
+  box-sizing: border-box;
 }
 
 /* Set a style for all modal buttons */
 .modal button {
-    color: rgb(0, 0, 0);
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
+  color: rgb(0, 0, 0);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
 }
 
 .modal button:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* Add a color to the cancel button */
 .cancelbtn {
-    background-color: #ccc;
-    color: black;
+  background-color: #ccc;
+  color: black;
 }
 
 /* Add a color to the delete button */
 .leavebtn {
-    background-color: #f44336;
+  background-color: #f44336;
 }
 
 /* Add padding and center-align text to the container */
 .modalcontainer {
-    padding: 16px;
-    text-align: center;
+  padding: 16px;
+  text-align: center;
 }
 
 /* The Modal (background) */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 5;
-    color: black;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-    padding-top: 0px;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  display: none;
+  position: fixed;
+  z-index: 5;
+  color: black;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 0px;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 50% auto 50% auto;
-    border: 1px solid #888;
-    width: 80%;
-    height: fit-content;
+  background-color: #fefefe;
+  margin: 50% auto 50% auto;
+  border: 1px solid #888;
+  width: 80%;
+  height: fit-content;
 }
 
 /* Clear floats */
 .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
 
 /*Styling for the message displayed when user is not in a group*/
 #noGroup {
-    text-align: center;
-    position: relative;
-    top: 115px;
+  text-align: center;
+  position: relative;
+  top: 115px;
 }

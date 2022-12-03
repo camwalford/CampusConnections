@@ -1,220 +1,211 @@
-
-
 html {
-    height: 100vh;
-    width: 100vw;
-    font-family: 'lato', 'Merriweather', 'Montserrat', sans-serif;
-
+  height: 100vh;
+  width: 100vw;
+  font-family: "lato", "Merriweather", "Montserrat", sans-serif;
 }
 
 body {
-    height: calc(100% - 150px);
-    margin: 75px 0px;
-    color: white;
+  height: calc(100% - 150px);
+  margin: 75px 0px;
+  color: white;
 }
 
 main {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 #currentGroup {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 27px;
-    text-align: center;
-    color: rgb(43, 42, 42);
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 27px;
+  text-align: center;
+  color: rgb(43, 42, 42);
 }
 
 .center-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .centering-container {
-    border-radius: 15px;
-    border: 2px solid rgb(75, 128, 170);
-    box-shadow: 0px 0px 3px black;
+  border-radius: 15px;
+  border: 2px solid rgb(75, 128, 170);
+  box-shadow: 0px 0px 3px black;
 }
 
 /*Styling for groups*/
 #groups-container {
-    padding: 25px;
+  padding: 25px;
 }
 
 /*filter and searchbar*/
 #group-search-input {
-    background-image: url('../images/searchicon.png');
-    background-position: 10px 12px;
-    background-size: 23px;
-    background-repeat: no-repeat;
-    width: 100%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    border-radius: 8px;
-    border: 1px solid rgb(75, 128, 170);
-    margin-bottom: 12px;
+  background-image: url("../images/searchicon.png");
+  background-position: 10px 12px;
+  background-size: 23px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border-radius: 8px;
+  border: 1px solid rgb(75, 128, 170);
+  margin-bottom: 12px;
 }
 
 /* Styling for each group in the list */
 #groups-go-here {
-    list-style-type: none;
-    padding: 10px;
-    margin: 0px;
-    max-height: 50vh;
-    overflow-y: scroll;
+  list-style-type: none;
+  padding: 10px;
+  margin: 0px;
+  max-height: 50vh;
+  overflow-y: scroll;
 }
 
 .accordion {
-    background-color: #eee;
-    color: black;
-    cursor: pointer;
-    padding: 18px;
-    margin-top: 10px;
-    width: 100%;
-    /* text-align: left; */
-    border: none;
-    border-bottom: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    transition: 0.4s;
-    display: grid;
-    grid-template-columns: 75% 15% 10%;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "search-queries participant-number arrow"
+  background-color: #eee;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  margin-top: 10px;
+  width: 100%;
+  /* text-align: left; */
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.4s;
+  display: grid;
+  grid-template-columns: 75% 15% 10%;
+  grid-template-rows: auto;
+  grid-template-areas: "search-queries participant-number arrow";
 }
 
 .search-queries {
-    display: grid;
-    grid-template-columns: 55% 30% 15%;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "title group-type building"
+  display: grid;
+  grid-template-columns: 55% 30% 15%;
+  grid-template-rows: auto;
+  grid-template-areas: "title group-type building";
 }
 
-.accordion-title{
-    grid-area: title;
-    font-size: 13pt
+.accordion-title {
+  grid-area: title;
+  font-size: 13pt;
 }
 
-.accordion-type{
-    grid-area: group-type;
-    font-size: 11pt;
-    position: relative;
-    top: 2px;
+.accordion-type {
+  grid-area: group-type;
+  font-size: 11pt;
+  position: relative;
+  top: 2px;
 }
 
-.accordion-building{
-    grid-area: building;
-    font-size: 11pt;
+.accordion-building {
+  grid-area: building;
+  font-size: 11pt;
 }
 
 .accordion > span {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .groupTemplate li {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* Add a background color to the button if it is clicked on,
  and when you move the mouse over it*/
 .active,
 .accordion:hover {
-    background-color: #ccc; 
+  background-color: #ccc;
 }
 
-.active{
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+.active {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 /* Styling for the panel that appears when you click each activity */
 .panel {
-    color: black;
-    padding-right: 8px;
-    padding-left: 8px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;   
+  color: black;
+  padding-right: 8px;
+  padding-left: 8px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
 }
 
-.panel-content{
-    height: 180px;
-    overflow: hidden;
-    display: grid;
-    width: 100%;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 15% 60% 25%;
-    grid-template-areas:
-        "time time time time"
-        "description description description description  "
-        "extra extra extra join";
+.panel-content {
+  height: 180px;
+  overflow: hidden;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 15% 60% 25%;
+  grid-template-areas:
+    "time time time time"
+    "description description description description  "
+    "extra extra extra join";
 }
 
-.accordion-time{
-    
-    margin: 0px;
-    width:100%;
-    color: black;
-    background-color: white;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;  
-    grid-area: time;
+.accordion-time {
+  margin: 0px;
+  width: 100%;
+  color: black;
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  grid-area: time;
 }
 
-.accordion-description{
-    padding: 5px 5px;
-    margin: 0px;
-    width:100%;
-    color: black;
-    background-color: white;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;  
-    grid-area: description;
+.accordion-description {
+  padding: 5px 5px;
+  margin: 0px;
+  width: 100%;
+  color: black;
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  grid-area: description;
 }
 
-#join-now{
-    margin-bottom: 8px;
-    width:100%;
-    display: grid;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;  
-    grid-area: join;
-    align-self: center;
-    border: 1px;
-
+#join-now {
+  margin-bottom: 8px;
+  width: 100%;
+  display: grid;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  grid-area: join;
+  align-self: center;
+  border: 1px;
 }
 
 /*Styling and positioning for participant, location, and clock icons*/
 #person {
-    position: relative;
-    top: 2px;
-    left: 2px;
-    font-size: 16pt;
-    color: #2d71c3;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  font-size: 16pt;
+  color: #2d71c3;
 }
 
 #clock {
-    position: relative;
-    top: 4px;
-    font-size: 15pt;
+  position: relative;
+  top: 4px;
+  font-size: 15pt;
 }
 
 #pin {
-    position: relative;
-    top: 4px;
-    font-size: 16pt;
+  position: relative;
+  top: 4px;
+  font-size: 16pt;
 }
-
-

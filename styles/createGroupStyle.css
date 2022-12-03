@@ -1,4 +1,3 @@
-
 #createNav span {
   color: rgb(40, 40, 40);
 }
@@ -6,7 +5,6 @@
 html {
   height: 100vh;
   width: 100vw;
-
 }
 
 body {
@@ -22,7 +20,7 @@ main {
 }
 
 .text-center {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   font-size: 17px;
   text-align: center;
@@ -90,12 +88,11 @@ main {
 
 .modal,
 .modal * {
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 /* Set a style for all buttons */
 .modal button {
-
   color: rgb(0, 0, 0);
   padding: 14px 20px;
   margin: 8px 0;
@@ -201,42 +198,37 @@ hr {
 
 /* Change styles for cancel button and delete button on extra small screens */
 @media screen and (max-width: 300px) {
-
   .cancelbtn,
   .deletebtn {
     width: 100%;
   }
 }
 
-input, select {
-  border-color:#e0e0e0;
+input,
+select {
+  border-color: #e0e0e0;
   border-radius: 6px;
   border-width: 2px;
   color: #000000;
   border-style: solid;
 }
 
-
 /* Hour */
-input[type=time]::-webkit-datetime-edit-hour-field {
+input[type="time"]::-webkit-datetime-edit-hour-field {
   /* background-color: #e5e5e5; 
   border-radius: 15%;  */
   padding: 2px;
-  
 }
 
 /* Minute */
-input[type=time]::-webkit-datetime-edit-minute-field {
+input[type="time"]::-webkit-datetime-edit-minute-field {
   /* background-color: #e5e5e5; 
   border-radius: 15%;  */
   padding: 1px;
-  
 }
 
 /* AM/PM */
-input[type=time]::-webkit-datetime-edit-ampm-field {
+input[type="time"]::-webkit-datetime-edit-ampm-field {
   /* background-color: #b6d7fd; 
   border-radius: 15%;  */
- 
-} 
-
+}

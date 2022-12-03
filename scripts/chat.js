@@ -34,7 +34,7 @@ document
 
       /**
        * Writes user's input into the firestore database as a new document.
-       * @param {Reference to user's current group} groupRef 
+       * @param {Reference to user's current group} groupRef
        */
       function sendMessage(groupRef) {
         //Retrieves the message and timestamp
@@ -44,13 +44,11 @@ document
         // clears the message input box
         messageInput.value = "";
         // scrolls message into view
-        document
-          .getElementById("messages")
-          .scrollIntoView({
-            behavior: "smooth",
-            block: "end",
-            inline: "nearest",
-          });
+        document.getElementById("messages").scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+          inline: "nearest",
+        });
         //Checks that the user isn't sending a blank message
         if (typeof message === "string" && message.trim() !== "") {
           //Adds message document to group's chat collection with data.
@@ -61,21 +59,21 @@ document
             timesent: timestamp,
             uid: currentUserID,
           });
-        //Makes chatbox red when user tries to send an empty message.
+          //Makes chatbox red when user tries to send an empty message.
         } else {
-          messageInput.setCustomValidity("You can't send an empty message 🙃")
+          messageInput.setCustomValidity("You can't send an empty message 🙃");
           messageInput.reportValidity();
           messageInput.classList.add("empty-chat");
           setTimeout(() => messageInput.classList.remove("empty-chat"), 6000);
         }
       }
     });
-});
+  });
 
 /**
-  * Reads and displays the messages currently stored in 
-  * that group's chat subcollection in firestore.
-  */
+ * Reads and displays the messages currently stored in
+ * that group's chat subcollection in firestore.
+ */
 function displayCurrentMessages() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -126,13 +124,11 @@ function displayCurrentMessages() {
                   }
                 }
                 //Scroll new messages into view
-                document
-                  .getElementById("messages")
-                  .scrollIntoView({
-                    behavior: "smooth",
-                    block: "end",
-                    inline: "nearest",
-                  });
+                document.getElementById("messages").scrollIntoView({
+                  behavior: "smooth",
+                  block: "end",
+                  inline: "nearest",
+                });
               });
             });
         });
@@ -142,7 +138,7 @@ function displayCurrentMessages() {
 
 /**
  * Sends chat when the user presses enter. Prevents the default enter function.
- */ 
+ */
 document
   .getElementById("message-input")
   .addEventListener("keypress", function (event) {

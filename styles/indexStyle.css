@@ -1,38 +1,36 @@
-
-
 body {
-    height: calc(100% - 150px);
-    margin: 75px 0px;
-    background-image: url('../images/students-wallpapers.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
+  height: calc(100% - 150px);
+  margin: 75px 0px;
+  background-image: url("../images/students-wallpapers.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
 }
 
 h1 {
-    font-family: 'lato', 'Merriweather', 'Montserrat', sans-serif;
+  font-family: "lato", "Merriweather", "Montserrat", sans-serif;
 }
 
 #fontMad {
-    height: 100%;
-    font-size: x-large;
-    font-family: 'Merriweather'
+  height: 100%;
+  font-size: x-large;
+  font-family: "Merriweather";
 }
 
 p {
-    font-family: 'Merriweather', 'Montserrat', serif;
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
+  font-family: "Merriweather", "Montserrat", serif;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
 }
 
 button {
-    width: 100%;
+  width: 100%;
 }
 
 a {
-    width: 100%;
-    border: 2px solid black;
-    border-radius: 40px;
-    backdrop-filter: blur(20px);
-    align-items: center;
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 40px;
+  backdrop-filter: blur(20px);
+  align-items: center;
 }

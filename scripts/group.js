@@ -14,17 +14,18 @@ function displayGroup() {
         .get()
         .then((doc) => {
           //Checks if user is in a group and displays the group information and chat if it's true.
-          if (doc.data().currentGroup !== "none" && doc.data().currentGroup !== null) {
-
+          if (
+            doc.data().currentGroup !== "none" &&
+            doc.data().currentGroup !== null
+          ) {
             //READS current groups data from firestore
             var currentGroup = db
               .collection("groups")
               .doc(doc.data().currentGroup)
               .get()
               .then((snap) => {
-                
                 //If data isn't undefined sets each field to a variable
-                if (typeof snap.data() !== 'undefined'){
+                if (typeof snap.data() !== "undefined") {
                   var title = snap.data().title;
                   var groupType = snap.data().groupType;
                   var groupID = snap.id; //gets the unique id for the group
@@ -38,14 +39,24 @@ function displayGroup() {
                   var endTime = snap.data().endtime;
 
                   //Formats start time
-                  startTime = startTime.toDate().toLocaleTimeString('en-US',
-                    {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
-                  );
+                  startTime = startTime
+                    .toDate()
+                    .toLocaleTimeString("en-US", {
+                      timeZone: "PST",
+                      hour12: true,
+                      hour: "numeric",
+                      minute: "numeric",
+                    });
 
                   //Formats end time
-                  endTime = endTime.toDate().toLocaleTimeString('en-US',
-                    {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
-                  );
+                  endTime = endTime
+                    .toDate()
+                    .toLocaleTimeString("en-US", {
+                      timeZone: "PST",
+                      hour12: true,
+                      hour: "numeric",
+                      minute: "numeric",
+                    });
 
                   //Makes a clone of the template from groupList.html
                   let newGroup = groupTemplate.content.cloneNode(true);
@@ -70,7 +81,9 @@ function displayGroup() {
                     "Description: " + description;
                   document.querySelector("#leave").onclick = () =>
                     leaveGroup(groupID);
-                  document.getElementById("groups-go-here").appendChild(newGroup);
+                  document
+                    .getElementById("groups-go-here")
+                    .appendChild(newGroup);
 
                   var chat = document.getElementById("chat");
                   chat.style.display = "block";
@@ -84,7 +97,7 @@ function displayGroup() {
                     '<a id="noGroupLink" href="./groupsList.html">Find a new group here!</a></div>';
                 }
               });
-          //If user is not in a group, displays message and link to groupList page
+            //If user is not in a group, displays message and link to groupList page
           } else {
             document.getElementById("currentGroupContainer").innerHTML =
               '<div onclick="backToMap()" id="exitButton" class=" newButton">' +
@@ -101,7 +114,7 @@ function displayGroup() {
 
 /**
  * Updates current user's currentGroup field to null on firestore.
- * @param {The current user's ID} id 
+ * @param {The current user's ID} id
  */
 function leaveGroup(id) {
   var currentUserRef = db.collection("users").doc(currentUserID);
@@ -120,16 +133,12 @@ function leaveGroup(id) {
 
 displayGroup();
 
-
 /**
  *  When the user clicks anywhere outside of the leave group modal popup, close it.
- */ 
+ */
 let modal = document.getElementById("leave-modal");
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 };
-
-
-

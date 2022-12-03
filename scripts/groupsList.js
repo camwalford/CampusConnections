@@ -3,24 +3,23 @@ const params = new URL(window.location.href); //retrieve parameters passed in UR
 /**
  * READS all current groups from firestore and displays each in a template retrieved from the groupList.html page.
  * If there are no current groups, it displays a redirect message/link for user to create a group of their own.
- * @param {The "groups" collection} collection 
+ * @param {The "groups" collection} collection
  */
 async function displayGroups(collection) {
   let accordionTemplate = document.getElementById("groupTemplate");
 
-  await db.collection(collection)
+  await db
+    .collection(collection)
     .get()
     .then((snap) => {
       //If no groups available to display, displays message and link to createGroup.
-      if(snap.empty){
+      if (snap.empty) {
         document.getElementById("groups-go-here").innerHTML =
-              '<div onclick="backToMap()" id="exitButton" class=" newButton">' +             
-              '</div><div id="noGroup" style="text-align: center;"><p>Sorry, there are no groups to join right now.</p>' +
-              '<a id="noGroupLink" href="./createGroup.html">Create a new group here!</a></div>';
-
-      }else{
+          '<div onclick="backToMap()" id="exitButton" class=" newButton">' +
+          '</div><div id="noGroup" style="text-align: center;"><p>Sorry, there are no groups to join right now.</p>' +
+          '<a id="noGroupLink" href="./createGroup.html">Create a new group here!</a></div>';
+      } else {
         snap.forEach((doc) => {
-
           var title = doc.data().title; // get value of the "name" key
           var groupType = doc.data().groupType; // get value of the "details" key
           var groupID = doc.id; //gets the unique id for the group
@@ -30,36 +29,42 @@ async function displayGroups(collection) {
           var maxParticipants = doc.data().participants;
           var CurrentParticipants = doc.data().currentParticipants;
           var description = doc.data().description;
-
           var currentTime = new Date();
-
           var groupID = doc.id; //get unique ID for each group to be used for fetching right image
           let newAccordion = accordionTemplate.content.cloneNode(true);
 
-          //converts to 12 hour clock
-          startTime = startTime.toDate().toLocaleTimeString('en-US',
-            {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
-          );
-          end = endTime.toDate().toLocaleTimeString('en-US',
-            {timeZone:'PST',hour12:true,hour:'numeric',minute:'numeric'}
-          );
+          //converts time to 12 hour clock
+          startTime = startTime.toDate().toLocaleTimeString("en-US", {
+            timeZone: "PST",
+            hour12: true,
+            hour: "numeric",
+            minute: "numeric",
+          });
+          end = endTime.toDate().toLocaleTimeString("en-US", {
+            timeZone: "PST",
+            hour12: true,
+            hour: "numeric",
+            minute: "numeric",
+          });
 
-          //Updates title,, group type, time, building, participants, and description. 
+          //Updates title,, group type, time, building, participants, and description.
           newAccordion.querySelector(".accordion-title").innerHTML = title;
           newAccordion.querySelector(".accordion-type").innerHTML = groupType;
-          newAccordion.querySelector(".accordion-time").innerHTML = 
-              '<span id="clock" class="material-symbols-outlined">schedule</span>' +
-              startTime +
-              " - " +
-              end;
-          newAccordion.querySelector(".accordion-building").innerHTML = 
-              '<span id="pin" class="material-symbols-outlined">location_on</span>' 
-              + building;
-          newAccordion.querySelector(".accordion-participants").innerHTML = 
-              '<span id="person" class="material-icons">person</span>' 
-              + CurrentParticipants + "/" + maxParticipants;
+          newAccordion.querySelector(".accordion-time").innerHTML =
+            '<span id="clock" class="material-symbols-outlined">schedule</span>' +
+            startTime +
+            " - " +
+            end;
+          newAccordion.querySelector(".accordion-building").innerHTML =
+            '<span id="pin" class="material-symbols-outlined">location_on</span>' +
+            building;
+          newAccordion.querySelector(".accordion-participants").innerHTML =
+            '<span id="person" class="material-icons">person</span>' +
+            CurrentParticipants +
+            "/" +
+            maxParticipants;
           newAccordion.querySelector(".accordion-description").innerHTML =
-          "Description: " + description;
+            "Description: " + description;
           if (maxParticipants <= CurrentParticipants) {
             newAccordion.querySelector("#join-now").innerHTML = "";
           } else {
@@ -79,103 +84,103 @@ async function displayGroups(collection) {
       }
     });
   checkParams();
-  accordion(); 
+  accordion();
 }
 
 displayGroups("groups");
 
-//this function does not work
-async function groupIsFull(joinid) { //this always returns true, even if the group is not full, which is not ideal
+/**
+ * Returns whether a group is full or not.
+ * @param {The group ID} joinid
+ * @return {true if group is full, false if not full}
+ */
+async function groupIsFull(joinid) {
   await joinid.get().then((snip) => {
-    console.log("returning: " + snip.data().currentParticipants + ">=" + parseInt(snip.data().participants));
-    return (parseInt(snip.data().currentParticipants) >= parseInt(snip.data().participants));
+    console.log(
+      "returning: " +
+        snip.data().currentParticipants +
+        ">=" +
+        parseInt(snip.data().participants)
+    );
+    return (
+      parseInt(snip.data().currentParticipants) >=
+      parseInt(snip.data().participants)
+    );
   });
 }
 
 /**
  * UPDATES users currentGroup field in firestore to the group id passed in.
  * Also updates currentParticipant number in the group document.
- * also decreases the members of the group they just left
- * @param {the group id} id 
+ * Also decreases the members of the group they just left.
+ * @param {the group id} id
  */
 function joinGroup(id) {
   var currentUserRef = db.collection("users").doc(currentUserID);
   var joiningGroupRef = db.collection("groups").doc(id);
 
-    db
-    .collection("users")
+  db.collection("users")
     .doc(currentUserID)
     .get()
     .then((doc) => {
-      if(doc.data().currentGroup != null) {
-      db
-        .collection("groups")
-        .doc(doc.data().currentGroup)
-        .get()
-        .then((snap) => {
-          //console.log(joiningGroupRef);
-          //joiningGroupRef.get().then((snip) => {
-            //console.log("returning " + snip.data().currentParticipants + " >= " + parseInt(snip.data().participants));});
-          //let test = groupIsFull(joiningGroupRef);
-          if (snap.id == id) {
-            alert("no joining the group you're already in");
-          //} else if (groupIsFull(joiningGroupRef) == true) { //checking if the group is full
-            //alert("that group is full"); //this doesn't work and just always returns true :((
-          } else if (snap.id == "undefined") {
-            console.log("snap.id is " + snap.id);
-            joiningGroupRef.update({
-              currentParticipants: firebase.firestore.FieldValue.increment(1),
-            });
-            currentUserRef
-              .update({
-                currentGroup: id,
-              })
-              .then(() => {
-                window.open("group.html", "_self");
+      if (doc.data().currentGroup != null) {
+        db.collection("groups")
+          .doc(doc.data().currentGroup)
+          .get()
+          .then((snap) => {
+            if (snap.id == id) {
+              alert("no joining the group you're already in");
+            } else if (snap.id == "undefined") {
+              joiningGroupRef.update({
+                currentParticipants: firebase.firestore.FieldValue.increment(1),
               });
-          } else {
-            //snap.data().currentParticipants = 1;
-            db.collection("groups")
-              .doc(doc.data().currentGroup)
-              .update({
-                currentParticipants: firebase.firestore.FieldValue.increment(-1),
-              });
+              currentUserRef
+                .update({
+                  currentGroup: id,
+                })
+                .then(() => {
+                  window.open("group.html", "_self");
+                });
+            } else {
+              //snap.data().currentParticipants = 1;
+              db.collection("groups")
+                .doc(doc.data().currentGroup)
+                .update({
+                  currentParticipants:
+                    firebase.firestore.FieldValue.increment(-1),
+                });
 
-            joiningGroupRef.update({
-              currentParticipants: firebase.firestore.FieldValue.increment(1),
-            });
-            currentUserRef
-              .update({
-                currentGroup: id,
-              })
-              .then(() => {
-                window.open("group.html", "_self");
+              joiningGroupRef.update({
+                currentParticipants: firebase.firestore.FieldValue.increment(1),
               });
-          }
-        });
-      } else {
-        //if (groupIsFull(joiningGroupRef)) { //checking if the group is full
-          //alert("that group is full");
-        //} else {
-          joiningGroupRef.update({
-            currentParticipants: firebase.firestore.FieldValue.increment(1),
+              currentUserRef
+                .update({
+                  currentGroup: id,
+                })
+                .then(() => {
+                  window.open("group.html", "_self");
+                });
+            }
           });
-          currentUserRef
-            .update({
-              currentGroup: id,
-            })
-            .then(() => {
-              window.open("group.html", "_self");
-            });
-        //}
+      } else {
+        joiningGroupRef.update({
+          currentParticipants: firebase.firestore.FieldValue.increment(1),
+        });
+        currentUserRef
+          .update({
+            currentGroup: id,
+          })
+          .then(() => {
+            window.open("group.html", "_self");
+          });
       }
-
     });
 }
 
-//Displays extra group information in accordion dropdown on click.
+/**
+ * Displays group description, start/end times, and join button when a group in the list is clicked.
+ */
 function accordion() {
-  //console.log("activities loaded");
   let acc = document.getElementsByClassName("accordion");
 
   //Loops over all activities and adds an on-click listener for the dropdown.
@@ -186,24 +191,25 @@ function accordion() {
       if (panel.style.maxHeight) {
         panel.style.maxHeight = null;
         panel.style.borderTop = "none";
-        panel.style.borderBottom="none"
+        panel.style.borderBottom = "none";
       } else {
         panel.style.maxHeight = 180 + "px";
         panel.style.borderTop = "1px solid #ccc";
         panel.style.borderBottom = "1px solid #ccc";
-  
       }
     });
   }
 }
 
-// Auto-filter groups based on parameters currently in searchbar.
+/**
+ * Auto-filters groups based on parameters currently in searchbar.
+ */
 function groupSearch() {
   let input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById('group-search-input');
+  input = document.getElementById("group-search-input");
   filter = input.value.toUpperCase();
   ul = document.getElementById("groups-go-here");
-  li = ul.getElementsByTagName('li');
+  li = ul.getElementsByTagName("li");
 
   // Loop through all list items, and hide those who don't match the search query
   for (i = 0; i < li.length; i++) {
@@ -217,11 +223,13 @@ function groupSearch() {
   }
 }
 
-// Sets search to parameter in URL if present.
-function checkParams(){
+/**
+ * Sets search to whichever buildingId parameter has been passed through the URL.
+ */
+function checkParams() {
   let buildingParam = params.searchParams.get("buildingId");
   if (buildingParam !== null) {
-    input = document.getElementById('group-search-input');
+    input = document.getElementById("group-search-input");
     input.value = buildingParam;
     groupSearch();
   }

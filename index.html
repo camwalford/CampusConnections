@@ -1,68 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>Campus Connections</title>
-    <meta name="comp1800 template" content="My 1800 App">
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <head>
+        <title>Campus Connections</title>
+        <meta name="Campus Connections" content="Campus Connections">
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- Bootstrap Library JS CDN  go here -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+        <!-- Bootstrap Library CSS CDN go here -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- Bootstrap Library JS CDN  go here -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+        <!-------------------------------------------------------->
+        <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+        <!-------------------------------------------------------->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
+        <!-- Other libraries go here -->
+        <!-- Google Icons (Material Design)-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+        <!-- Link to styles of your own -->
+        <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/indexStyle.css">
+    </head>
 
-    <!-- Other libraries go here -->
-    <!-- Google Icons (Material Design)-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <body>
 
-    <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/indexStyle.css">
-</head>
-
-<body>
-
-    <main class="center-content">
-        <div class="px-4 py-5 my-5 text-center">
-            <h1 class="display-1 fw-bold">Campus Connections</h1>
-            <div class="col-lg-6 mx-auto">
-                <hr>
-                <p class="lead mb-4">Kickstart your school experience by meeting life-long future friends.</p>
-                <hr>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <a href="login.html"><button type="button" class="btn text-light px-lg-5 gap-3">
-                            <div id="fontMad">Connect</div>
-                        </button></a>
+        <!-- Main hero on landing page -->
+        <main class="center-content">
+            <div class="px-4 py-5 my-5 text-center">
+                <h1 class="display-1 fw-bold">Campus Connections</h1>
+                <div class="col-lg-6 mx-auto">
+                    <hr>
+                    <p class="lead mb-4">Kickstart your school experience by meeting life-long future friends.</p>
+                    <hr>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <a href="login.html"><button type="button" class="btn text-light px-lg-5 gap-3">
+                                <div id="fontMad">Connect</div>
+                            </button></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
 
-    <script src="./scripts/firebaseAPI_TEAM26.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/authentication.js"></script>
+        <!---------------------------------------------->
+        <!-- Your own JavaScript functions go here    -->
+        <!---------------------------------------------->
+        <script src="./scripts/firebaseAPI_TEAM26.js"></script>
+        <script src="./scripts/skeleton.js"></script>
+        <script src="./scripts/authentication.js"></script>
 
-</body>
+    </body>
 
 </html>

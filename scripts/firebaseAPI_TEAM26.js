@@ -6,7 +6,7 @@ const firebaseConfig = {
   projectId: "campus-connections-cd94f",
   storageBucket: "campus-connections-cd94f.appspot.com",
   messagingSenderId: "1059368902891",
-  appId: "1:1059368902891:web:fc578d5f2ba6a0005b9eae"
+  appId: "1:1059368902891:web:fc578d5f2ba6a0005b9eae",
 };
 
 const app = firebase.initializeApp(firebaseConfig);

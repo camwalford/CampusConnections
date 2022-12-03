@@ -13,10 +13,8 @@ function displayProfile() {
 
         if (picUrl != null) {
           $("#mypic-goes-here").attr("src", picUrl);
-        } else console.log("picURL is null");
+        }
       });
-    } else {
-      console.log("no one is logged in");
     }
   });
 }
