@@ -5,7 +5,7 @@
 * [Contents](#content)
 
 ## General Info
-This is a browser based web application that allows the users to create and join groups with others pn the BCIT campus. 
+This is a browser based web application that allows the users to create and join groups with others on the BCIT campus. 
 Some prominent features include: clicking on areas of the map to automatically sort through the list of current groups,
 creating your own group with a specified title, group-type, location, time, description and number of participants,
 customizing your profile name and image, and sending chats to people in your current group.
