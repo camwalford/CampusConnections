@@ -1,8 +1,12 @@
-## Campus Connections
+![CCLogoForGitHub](https://user-images.githubusercontent.com/113142694/211445330-18f06b1d-abdf-4144-9bd2-b58249d3d219.png)
 
+
+
+## Campus Connections
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Contents](#content)
+
 
 ## General Info
 This is a browser based web application that allows the users to create and join groups with others on the BCIT campus. 
