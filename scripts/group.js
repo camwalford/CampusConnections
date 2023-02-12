@@ -39,24 +39,35 @@ function displayGroup() {
                   var endTime = snap.data().endtime;
 
                   //Formats start time
+                  if(startTime.substring(0, 2) > 12) {
+                    startTime = startTime.substring(0, 2) - 12 + startTime.substring(2, 5) + " PM";
+                  } else {
+                    startTime = startTime.substring(0, 5) + " AM";
+                  }
+                  if(endTime.substring(0, 2) > 12) {
+                    endTime = endTime.substring(0, 2) - 12 + endTime.substring(2, 5) + " PM";
+                  } else {
+                    endTime = endTime.substring(0, 5) + " AM";
+                  }
+
                   startTime = startTime
-                    .toDate()
-                    .toLocaleTimeString("en-US", {
-                      timeZone: "PST",
-                      hour12: true,
-                      hour: "numeric",
-                      minute: "numeric",
-                    });
+                  //   .toDate()
+                  //   .toLocaleTimeString("en-US", {
+                  //     timeZone: "PST",
+                  //     hour12: true,
+                  //     hour: "numeric",
+                  //     minute: "numeric",
+                  //   });
 
                   //Formats end time
                   endTime = endTime
-                    .toDate()
-                    .toLocaleTimeString("en-US", {
-                      timeZone: "PST",
-                      hour12: true,
-                      hour: "numeric",
-                      minute: "numeric",
-                    });
+                  //   .toDate()
+                  //   .toLocaleTimeString("en-US", {
+                  //     timeZone: "PST",
+                  //     hour12: true,
+                  //     hour: "numeric",
+                  //     minute: "numeric",
+                  //   });
 
                   //Makes a clone of the template from groupList.html
                   let newGroup = groupTemplate.content.cloneNode(true);

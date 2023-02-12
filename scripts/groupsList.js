@@ -33,19 +33,30 @@ async function displayGroups(collection) {
           var groupID = doc.id; //get unique ID for each group to be used for fetching right image
           let newAccordion = accordionTemplate.content.cloneNode(true);
 
-          //converts time to 12 hour clock
-          startTime = startTime.toDate().toLocaleTimeString("en-US", {
-            timeZone: "PST",
-            hour12: true,
-            hour: "numeric",
-            minute: "numeric",
-          });
-          end = endTime.toDate().toLocaleTimeString("en-US", {
-            timeZone: "PST",
-            hour12: true,
-            hour: "numeric",
-            minute: "numeric",
-          });
+          if(startTime.substring(0, 2) > 12) {
+            startTime = startTime.substring(0, 2) - 12 + startTime.substring(2, 5) + " PM";
+          } else {
+            startTime = startTime.substring(0, 5) + " AM";
+          }
+          if(endTime.substring(0, 2) > 12) {
+            endTime = endTime.substring(0, 2) - 12 + endTime.substring(2, 5) + " PM";
+          } else {
+            endTime = endTime.substring(0, 5) + " AM";
+          }
+
+          // //converts time to 12 hour clock
+          // startTime = startTime.toDate().toLocaleTimeString("en-US", {
+          //   timeZone: "PST",
+          //   hour12: true,
+          //   hour: "numeric",
+          //   minute: "numeric",
+          // });
+          // end = endTime.toDate().toLocaleTimeString("en-US", {
+          //   timeZone: "PST",
+          //   hour12: true,
+          //   hour: "numeric",
+          //   minute: "numeric",
+          // });
 
           //Updates title,, group type, time, building, participants, and description.
           newAccordion.querySelector(".accordion-title").innerHTML = title;
@@ -54,7 +65,7 @@ async function displayGroups(collection) {
             '<span id="clock" class="material-symbols-outlined">schedule</span>' +
             startTime +
             " - " +
-            end;
+            endTime;
           newAccordion.querySelector(".accordion-building").innerHTML =
             '<span id="pin" class="material-symbols-outlined">location_on</span>' +
             building;
@@ -72,7 +83,7 @@ async function displayGroups(collection) {
           }
 
           //delete the file if the time is up or if there are no participants
-          if (endTime.toDate() < currentTime || CurrentParticipants < 1) {
+          if (endTime < currentTime || CurrentParticipants < 1) {
             db.collection(collection).doc(groupID).delete();
           } else {
             //appends group to the groups-go-here element in groupList.html

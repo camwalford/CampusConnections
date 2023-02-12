@@ -13,39 +13,43 @@ function createGroup() {
   var description1 = document.getElementById("description").value;
 
   //creates a date based off of the html time starting at the next time that time occurs
-  let today = new Date();
-  let string = "-";
-  if (today.getDate() < 10) {
-    string += "0";
-  }
-  let start = new Date(
-    today.getFullYear() +
-      "-" +
-      (today.getMonth() + 1) +
-      string +
-      today.getDate() +
-      "T" +
-      startTime +
-      ":00.000"
-  );
-  let end = new Date(
-    today.getFullYear() +
-      "-" +
-      (today.getMonth() + 1) +
-      string +
-      today.getDate() +
-      "T" +
-      endTime +
-      ":00.000"
-  );
+  // let today = new Date();
+  // let string = "-";
+  // if (today.getDate() < 10) {
+  //   string += "0";
+  // }
+  // let start = new Date(
+  //   today.getFullYear() +
+  //     "-" +
+  //     (today.getMonth() + 1) +
+  //     string +
+  //     today.getDate() +
+  //     "T" +
+  //     startTime +
+  //     ":00.000"
+  // );
+  
 
-  if (end < today) {
-    end.setDate(end.getDate() + 1);
-  }
-  if (start < today) {
-    start.setDate(end.getDate() + 1);
-  }
-
+  // //create a date based off of the html time starting at the next time that time occurs
+  // let end = new Date(
+  //   today.getFullYear() +
+  //     "-" +
+  //     (today.getMonth() + 1) +
+  //     string +
+  //     today.getDate() +
+  //     "T" +
+  //     endTime +
+  //     ":00.000"
+  // );
+  
+  // if (end < today) {
+  //   end.setDate(end.getDate());
+  // }
+  // if (start < today) {
+  //   start.setDate(end.getDate());
+  // }
+  // console.log(start);
+  // console.log(end);
   //updates the firestore with the modified information so it can be accurately converted to epoch time
   var groupsRef = db.collection("groups");
   var currentUserRef = db.collection("users").doc(currentUserID);
@@ -56,8 +60,8 @@ function createGroup() {
         groupType: type1,
         building: building1,
         participants: participants1,
-        starttime: start,
-        endtime: end,
+        starttime: startTime,
+        endtime: endTime,
         currentParticipants: 1,
         description: description1,
         last_updated: firebase.firestore.FieldValue.serverTimestamp(),
@@ -142,6 +146,11 @@ window.onclick = function (event) {
 document.querySelector("#createButton").addEventListener("click", function (e) {
   e.preventDefault();
   let isValid = document.querySelector("#create-group-form").reportValidity();
+  // If the start time is after the end time, display an error message.
+  // if (document.getElementById("startTime").value >= document.getElementById("endTime").value) {
+  //   //display validation error on the end time field
+  //   document.getElementById("endTime").setCustomValidity("End time must be after start time.");
+  // }
   if (isValid) {
     document.getElementById("create-modal").style.display = "flex";
   }
